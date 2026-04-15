@@ -15,21 +15,14 @@
     p { margin-bottom: 14px; color: #3a3a3c; }
     ul, ol { margin: 8px 0 14px 24px; color: #3a3a3c; }
     li { margin-bottom: 6px; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9rem; }
-    th { background: #f5f5f7; text-align: left; padding: 10px 12px; font-weight: 600; border: 1px solid #d2d2d7; }
-    td { padding: 9px 12px; border: 1px solid #d2d2d7; vertical-align: top; }
-    tr:nth-child(even) td { background: #fafafa; }
-    .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; }
-    .badge-free { background: #e6f7ee; color: #166534; }
-    .badge-premium { background: #e3f0ff; color: #0a6cbc; }
-    .badge-warning { background: #fff3e0; color: #b45309; }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .toc { background: #f5f5f7; border-radius: 12px; padding: 20px 28px; margin: 32px 0; }
     .toc ol { margin-left: 20px; }
     .toc li { margin-bottom: 4px; }
     .update-date { background: #f5f5f7; border-radius: 8px; padding: 12px 16px; font-size: 0.88rem; color: #6e6e73; margin-bottom: 32px; }
-    .highlight { background: #fff8e6; border-left: 3px solid #f0a500; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 24px; color: #3a3a3c; font-size: 0.93rem; }
+    .highlight { background: #fff8e6; border-left: 3px solid #f0a500; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0 24px; color: #3a3a3c; font-size: 0.93rem; }
+    .critical { background: #fef2f2; border-left: 3px solid #dc2626; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0 24px; color: #3a3a3c; font-size: 0.93rem; }
     footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d2d2d7; color: #6e6e73; font-size: 0.875rem; }
   </style>
 </head>
@@ -37,252 +30,242 @@
 <div class="container">
 
   <h1>Terms of Service</h1>
-  <p class="subtitle">Foodie — Meal &amp; Nutrition Marketplace</p>
-  <div class="update-date">Last updated: March 5, 2026 &nbsp;·&nbsp; Effective date: March 5, 2026</div>
+  <p class="subtitle">Foodie — Matchmaking platform between local producers and buyers</p>
+  <div class="update-date">Last updated: April 15, 2026 &nbsp;·&nbsp; Effective date: April 15, 2026 &nbsp;·&nbsp; Version 2.0</div>
 
   <div class="toc">
     <strong>Table of Contents</strong>
     <ol>
-      <li><a href="#acceptance">Acceptance of Terms</a></li>
-      <li><a href="#description">Description of Service</a></li>
-      <li><a href="#accounts">User Accounts</a></li>
-      <li><a href="#freemium">Freemium Model &amp; Subscriptions</a></li>
-      <li><a href="#marketplace">Marketplace Rules</a></li>
-      <li><a href="#ugc">User-Generated Content</a></li>
-      <li><a href="#health">Health &amp; Nutrition Data</a></li>
+      <li><a href="#preamble">Preamble</a></li>
+      <li><a href="#definitions">Definitions</a></li>
+      <li><a href="#nature">Purpose and Nature of the Service</a></li>
+      <li><a href="#access">Access and Account</a></li>
+      <li><a href="#subscriptions">Foodie Subscriptions</a></li>
+      <li><a href="#producer">Producer Obligations</a></li>
+      <li><a href="#buyer">Buyer Obligations</a></li>
+      <li><a href="#order">In-App Order Flow</a></li>
+      <li><a href="#content">User Content</a></li>
+      <li><a href="#health">Health and Nutrition Data</a></li>
       <li><a href="#prohibited">Prohibited Conduct</a></li>
       <li><a href="#ip">Intellectual Property</a></li>
       <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#moderation">Moderation and Reporting (DSA)</a></li>
       <li><a href="#termination">Termination</a></li>
-      <li><a href="#governing">Governing Law</a></li>
+      <li><a href="#law">Governing Law and Disputes</a></li>
       <li><a href="#changes">Changes to These Terms</a></li>
+      <li><a href="#legal">Legal Notices</a></li>
       <li><a href="#contact">Contact</a></li>
     </ol>
   </div>
 
-  <!-- 1 -->
-  <h2 id="acceptance">1. Acceptance of Terms</h2>
-  <p>By downloading, installing, or using the Foodie application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
-  <p>The App is operated by <strong>E&amp;H Studio</strong> ("we", "us", "our"), registered in France. These Terms constitute a legally binding agreement between you and E&amp;H Studio.</p>
-  <p>You must be at least <strong>12 years old</strong> to use Foodie. If you are under 18, you confirm that you have obtained parental or guardian consent.</p>
-
-  <!-- 2 -->
-  <h2 id="description">2. Description of Service</h2>
-  <p>Foodie is a multi-platform food application available on iPhone, iPad, Apple Watch, Apple TV, Apple Vision Pro, and Mac. The App provides:</p>
-  <ul>
-    <li><strong>Food Marketplace</strong> — Browse, order, and pay for food from local restaurants and vendors</li>
-    <li><strong>Nutrition Tracker</strong> — Log meals, track calories, macros, and sync with Apple HealthKit</li>
-    <li><strong>P2P Delivery</strong> — Peer-to-peer order confirmation via QR code scan and NFC tap</li>
-    <li><strong>Social Reviews</strong> — Share photos of dishes and write reviews for restaurants</li>
-    <li><strong>Live Cooking (visionOS)</strong> — Spatial cooking experiences and 3D product visualization</li>
-    <li><strong>Gamification</strong> — Achievements, leaderboards, and rewards via Game Center</li>
-  </ul>
-  <p>The App is provided on a freemium basis. Core features are available for free; premium features require a paid subscription.</p>
-
-  <!-- 3 -->
-  <h2 id="accounts">3. User Accounts</h2>
-  <h3>3.1 Registration</h3>
-  <p>To access certain features, you must create an account using a valid email address or Sign in with Apple. You agree to provide accurate, current, and complete information.</p>
-
-  <h3>3.2 Account Security</h3>
-  <p>You are responsible for maintaining the confidentiality of your credentials. You must notify us immediately at <a href="mailto:support@foodie.fr">support@foodie.fr</a> if you suspect unauthorized access.</p>
-
-  <h3>3.3 One Account Per Person</h3>
-  <p>You may not create multiple accounts. We reserve the right to merge or terminate duplicate accounts.</p>
-
-  <h3>3.4 Vendor Accounts</h3>
-  <p>Restaurants and food vendors wishing to sell on the Foodie marketplace must complete a separate vendor registration and accept the Vendor Agreement. Vendor accounts are subject to additional verification.</p>
-
-  <!-- 4 -->
-  <h2 id="freemium">4. Freemium Model &amp; Subscriptions</h2>
-
-  <table>
-    <tr>
-      <th>Tier</th>
-      <th>Features</th>
-      <th>Price</th>
-    </tr>
-    <tr>
-      <td><span class="badge badge-free">Free</span></td>
-      <td>Browse marketplace, basic nutrition tracking, order up to 5 items/month, public reviews</td>
-      <td>Free</td>
-    </tr>
-    <tr>
-      <td><span class="badge badge-premium">Premium</span></td>
-      <td>Unlimited orders, advanced nutrition analytics, HealthKit sync, no usage limits, early access to new features</td>
-      <td>Monthly or yearly subscription</td>
-    </tr>
-  </table>
-
-  <h3>4.1 In-App Purchases</h3>
-  <p>All purchases are processed through Apple's App Store. Prices are displayed in your local currency at the time of purchase. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.</p>
-
-  <h3>4.2 Refunds</h3>
-  <p>Refund requests are handled by Apple according to Apple's standard refund policy. We do not process refunds directly. Contact Apple Support or visit <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a>.</p>
-
-  <h3>4.3 Free Trial</h3>
-  <p>If a free trial is offered, it will be clearly disclosed before purchase. Only one free trial per Apple ID. Unused portion of a free trial is forfeited upon purchasing a subscription.</p>
-
-  <h3>4.4 Price Changes</h3>
-  <p>We may change subscription prices with 30 days' notice. Price changes take effect at the next renewal date.</p>
-
-  <!-- 5 -->
-  <h2 id="marketplace">5. Marketplace Rules</h2>
-
-  <h3>5.1 Buyers</h3>
-  <ul>
-    <li>Orders are binding once confirmed. Cancellations are only permitted within 5 minutes of placing an order.</li>
-    <li>You agree to pay the displayed price including applicable taxes and delivery fees.</li>
-    <li>You confirm that you are of legal age to purchase any age-restricted items (including alcohol, where permitted by law).</li>
-    <li>P2P delivery confirmation (QR code / NFC) is required to close an order. False confirmations are prohibited.</li>
-  </ul>
-
-  <h3>5.2 Vendors</h3>
-  <ul>
-    <li>Vendors are responsible for the accuracy of their listings, including ingredients, allergens, and prices.</li>
-    <li>Vendors must comply with all applicable food safety and health regulations in their jurisdiction.</li>
-    <li>Foodie acts as an intermediary platform and is not responsible for the quality, safety, or legality of items sold by third-party vendors.</li>
-    <li>Commission and payout terms are defined in the separate Vendor Agreement.</li>
-  </ul>
-
-  <h3>5.3 Prohibited Items</h3>
-  <p>The following items may not be listed or sold on the Foodie marketplace:</p>
-  <ul>
-    <li>Items that are illegal in the country of sale</li>
-    <li>Alcohol sold to minors</li>
-    <li>Items with undisclosed allergens that pose health risks</li>
-    <li>Counterfeit or misrepresented food products</li>
-    <li>Any non-food items not approved by E&amp;H Studio</li>
-  </ul>
-
-  <!-- 6 -->
-  <h2 id="ugc">6. User-Generated Content</h2>
-
-  <h3>6.1 Your Content</h3>
-  <p>You may submit reviews, photos, ratings, and other content ("User Content") to the App. By submitting User Content, you grant E&amp;H Studio a worldwide, royalty-free, non-exclusive, sublicensable license to use, reproduce, modify, display, and distribute your User Content in connection with operating and improving the App.</p>
-
-  <h3>6.2 Content Standards</h3>
-  <p>User Content must not:</p>
-  <ul>
-    <li>Be false, misleading, or defamatory</li>
-    <li>Infringe any third party's intellectual property rights</li>
-    <li>Contain offensive, hateful, or discriminatory language</li>
-    <li>Include personal information of third parties without consent</li>
-    <li>Constitute spam or unsolicited commercial messages</li>
-    <li>Contain viruses or malicious code</li>
-  </ul>
-
-  <h3>6.3 Moderation</h3>
-  <p>We reserve the right to remove any User Content that violates these Terms or that we determine, in our sole discretion, to be inappropriate. We are not obligated to monitor all User Content.</p>
-
-  <h3>6.4 Reporting</h3>
-  <p>You may report inappropriate content via the in-app report feature or by contacting <a href="mailto:support@foodie.fr">support@foodie.fr</a>.</p>
-
-  <!-- 7 -->
-  <h2 id="health">7. Health &amp; Nutrition Data</h2>
-
-  <div class="highlight">
-    <strong>Important:</strong> Foodie is not a medical application. Nutrition information provided in the App is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making dietary changes.
+  <div class="critical">
+    <strong>Essential notice:</strong> Foodie is a <strong>matchmaking platform</strong> between local food producers and buyers. <strong>No financial transaction is processed by the application.</strong> Payment is handled <strong>directly</strong> between the Buyer and the Producer upon physical pickup, according to the terms agreed between them (cash, producer's card terminal, bank transfer, check, or any other legal means). Foodie is <strong>never a party to transactions</strong>, does not issue any invoice, does not collect any commission, and does not handle any funds. Sanitary, hygienic, and regulatory responsibility for the products offered rests <strong>exclusively</strong> with the Producer.
   </div>
 
+  <h2 id="preamble">1. Preamble</h2>
+  <p>These Terms of Service ("Terms") govern access to and use of the Foodie application ("the App") operated by <strong>E&amp;HADS AGENCY</strong>, a company organized under French law. By downloading, installing, or using the App, you acknowledge that you have read, understood, and unconditionally accepted these Terms. If you do not accept them, you must refrain from using the App.</p>
+  <p>These Terms constitute a legally binding agreement between you and E&amp;HADS AGENCY. You must be at least 15 years old to create a Foodie account. If you are a minor, you confirm that you have obtained prior consent from a parent or legal guardian.</p>
+
+  <h2 id="definitions">2. Definitions</h2>
   <ul>
-    <li>Calorie and macro calculations are estimates and may not reflect your exact nutritional needs.</li>
-    <li>HealthKit integration (Premium) allows Foodie to read and write nutrition data to Apple Health. You can revoke this access at any time in your iPhone Settings → Health → Data Access &amp; Devices.</li>
-    <li>Health data is processed on-device and is not transmitted to our servers without your explicit consent.</li>
-    <li>We do not share health or nutrition data with third parties.</li>
+    <li><strong>App</strong>: the Foodie mobile application and online services, available on iOS, iPadOS, watchOS, tvOS, visionOS, and macOS.</li>
+    <li><strong>Operator</strong>: E&amp;HADS AGENCY, the company operating the App.</li>
+    <li><strong>User</strong>: any natural or legal person using the App, including Buyers and Producers.</li>
+    <li><strong>Producer</strong>: a professional (farmer, market gardener, breeder, cheesemaker, baker, winemaker, food craftsman, restaurateur, etc.) who publishes product offerings on the App.</li>
+    <li><strong>Buyer</strong>: a user who browses the directory and places reservation requests with Producers.</li>
+    <li><strong>Content</strong>: photos, descriptions, displayed prices, reviews, messages, and any other information published in the App.</li>
+    <li><strong>Service</strong>: all functionality provided by the App, limited to the matchmaking of Buyers and Producers.</li>
   </ul>
 
-  <!-- 8 -->
-  <h2 id="prohibited">8. Prohibited Conduct</h2>
-  <p>You agree not to:</p>
+  <h2 id="nature">3. Purpose and Nature of the Service</h2>
+  <h3>3.1 Matchmaking and hosting status</h3>
+  <p>Foodie is a <strong>matchmaking service</strong> within the meaning of Article 6.I.2 of French law n°2004-575 of June 21, 2004 ("LCEN") and Article 14 of the EU e-Commerce Directive (2000/31/EC). The Operator acts as a <strong>hosting intermediary</strong> for content published by Producers and does not exercise any prior control over this content.</p>
+  <p>The App offers the following features:</p>
   <ul>
-    <li>Use the App for any unlawful purpose or in violation of any applicable law</li>
-    <li>Attempt to gain unauthorized access to any part of the App or its infrastructure</li>
-    <li>Reverse engineer, decompile, or disassemble any part of the App</li>
-    <li>Interfere with or disrupt the integrity or performance of the App</li>
-    <li>Use automated tools (bots, scrapers) to access the App without our prior written consent</li>
-    <li>Impersonate another person or entity</li>
-    <li>Create fake reviews or manipulate ratings</li>
-    <li>Attempt to circumvent any security or access control mechanisms</li>
-    <li>Use Game Center features (leaderboards, achievements) in a fraudulent manner</li>
+    <li>Geolocated directory of local Producers with an interactive map;</li>
+    <li>Seasonality calendar and indicative carbon scores;</li>
+    <li>Direct messaging between Buyer and Producer;</li>
+    <li>Submission and confirmation of basket or product reservation requests;</li>
+    <li>Physical pickup validation via double P2P confirmation (NFC / QR code);</li>
+    <li>History of past reservations;</li>
+    <li>Optional consumption assistance tools: food recognition, HealthKit nutrition tracking, menu translation.</li>
   </ul>
 
-  <!-- 9 -->
-  <h2 id="ip">9. Intellectual Property</h2>
-  <p>The App, including its design, code, text, graphics, logos, and content (excluding User Content), is the exclusive property of E&amp;H Studio and is protected by French and international intellectual property laws.</p>
-  <p>You are granted a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes in accordance with these Terms.</p>
-  <p>"Foodie", the Foodie logo, and related marks are trademarks of E&amp;H Studio. You may not use our trademarks without prior written permission.</p>
+  <h3>3.2 Foodie is not a party to transactions</h3>
+  <p>Foodie is a mere technical intermediary. <strong>The Operator is at no point a party to the sale contract</strong> concluded between the Buyer and the Producer. The sale contract is formed directly between these two parties, outside the App.</p>
 
-  <!-- 10 -->
-  <h2 id="liability">10. Limitation of Liability</h2>
-  <p>To the maximum extent permitted by applicable law:</p>
+  <h3>3.3 No payment processing</h3>
+  <div class="highlight">
+    No financial transaction is processed, initiated, facilitated, stored, or routed by the App. Payment takes place directly between the Buyer and the Producer, according to the terms agreed between them (cash, producer's card terminal, bank transfer, check, or any other legal means of payment), <strong>outside the App</strong>. Foodie does not issue any invoice, does not collect any commission, does not handle or transfer any funds, and holds no banking information about Users.
+  </div>
+  <p>The indication of a payment method in the App ("cash", "card on pickup", "bank transfer", etc.) is purely <strong>informational</strong>, intended to help the Producer prepare appropriate means of collection. This indication does not engage any automated payment processing by Foodie.</p>
+
+  <h2 id="access">4. Access and Account</h2>
+  <h3>4.1 Registration</h3>
+  <p>Use of the App requires account creation. When registering, you agree to provide accurate, complete, and up-to-date information. A unique identifier is associated with each account.</p>
+
+  <h3>4.2 Account security</h3>
+  <p>You are responsible for the confidentiality of your credentials and for all activity under your account. In case of unauthorized use, you must notify us without delay at <a href="mailto:security@foodie.fr">security@foodie.fr</a>.</p>
+
+  <h3>4.3 Producer account</h3>
+  <p>Creating a Producer account is open to any person holding a compatible legal status (farmer, self-employed, company, craftsman, etc.). The Producer is solely responsible for ensuring their activities comply with applicable regulations.</p>
+
+  <h3>4.4 Suspension and termination</h3>
+  <p>The Operator reserves the right to suspend or delete any account violating these Terms or posing a risk to other Users, without prejudice to legal remedies.</p>
+
+  <h2 id="subscriptions">5. Foodie Subscriptions</h2>
+  <p>The App is free to install. Core features (directory browsing, messaging, reservation requests) are free and unlimited for Buyers.</p>
+  <p>Optional paid subscriptions are offered to <strong>Producers</strong> to access advanced features (premium visibility, analytics, multi-location support, accounting export). These subscriptions are managed <strong>exclusively outside the App</strong>, via a secure web portal operated by a third-party provider. Foodie collects no banking data and does not directly process any subscription payment.</p>
+  <p>Detailed pricing, cancellation terms, and refund information for Producer subscriptions are published at <a href="https://foodie.fr/pro">foodie.fr/pro</a>.</p>
+
+  <h2 id="producer">6. Producer Obligations</h2>
+  <div class="critical">
+    <strong>Exclusive sanitary responsibility:</strong> The Producer is <strong>solely responsible</strong> for the sanitary, hygienic, and regulatory compliance of their products, pursuant to Regulation (EC) No 852/2004 of April 29, 2004 on food hygiene, Regulation (EU) No 1169/2011 (INCO) on food information, the French Rural and Maritime Fishing Code, and any other applicable national or European regulation. Foodie performs no sanitary check, no HACCP verification, no traceability, and assumes no liability for food poisoning, defect, contamination, or non-compliance of the products offered.
+  </div>
+
+  <h3>6.1 Sanitary and hygiene responsibility</h3>
+  <p>The Producer declares and warrants compliance with the full EU "hygiene package", including:</p>
   <ul>
-    <li>The App is provided "as is" and "as available" without warranties of any kind.</li>
-    <li>E&amp;H Studio shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App.</li>
-    <li>E&amp;H Studio is not responsible for the actions, content, or products of third-party vendors on the marketplace.</li>
-    <li>Our total liability to you for any claim arising from these Terms or your use of the App shall not exceed the amount you paid to us in the 12 months preceding the claim.</li>
+    <li>Regulation (EC) No 852/2004 — food hygiene;</li>
+    <li>Regulation (EC) No 853/2004 — specific hygiene rules for animal-origin foodstuffs;</li>
+    <li>Regulation (EU) No 1169/2011 — Food Information to Consumers (INCO);</li>
+    <li>HACCP plan (Hazard Analysis Critical Control Point) adapted to their activity;</li>
+    <li>Cold chain, use-by/best-before dates, conservation and transport conditions.</li>
   </ul>
-  <p>Nothing in these Terms excludes liability for death or personal injury caused by our negligence, fraud, or any liability that cannot be excluded by law.</p>
 
-  <!-- 11 -->
-  <h2 id="termination">11. Termination</h2>
-  <h3>11.1 By You</h3>
-  <p>You may stop using the App at any time. To delete your account and all associated data, use the "Delete my account" option in Settings → Privacy, or contact <a href="mailto:privacy@foodie.fr">privacy@foodie.fr</a>. Account deletion is subject to our data retention obligations under applicable law.</p>
+  <h3>6.2 Tax and social security responsibility</h3>
+  <p>The Producer is solely responsible for:</p>
+  <ul>
+    <li>Their legal, tax, and social status (self-employed, farmer, company, etc.);</li>
+    <li>Declaration and payment of applicable VAT;</li>
+    <li>Issuing invoices to their customers;</li>
+    <li>Direct collection of sums owed by Buyers;</li>
+    <li>Keeping accounting records and complying with reporting obligations.</li>
+  </ul>
 
-  <h3>11.2 By Us</h3>
-  <p>We may suspend or terminate your account immediately, without notice, if you breach these Terms. We may also terminate or suspend the App or any part of it with reasonable notice.</p>
+  <h3>6.3 Accuracy of listings</h3>
+  <p>The Producer undertakes to publish accurate information about their products, including:</p>
+  <ul>
+    <li>Faithful and non-misleading description;</li>
+    <li>Ingredient and allergen list in accordance with INCO;</li>
+    <li>Prices including all taxes;</li>
+    <li>Geographic origin and official quality signs (organic, PDO, PGI, etc.) if claimed;</li>
+    <li>Realistic availability and pickup slots.</li>
+  </ul>
 
-  <h3>11.3 Effect of Termination</h3>
-  <p>Upon termination, your license to use the App ceases. Sections 6 (User Content license), 9 (IP), 10 (Liability), and 12 (Governing Law) survive termination.</p>
+  <h2 id="buyer">7. Buyer Obligations</h2>
+  <ul>
+    <li>Provide accurate information when submitting reservation requests;</li>
+    <li>Respect the pickup slots agreed with the Producer;</li>
+    <li>Pay the Producer directly according to the agreed method, at the time of physical pickup;</li>
+    <li>Verify product conformity upon receipt and report any defect directly to the Producer;</li>
+    <li>Not use the App for any purpose not contemplated by these Terms.</li>
+  </ul>
 
-  <!-- 12 -->
-  <h2 id="governing">12. Governing Law &amp; Dispute Resolution</h2>
-  <p>These Terms are governed by and construed in accordance with the laws of France, without regard to its conflict of law provisions.</p>
-  <p>For consumers in the European Union, you may also benefit from the mandatory consumer protection provisions of your country of residence.</p>
-  <p>In the event of a dispute, you may use the European Online Dispute Resolution platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>.</p>
-  <p>Any disputes not resolved amicably shall be submitted to the exclusive jurisdiction of the courts of Paris, France.</p>
+  <h2 id="order">8. In-App Order Flow</h2>
+  <h3>8.1 Reservation request</h3>
+  <p>The Buyer expresses a purchase intent by selecting products and a pickup slot. This request is an <strong>expression of intent</strong> transmitted to the Producer; it does not legally bind Foodie and does not constitute a firm order until the Producer confirms it.</p>
 
-  <!-- 13 -->
-  <h2 id="changes">13. Changes to These Terms</h2>
-  <p>We may update these Terms from time to time. When we do, we will update the "Last updated" date at the top of this page. For material changes, we will notify you via in-app notification or email at least 30 days before the change takes effect.</p>
-  <p>Continued use of the App after changes take effect constitutes acceptance of the revised Terms.</p>
+  <h3>8.2 Confirmation by the Producer</h3>
+  <p>The Producer accepts or refuses the request. Upon acceptance, the sale contract is formed <strong>directly between the Buyer and the Producer</strong>, outside the App. Foodie is not a party to this contract.</p>
 
-  <!-- 14 -->
-  <h2 id="contact">14. Contact</h2>
-  <table>
-    <tr>
-      <th>Type</th>
-      <th>Contact</th>
-    </tr>
-    <tr>
-      <td>General support</td>
-      <td><a href="mailto:support@foodie.fr">support@foodie.fr</a></td>
-    </tr>
-    <tr>
-      <td>Privacy / GDPR / DSAR</td>
-      <td><a href="mailto:privacy@foodie.fr">privacy@foodie.fr</a></td>
-    </tr>
-    <tr>
-      <td>Vendor inquiries</td>
-      <td><a href="mailto:partners@foodie.fr">partners@foodie.fr</a></td>
-    </tr>
-    <tr>
-      <td>Legal notices</td>
-      <td><a href="mailto:legal@ehads.agency">legal@ehads.agency</a></td>
-    </tr>
-    <tr>
-      <td>Mailing address</td>
-      <td>E&amp;H Studio — France</td>
-    </tr>
-  </table>
+  <h3>8.3 Pickup validation (P2P NFC / QR code)</h3>
+  <p>At the time of pickup, the Buyer and Producer physically validate the handover through an NFC or QR code double-confirmation mechanism. This validation only serves to mark the reservation as "picked up" in the App; it <strong>does not imply any transfer of funds</strong> and does not engage Foodie beyond keeping a history entry.</p>
+
+  <h3>8.4 Cancellation, rejection, no-show</h3>
+  <p>The Producer may reject a request before acceptance. The Buyer may cancel their request before the Producer confirms it. In the case of a no-show, the Producer may mark the reservation as "no-show"; Foodie is limited to recording this status.</p>
+
+  <h3>8.5 Disputes between parties</h3>
+  <p>Any dispute regarding quality, conformity, payment, absence of product, or any other commercial matter shall be settled <strong>directly between the Buyer and the Producer</strong>. Foodie may, purely optionally, facilitate dialogue via its messaging but is not required to resolve the dispute and does not provide any compensation.</p>
+
+  <h2 id="content">9. User Content</h2>
+  <h3>9.1 Your content</h3>
+  <p>You may submit reviews, photos, ratings, and other content ("User Content") in the App. By submitting User Content, you grant E&amp;HADS AGENCY a worldwide, royalty-free, non-exclusive, sublicensable license to use, reproduce, modify, display, and distribute your User Content for the operation and improvement of the App.</p>
+
+  <h3>9.2 Content standards</h3>
+  <p>User Content must not:</p>
+  <ul>
+    <li>Be false, misleading, or defamatory;</li>
+    <li>Infringe the intellectual property rights of third parties;</li>
+    <li>Contain offensive, hateful, or discriminatory language;</li>
+    <li>Include personal information of third parties without consent;</li>
+    <li>Constitute spam or unsolicited commercial messages.</li>
+  </ul>
+
+  <h3>9.3 Moderation</h3>
+  <p>In accordance with its hosting status, the Operator does not exercise prior control. It promptly removes any manifestly illegal content that is properly reported.</p>
+
+  <h2 id="health">10. Health and Nutrition Data</h2>
+  <div class="highlight">
+    <strong>Important:</strong> Foodie is not a medical application. Nutritional information provided for informational purposes does not constitute medical advice. Always consult a qualified healthcare professional before modifying your diet.
+  </div>
+  <ul>
+    <li>Calorie and macronutrient calculations are indicative estimates;</li>
+    <li>Optional HealthKit integration allows Foodie to write nutritional data to Apple Health with your authorization; you can revoke this access at any time in iOS Settings → Health;</li>
+    <li>Foodie does not diagnose any condition and does not prescribe any diet.</li>
+  </ul>
+
+  <h2 id="prohibited">11. Prohibited Conduct</h2>
+  <p>It is forbidden to use the App to:</p>
+  <ul>
+    <li>Violate any law or regulation;</li>
+    <li>Publish unlawful, defamatory, hateful, discriminatory, or infringing content;</li>
+    <li>Commit fraud, impersonate a third party, or create fake accounts;</li>
+    <li>Automatically extract data (scraping) without written authorization;</li>
+    <li>Circumvent security or moderation measures;</li>
+    <li>Offer for sale any product that is illegal, dangerous, or non-compliant with applicable food safety regulations.</li>
+  </ul>
+
+  <h2 id="ip">12. Intellectual Property</h2>
+  <p>The App, its source code, trademarks, logos, design, and editorial content are the exclusive property of E&amp;HADS AGENCY and are protected by applicable intellectual property laws. Any unauthorized reproduction, representation, or exploitation is strictly forbidden.</p>
+
+  <h2 id="liability">13. Limitation of Liability</h2>
+  <div class="critical">
+    Foodie, in its capacity as a hosting intermediary under Article 6.I.2 of LCEN and Article 14 of the EU e-Commerce Directive, does not exercise prior control over content published by Producers (descriptions, photos, prices, availability). Foodie promptly removes any manifestly illegal content that is reported in accordance with Article 6.I.5 of LCEN and Article 16 of Regulation (EU) 2022/2065 (Digital Services Act). <strong>Foodie cannot be held liable for the quality, safety, sanitary compliance, legality, availability, or accuracy of the products offered, nor for any dispute, delay, no-show, food poisoning, defect, or harm resulting from a transaction between Buyer and Producer.</strong>
+  </div>
+  <p>Without prejudice to the foregoing, and to the fullest extent permitted by applicable law, E&amp;HADS AGENCY's total liability to any User in connection with the App is limited to the amount of Producer subscriptions paid by that User over the last twelve (12) months, or one hundred (100) euros, whichever is lower.</p>
+
+  <h2 id="moderation">14. Moderation and Reporting (DSA)</h2>
+  <p>In accordance with Article 16 of Regulation (EU) 2022/2065 (Digital Services Act), any User may report content they consider unlawful via the in-app reporting feature or by email at <a href="mailto:abuse@foodie.fr">abuse@foodie.fr</a>. The report must be specific enough to allow identification of the content (URL, screenshot, description of the alleged illegality).</p>
+  <p>The Operator commits to processing reports within a reasonable timeframe and to removing any manifestly unlawful content. A User whose content has been removed may challenge the decision by email at <a href="mailto:appeal@foodie.fr">appeal@foodie.fr</a>.</p>
+
+  <h2 id="termination">15. Termination</h2>
+  <p>You may delete your account at any time from the App settings. The Operator may terminate your access in case of material breach of these Terms, after prior notice where reasonably possible. Termination results in the deletion of your personal data, subject to legal retention obligations.</p>
+
+  <h2 id="law">16. Governing Law and Dispute Resolution</h2>
+  <p>These Terms are governed by French law. Any dispute relating to their interpretation or performance shall be submitted to the competent French courts. For consumers, the competent court is the court of the consumer's place of residence or the place of performance of the contract.</p>
+  <p>In accordance with Articles L611-1 et seq. of the French Consumer Code, you are entitled to free recourse to a consumer mediator to resolve a dispute amicably. The designated mediator is: <em>[to be completed by the Operator before production release].</em></p>
+
+  <h2 id="changes">17. Changes to These Terms</h2>
+  <p>The Operator may modify these Terms at any time. Users will be notified of any material changes via in-app notification or email at least thirty (30) days before they take effect. Continued use of the App after that date constitutes acceptance of the new Terms.</p>
+
+  <h2 id="legal">18. Legal Notices</h2>
+  <p><strong>Operator of the Application:</strong><br>
+  <strong>E&amp;HADS AGENCY</strong> — SASU (French simplified joint-stock company, sole shareholder)<br>
+  French business registration (SIRET): <code>932 700 271 00012</code><br>
+  Registered office: 2 Impasse Mont Nouge, 17240 Mosnac, France<br>
+  Contact: <a href="mailto:legal@foodie.fr">legal@foodie.fr</a></p>
+
+  <p><strong>Publication director:</strong> Metoyer Déogracia (President, CTO)</p>
+
+  <p><strong>Commissioning client / functional owner:</strong> The Foodie Application is developed and operated by E&amp;HADS AGENCY on behalf of <strong>Alexandre Sand</strong>, the commissioning client of the project. Editorial and technical liability, within the meaning of Article 6.I.2 of French LCEN law and Article 14 of the EU e-Commerce Directive, lies with E&amp;HADS AGENCY as the operator.</p>
+
+  <p><strong>Hosting:</strong> App data is hosted by Supabase, running on Amazon Web Services (AWS) — region <code>eu-west-3</code> (Paris, France).<br>
+  Supabase Inc., 970 Toa Payoh North, #07-04, Singapore 318992.<br>
+  Amazon Web Services EMEA SARL, 38 avenue John F. Kennedy, L-1855 Luxembourg.</p>
+
+  <h2 id="contact">19. Contact</h2>
+  <p>For any question relating to these Terms:</p>
+  <ul>
+    <li>General support: <a href="mailto:support@foodie.fr">support@foodie.fr</a></li>
+    <li>Legal questions: <a href="mailto:legal@foodie.fr">legal@foodie.fr</a></li>
+    <li>Data protection: <a href="mailto:privacy@foodie.fr">privacy@foodie.fr</a></li>
+    <li>Content reports: <a href="mailto:abuse@foodie.fr">abuse@foodie.fr</a></li>
+    <li>Moderation appeals: <a href="mailto:appeal@foodie.fr">appeal@foodie.fr</a></li>
+  </ul>
 
   <footer>
-    <p>&copy; 2026 E&amp;H Studio. All rights reserved.</p>
-    <p style="margin-top:8px;">
-      <a href="https://foodie.fr/privacy">Privacy Policy</a> &nbsp;·&nbsp;
-      <a href="https://foodie.fr/cookies">Cookie Policy</a> &nbsp;·&nbsp;
-      <a href="https://foodie.fr">foodie.fr</a>
-    </p>
+    © 2026 E&amp;HADS AGENCY — Foodie. All rights reserved.
   </footer>
 
 </div>
