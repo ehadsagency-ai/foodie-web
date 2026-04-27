@@ -37,8 +37,8 @@
 <div class="container">
 
   <h1>Politique de Confidentialité</h1>
-  <p class="subtitle">Foodie — Marketplace alimentaire &amp; suivi nutritionnel</p>
-  <div class="update-date">Dernière mise à jour : 4 mars 2026 &nbsp;·&nbsp; Date d'entrée en vigueur : 4 mars 2026</div>
+  <p class="subtitle">Foodie — Découverte de producteurs locaux &amp; réservation de retrait</p>
+  <div class="update-date">Dernière mise à jour : 27 avril 2026 &nbsp;·&nbsp; Date d'entrée en vigueur : 27 avril 2026</div>
 
   <div class="toc">
     <strong>Sommaire</strong>
@@ -46,10 +46,11 @@
       <li><a href="#qui">Qui sommes-nous</a></li>
       <li><a href="#donnees">Données collectées</a></li>
       <li><a href="#finalites">Finalités du traitement</a></li>
+      <li><a href="#rappelconso">Sécurité alimentaire — Blocage des rappels actifs</a></li>
       <li><a href="#bases">Bases légales (RGPD)</a></li>
       <li><a href="#partage">Partage des données</a></li>
       <li><a href="#conservation">Durée de conservation</a></li>
-      <li><a href="#droits">Vos droits</a></li>
+      <li><a href="#droits">Vos droits (incl. portabilité art. 20)</a></li>
       <li><a href="#enfants">Mineurs</a></li>
       <li><a href="#securite">Sécurité</a></li>
       <li><a href="#transferts">Transferts internationaux</a></li>
@@ -61,7 +62,7 @@
 
   <h2 id="qui">1. Qui sommes-nous</h2>
   <p>L'application Foodie est éditée et opérée par <strong>E&amp;HADS AGENCY</strong> (« nous », « notre »), SASU au capital variable, immatriculée au Registre du Commerce et des Sociétés sous le numéro SIRET <code>932 700 271 00012</code>, dont le siège social est situé au 2 Impasse Mont Nouge, 17240 Mosnac, France. L'Application est développée et opérée pour le compte d'Alexandre Sand, client commanditaire du projet.</p>
-  <p>Foodie est une plateforme de mise en relation entre producteurs locaux et acheteurs, disponible sur iPhone, iPad, Apple Watch, Apple TV, Apple Vision Pro et macOS.</p>
+  <p>Foodie est une plateforme de mise en relation entre producteurs locaux et acheteurs, avec retrait sur place chez le producteur. L'application est disponible sur iPhone, iPad, Apple Watch, Apple TV, Apple Vision Pro et macOS.</p>
   <p><strong>Responsable de traitement</strong> au sens du RGPD : E&amp;HADS AGENCY.<br>
   <strong>Directeur de la publication :</strong> Metoyer Déogracia (Président, Directeur technique).<br>
   Pour toute question relative à cette politique ou à vos données personnelles : <a href="mailto:privacy@foodie.fr">privacy@foodie.fr</a></p>
@@ -72,22 +73,25 @@
   <ul>
     <li><strong>Nom et prénom</strong> — pour votre profil utilisateur</li>
     <li><strong>Adresse e-mail</strong> — authentification et communications transactionnelles</li>
-    <li><strong>Numéro de téléphone</strong> — mises à jour de commande et confirmation de livraison</li>
-    <li><strong>Adresse de livraison</strong> — traitement des commandes alimentaires</li>
+    <li><strong>Numéro de téléphone</strong> — mises à jour de réservation de retrait et confirmation</li>
+    <li><strong>Adresse postale (facultatif)</strong> — utilisée uniquement pour centrer la recherche de producteurs autour de votre zone ; aucune livraison n'est effectuée à votre domicile</li>
   </ul>
 
   <h3>2.2 Données de santé et nutritionnelles</h3>
   <ul>
-    <li><strong>Données nutritionnelles</strong> — repas enregistrés, calories, macronutriments (protéines, glucides, lipides) saisis manuellement ou via une base alimentaire</li>
+    <li><strong>Données nutritionnelles</strong> — produits enregistrés, calories, macronutriments (protéines, glucides, lipides) saisis manuellement ou via une base alimentaire</li>
     <li><strong>Données d'activité physique</strong> — si vous autorisez l'accès à Apple Santé (optionnel)</li>
   </ul>
   <p>Ces données constituent des <strong>données de santé soumises à l'article 9 du RGPD</strong> et nécessitent votre consentement explicite.</p>
 
-  <h3>2.3 Localisation</h3>
+  <h3>2.3 Localisation (Doctrine V0 — circuit court)</h3>
   <ul>
-    <li><strong>Localisation précise</strong> — lors de la recherche de restaurants à proximité ou de la confirmation de livraison (requiert votre autorisation)</li>
-    <li><strong>Localisation approximative</strong> — ville ou région pour les suggestions de restaurants locaux</li>
+    <li><strong>Localisation précise</strong> — utilisée uniquement pour afficher les producteurs locaux dans votre rayon de recherche (requiert votre autorisation, accordée seulement « Pendant l'utilisation de l'app » ; jamais « Toujours »)</li>
+    <li><strong>Localisation approximative</strong> — niveau ville ou département pour les suggestions de producteurs lorsque la localisation précise est refusée</li>
   </ul>
+  <p><strong>Paramètres de géolocalisation V0.</strong> Le rayon de recherche par défaut est de <strong>50 km</strong>, paramétrable par l'utilisateur entre <strong>25 km et 80 km</strong>. La borne haute de 80 km est conforme à l'instruction française <code>DGAL/SDQSPV/2017-651</code> qui définit le circuit court alimentaire comme une distance producteur-consommateur n'excédant pas 80 km.</p>
+  <p><strong>La position n'est jamais stockée sur nos serveurs.</strong> Vos coordonnées sont traitées en temps réel uniquement, utilisées pour calculer la liste des producteurs à proximité, puis immédiatement effacées. Aucun historique de localisation, aucune trace de déplacement, aucune persistance côté serveur. Cette mise en œuvre suit la <strong>doctrine CNIL géolocalisation 2025</strong> (minimisation des données, limitation de la finalité, absence de conservation au-delà du besoin de traitement immédiat).</p>
+  <p><strong>Base légale (RGPD).</strong> Le traitement de la localisation s'appuie sur l'<strong>article 6.1.b du RGPD</strong> (exécution du contrat — la mise en relation avec les producteurs proches constitue le service même que vous avez souscrit), combiné au <strong>consentement système iOS</strong> requis par le système d'exploitation avant tout accès à la localisation précise.</p>
 
   <h3>2.4 Données de réservation</h3>
   <p><strong>Foodie ne traite aucune donnée bancaire.</strong> Foodie est une plateforme de mise en relation et ne collecte, ne stocke, ni ne transmet aucune information de paiement. Les réservations enregistrent uniquement :</p>
@@ -100,10 +104,10 @@
 
   <h3>2.5 Contenus utilisateur</h3>
   <ul>
-    <li><strong>Photos et vidéos</strong> — photo de profil, photos de plats ou de restaurants</li>
-    <li><strong>Avis et évaluations</strong> — retours sur les restaurants ou commandes</li>
+    <li><strong>Photos et vidéos</strong> — photo de profil, photos de produits ou de fermes des producteurs</li>
+    <li><strong>Avis et évaluations</strong> — retours sur les producteurs ou les réservations de retrait</li>
     <li><strong>Messages au support</strong> — communications envoyées à notre équipe</li>
-    <li><strong>Historique de recherche</strong> — recherches de restaurants et de plats dans l'app</li>
+    <li><strong>Historique de recherche</strong> — recherches de producteurs et de produits dans l'app</li>
   </ul>
 
   <h3>2.6 Identifiants</h3>
@@ -144,6 +148,9 @@
     <tr><td><strong>Stabilité de l'application</strong></td><td>Logs de crash, données de performance (non liés à l'identité)</td></tr>
   </table>
   <p>Nous ne vendons <strong>jamais</strong> vos données à des tiers et ne les utilisons pas à des fins de publicité cross-app. <strong>Foodie ne traite aucun paiement</strong> et ne collecte donc aucune donnée bancaire.</p>
+
+  <h2 id="rappelconso">3.bis Sécurité alimentaire — Blocage des rappels actifs (RappelConso)</h2>
+  <p>En application du <strong>règlement (CE) n° 178/2002 article 19</strong> relatif à la sécurité des denrées alimentaires et des aliments pour animaux, la plateforme <strong>bloque automatiquement la publication et la réservation</strong> de tout produit faisant l'objet d'un rappel sanitaire actif référencé sur la base publique RappelConso (<a href="https://rappel.conso.gouv.fr" target="_blank">rappel.conso.gouv.fr</a>). Lorsqu'un rappel est publié, les références produits correspondantes sont placées sous quarantaine sur Foodie jusqu'à ce que le producteur atteste de la résolution du rappel, conformément à sa responsabilité primaire au titre de l'article 19. Ce contrôle de sécurité s'opère sans collecte ni stockage de données personnelles supplémentaires de l'acheteur.</p>
 
   <h2 id="bases">4. Bases légales du traitement (RGPD)</h2>
   <table>
@@ -188,6 +195,10 @@
     <li><strong>Droit de retrait du consentement</strong> — à tout moment, sans effet rétroactif</li>
   </ul>
   <p>Pour exercer vos droits : <a href="mailto:privacy@foodie.fr">privacy@foodie.fr</a> ou via l'app (Réglages → Compte → Supprimer le compte).</p>
+
+  <h3>7.1 Portabilité (article 20 RGPD) — Procédure</h3>
+  <p>Votre droit à la portabilité au titre de l'<strong>article 20 du RGPD</strong> est honoré par l'Edge Function dédiée <code>foodie-export-account</code>, qui génère une archive structurée et lisible par machine (JSON + CSV regroupés en une archive ZIP unique) contenant l'intégralité des données de votre compte : profil, historique des réservations, messages, avis, favoris et journal nutritionnel. L'archive est générée à la demande depuis <em>Réglages → Compte → Exporter mes données</em> et délivrée à l'adresse e-mail enregistrée dans un délai de soixante-douze (72) heures à compter de la demande, à titre gratuit. L'archive ne contient aucune donnée qui ne vous concerne pas (notamment les notes privées des producteurs tiers), conformément à l'article 20 § 4. Pour les comptes producteurs, l'export inclut également les fiches catalogue et les enregistrements de réservation qu'ils ont publiés.</p>
+
   <p>Vous pouvez également déposer une réclamation auprès de la <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank">cnil.fr</a>).</p>
 
   <h2 id="enfants">8. Mineurs</h2>
