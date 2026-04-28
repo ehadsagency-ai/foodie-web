@@ -273,12 +273,72 @@ footer .signature{font-family:'Playfair Display',serif;text-align:center;padding
 footer .mantra{text-align:center;margin-top:6px;color:var(--ink);font-size:0.875rem;font-style:italic;font-family:'EB Garamond',serif}
 footer .copyright{text-align:center;margin-top:14px;color:var(--muted);font-size:0.75rem;font-family:'IBM Plex Mono',monospace;letter-spacing:0.1em}
 
+/* CARD FLIP 3D — best of Prototype H */
+.flip-hint{font-family:'Inter',sans-serif;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-d);text-align:center;margin-bottom:24px}
+.roles-flip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;perspective:1400px}
+.flip{background:transparent;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;width:100%;min-height:380px;text-align:left;display:block}
+.flip-inner{position:relative;width:100%;height:100%;min-height:380px;transition:transform 600ms cubic-bezier(0.6,0.0,0.2,1);transform-style:preserve-3d}
+.flip:hover .flip-inner,.flip:focus-visible .flip-inner,.flip[aria-pressed="true"] .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:3px solid var(--ink);padding:32px 24px;display:flex;flex-direction:column;border-radius:6px;overflow:hidden}
+.flip-back{transform:rotateY(180deg);background:var(--ink);color:#fff;border-color:var(--gold)}
+.flip .num{position:absolute;top:18px;right:22px;font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;opacity:0.55}
+.flip .ico{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.625rem;margin-bottom:18px}
+.flip h3{font-family:'Playfair Display',serif;font-weight:600;font-size:1.5rem;letter-spacing:-0.02em;margin-bottom:6px;line-height:1.05}
+.flip .badge{font-family:'Inter',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:14px;width:fit-content}
+.flip .promise{font-style:italic;font-size:1rem;line-height:1.5;flex-grow:1}
+.flip-cue{position:absolute;bottom:14px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;opacity:0.55}
+.flip-back .back-label{font-family:'IBM Plex Mono',monospace;font-size:0.625rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.flip-back ul{list-style:none;padding:0;font-family:'Inter',sans-serif;font-size:0.875rem;line-height:1.7;margin-bottom:18px;flex-grow:1}
+.flip-back ul li{padding-left:18px;position:relative;margin-bottom:6px;color:#FAFAF7}
+.flip-back ul li::before{content:'→';position:absolute;left:0;color:var(--gold);font-weight:700}
+.flip-back .role-cta{font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.04em;padding:10px 18px;border-radius:6px;text-align:center;background:var(--gold);color:var(--ink);text-decoration:none;transition:background 200ms}
+.flip-back .role-cta:hover{background:#fff}
+.flip.customer .flip-front{background:var(--surface)}
+.flip.customer .ico{background:var(--purple);color:var(--gold)}
+.flip.customer .num{color:var(--purple)}
+.flip.customer .badge{background:var(--purple);color:var(--gold)}
+.flip.producteur .flip-front{background:var(--gold-l);color:var(--ink)}
+.flip.producteur .ico{background:var(--ink);color:var(--gold)}
+.flip.producteur .badge{background:var(--ink);color:var(--gold)}
+.flip.fondateur .flip-front{background:var(--primary);color:#fff}
+.flip.fondateur .ico{background:#fff;color:var(--primary)}
+.flip.fondateur .num{color:#fff;opacity:0.85}
+.flip.fondateur .badge{background:#fff;color:var(--primary)}
+.flip.fondateur .flip-cue{color:#fff;opacity:0.7}
+.flip.chef .flip-front{background:var(--purple);color:#fff}
+.flip.chef .ico{background:var(--gold);color:var(--ink)}
+.flip.chef .num{color:var(--gold);opacity:0.8}
+.flip.chef .badge{background:var(--gold);color:var(--ink)}
+.flip.chef .flip-cue{color:var(--gold);opacity:0.7}
+
+/* ROADMAP TIMELINE — best of Prototype G */
+.roadmap{padding:96px 0 72px;background:var(--bg);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.roadmap-inner{max-width:1180px;margin:0 auto;padding:0 32px}
+.timeline-progress{height:4px;background:var(--line);max-width:1180px;margin:32px auto 24px;position:sticky;top:64px;z-index:5;border-radius:99px;overflow:hidden}
+.timeline-progress .bar{height:100%;width:35%;background:linear-gradient(90deg,var(--primary),var(--gold-d));border-radius:99px;transition:width 200ms ease}
+.timeline{list-style:none;padding:32px 0 24px;display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:32px;position:relative}
+.timeline::before{content:'';position:absolute;left:0;right:0;top:60px;height:2px;background:var(--ink);z-index:0}
+.timeline .t-item{scroll-snap-align:start;flex:0 0 320px;padding:84px 22px 26px;background:var(--surface);border:2px solid var(--ink);border-radius:8px;position:relative}
+.timeline .t-dot{position:absolute;top:42px;left:50%;transform:translateX(-50%);width:36px;height:36px;border-radius:50%;background:#fff;border:3px solid var(--ink);z-index:1}
+.timeline .t-item.done .t-dot{background:var(--gold);border-color:var(--gold-d)}
+.timeline .t-item.active .t-dot{background:var(--primary);border-color:var(--primary);box-shadow:0 0 0 4px rgba(255,0,0,0.15)}
+.timeline .t-item.future{opacity:0.78;background:var(--surface);border-style:dashed}
+.timeline .t-item.future .t-dot{background:var(--surface);border-style:dashed}
+.timeline .t-date{font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.timeline .t-item.active .t-date{color:var(--primary)}
+.timeline .t-item.done .t-date{color:var(--gold-d)}
+.timeline .t-item h3{font-family:'Playfair Display',serif;font-weight:600;font-size:1.25rem;letter-spacing:-0.015em;margin-bottom:10px;color:var(--ink)}
+.timeline .t-item p{font-size:0.875rem;line-height:1.6;color:var(--ink);opacity:0.85}
+.t-note{font-family:'Inter',sans-serif;font-size:0.75rem;color:var(--muted);text-align:center;margin-top:16px;font-style:italic;letter-spacing:0.04em}
+
 /* HIG */
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important}
   html{scroll-behavior:auto}
   .marquee-track,.orbit-icon,.orbit-center,.poetic-band p{animation:none !important}
   .role:hover{transform:none}
+  .flip:hover .flip-inner,.flip:focus-visible .flip-inner{transform:none}
+  .flip[aria-pressed="true"] .flip-inner{transform:rotateY(180deg)}
 }
 @media (prefers-contrast: more){:root{--muted:#4A4A4A;--line:#888888}}
 
@@ -286,24 +346,20 @@ footer .copyright{text-align:center;margin-top:14px;color:var(--muted);font-size
 @media (max-width:920px){
   .hero{grid-template-columns:1fr}
   .hero .left{border-right:none;border-bottom:3px solid var(--ink)}
-  .roles-grid{grid-template-columns:repeat(2,1fr)}
-  .role{border-right:3px solid var(--ink);border-bottom:3px solid var(--ink)}
-  .role:nth-child(2n){border-right:none}
-  .role:nth-child(n+3){border-bottom:none}
+  .roles-flip{grid-template-columns:repeat(2,1fr)}
   .how-grid{grid-template-columns:1fr}
   .step{border-right:none;border-bottom:2px solid var(--ink)}
   .step:last-child{border-bottom:none}
   .ecosystem-inner{grid-template-columns:1fr}
   .ecosystem .orbit-side{height:320px}
   .orbit-wrap{transform:scale(0.78)}
-  .topbar nav{margin-left:0;width:100%;gap:14px}
+  .topbar nav{margin-left:0;width:100%;gap:14px;flex-wrap:wrap}
+  .timeline .t-item{flex:0 0 280px}
 }
 @media (max-width:520px){
-  .roles-grid{grid-template-columns:1fr}
-  .role{border-right:none}
-  .role:nth-child(n){border-right:none;border-bottom:3px solid var(--ink)}
-  .role:last-child{border-bottom:none}
+  .roles-flip{grid-template-columns:1fr}
   .ecosystem .text-side .device-list{grid-template-columns:1fr}
+  .timeline .t-item{flex:0 0 260px}
 }
 </style>
 </head>
@@ -324,6 +380,8 @@ footer .copyright{text-align:center;margin-top:14px;color:var(--muted);font-size
       <a href="/fondateur/">Fondateur</a>
       <a href="/chef/">Chef</a>
       <a href="#how">Méthode</a>
+      <a href="#roadmap">Feuille de route</a>
+      <a href="/pricing/">Tarifs</a>
       <a href="#ecosystem">Écosystème</a>
       <a href="/conditions-generales/">CGU</a>
       <a class="cta" href="https://apps.apple.com/app/id6759874216">App Store ↗</a>
@@ -395,71 +453,105 @@ footer .copyright{text-align:center;margin-top:14px;color:var(--muted);font-size
       <p>Que vous mangiez, cultiviez, accompagniez la première vague ou cuisiniez : FOODIE relie chaque maillon de la voie courte, du Customer au Chef, en passant par le Producteur Fondateur.</p>
     </header>
 
-    <div class="roles-grid">
+    <p class="flip-hint" aria-hidden="true">Survolez ou touchez chaque carte pour la retourner.</p>
+
+    <div class="roles-flip">
 
       <!-- 1. CUSTOMER -->
-      <article class="role customer">
-        <span class="num">01 / V0</span>
-        <div class="ico" aria-hidden="true">🛒</div>
-        <h3>Customer</h3>
-        <span class="badge">Disponible</span>
-        <p class="promise">Vous mangez ce que vous voulez, où vous voulez, et c'est de chez vous.</p>
-        <ul>
-          <li>Catalogue géolocalisé 25–80 km</li>
-          <li>Saisons + badges qualité automatiques</li>
-          <li>Commande, retrait QR, sans paiement in-app</li>
-          <li>Allergies + bloqueur RappelConso</li>
-        </ul>
-        <a class="role-cta" href="/customer/">Découvrir Customer →</a>
-      </article>
+      <button type="button" class="flip customer" aria-pressed="false" aria-label="Retourner la carte Customer">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="num">01 / V0</span>
+            <div class="ico" aria-hidden="true">🛒</div>
+            <h3>Customer</h3>
+            <span class="badge">Disponible</span>
+            <p class="promise">Vous mangez ce que vous voulez, où vous voulez, et c'est de chez vous.</p>
+            <span class="flip-cue">Recto · Promesse</span>
+          </div>
+          <div class="flip-back">
+            <span class="back-label">Verso · Détails</span>
+            <ul>
+              <li>Catalogue géolocalisé 25–80 km</li>
+              <li>Saisons + badges qualité automatiques</li>
+              <li>Commande, retrait QR, sans paiement in-app</li>
+              <li>Allergies + bloqueur RappelConso</li>
+            </ul>
+            <a class="role-cta" href="/customer/">Découvrir Customer →</a>
+          </div>
+        </div>
+      </button>
 
       <!-- 2. PRODUCTEUR -->
-      <article class="role producteur">
-        <span class="num">02 / V0</span>
-        <div class="ico" aria-hidden="true">🌾</div>
-        <h3>Producteur</h3>
-        <span class="badge">Disponible</span>
-        <p class="promise">Vous vendez en direct, vous gardez la main, vous gardez la marge.</p>
-        <ul>
-          <li>SIRET vérifié INSEE Sirene</li>
-          <li>Badges AOC, AOP, IGP, AB depuis l'INAO</li>
-          <li>Commission 15 % HT, virement SEPA mensuel</li>
-          <li>Indexation IPC plafonnée 5 %/an</li>
-        </ul>
-        <a class="role-cta" href="/producteur/">Découvrir Producteur →</a>
-      </article>
+      <button type="button" class="flip producteur" aria-pressed="false" aria-label="Retourner la carte Producteur">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="num">02 / V0</span>
+            <div class="ico" aria-hidden="true">🌾</div>
+            <h3>Producteur</h3>
+            <span class="badge">Disponible</span>
+            <p class="promise">Vous vendez en direct, vous gardez la main, vous gardez la marge.</p>
+            <span class="flip-cue">Recto · Promesse</span>
+          </div>
+          <div class="flip-back">
+            <span class="back-label">Verso · Détails</span>
+            <ul>
+              <li>SIRET vérifié INSEE Sirene</li>
+              <li>Badges AOC, AOP, IGP, AB depuis l'INAO</li>
+              <li>Commission 15 % HT, virement SEPA mensuel</li>
+              <li>Indexation IPC plafonnée 5 %/an</li>
+            </ul>
+            <a class="role-cta" href="/producteur/">Découvrir Producteur →</a>
+          </div>
+        </div>
+      </button>
 
       <!-- 3. FONDATEUR -->
-      <article class="role fondateur">
-        <span class="num">03 / V0</span>
-        <div class="ico" aria-hidden="true">⭐</div>
-        <h3>Fondateur</h3>
-        <span class="badge">20 places · privilège</span>
-        <p class="promise">Vous bâtissez la première table de Charente-Maritime, et vous en gardez la couronne à vie.</p>
-        <ul>
-          <li>Commission 10 % HT à vie (vs 15 %)</li>
-          <li>Mise en avant prioritaire 1 an</li>
-          <li>Comité consultatif trimestriel</li>
-          <li>Engagement 3 ans côté Producteur</li>
-        </ul>
-        <a class="role-cta" href="/fondateur/">Découvrir Fondateur →</a>
-      </article>
+      <button type="button" class="flip fondateur" aria-pressed="false" aria-label="Retourner la carte Fondateur">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="num">03 / V0</span>
+            <div class="ico" aria-hidden="true">⭐</div>
+            <h3>Fondateur</h3>
+            <span class="badge">20 places · privilège</span>
+            <p class="promise">Vous bâtissez la première table de Charente-Maritime, et vous en gardez la couronne à vie.</p>
+            <span class="flip-cue">Recto · Promesse</span>
+          </div>
+          <div class="flip-back">
+            <span class="back-label">Verso · Détails</span>
+            <ul>
+              <li>Commission 10 % HT à vie (vs 15 %)</li>
+              <li>Mise en avant prioritaire 1 an</li>
+              <li>Comité consultatif trimestriel</li>
+              <li>Engagement 3 ans côté Producteur</li>
+            </ul>
+            <a class="role-cta" href="/fondateur/">Découvrir Fondateur →</a>
+          </div>
+        </div>
+      </button>
 
       <!-- 4. CHEF (V2) -->
-      <article class="role chef">
-        <span class="num">04 / V2</span>
-        <div class="ico" aria-hidden="true">👨‍🍳</div>
-        <h3>Chef</h3>
-        <span class="badge">À venir · automne 2026</span>
-        <p class="promise">Vous cuisinez le terroir de votre rayon, vous proposez le plat tout prêt à votre voisinage.</p>
-        <ul>
-          <li>Auto-entrepreneur restauration ou société</li>
-          <li>Formation HACCP + agrément DDPP</li>
-          <li>Étiquetage INCO 14 allergènes auto</li>
-          <li>Bloqueur RappelConso à la commande</li>
-        </ul>
-        <a class="role-cta" href="/chef/">Découvrir Chef →</a>
-      </article>
+      <button type="button" class="flip chef" aria-pressed="false" aria-label="Retourner la carte Chef">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="num">04 / V2</span>
+            <div class="ico" aria-hidden="true">👨‍🍳</div>
+            <h3>Chef</h3>
+            <span class="badge">À venir · automne 2026</span>
+            <p class="promise">Vous cuisinez le terroir de votre rayon, vous proposez le plat tout prêt à votre voisinage.</p>
+            <span class="flip-cue">Recto · Promesse</span>
+          </div>
+          <div class="flip-back">
+            <span class="back-label">Verso · Détails</span>
+            <ul>
+              <li>Auto-entrepreneur restauration ou société</li>
+              <li>Formation HACCP + agrément DDPP</li>
+              <li>Étiquetage INCO 14 allergènes auto</li>
+              <li>Bloqueur RappelConso à la commande</li>
+            </ul>
+            <a class="role-cta" href="/chef/">Découvrir Chef →</a>
+          </div>
+        </div>
+      </button>
 
     </div>
   </section>
@@ -493,6 +585,57 @@ footer .copyright{text-align:center;margin-top:14px;color:var(--muted);font-size
           <p>Vous payez le Producteur en main propre lors du retrait à la ferme ou sur le marché. FOODIE n'encaisse rien sur la transaction. Le flux d'argent ne passe jamais par l'app.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP — Timeline horizontale scroll-snap (best of Prototype G) -->
+  <section class="roadmap" id="roadmap" aria-labelledby="roadmap-h">
+    <div class="roadmap-inner">
+      <header class="section-head">
+        <span class="meta">Feuille de route</span>
+        <h2 id="roadmap-h">Du <em>premier marché</em> au futur du goût.</h2>
+        <p>Six étapes verrouillées, datées, et tenues par contrat éditorial. Faites défiler horizontalement pour parcourir les versions V0 à V3.</p>
+      </header>
+      <div class="timeline-progress" aria-hidden="true"><div class="bar"></div></div>
+      <ol class="timeline" tabindex="0" aria-label="Timeline des versions FOODIE V0 à V3">
+        <li class="t-item done">
+          <div class="t-dot"></div>
+          <span class="t-date">2026 · T1</span>
+          <h3>V0 · Customer</h3>
+          <p>Catalogue géolocalisé 25-80 km, badges INAO, retrait sur place. Aucun flux financier dans l'app.</p>
+        </li>
+        <li class="t-item active">
+          <div class="t-dot"></div>
+          <span class="t-date">2026 · T2</span>
+          <h3>V0 · Producteur</h3>
+          <p>SIRET vérifié, fiche éditoriale, calendrier de saison, virement SEPA hors-app vers le Producteur.</p>
+        </li>
+        <li class="t-item active">
+          <div class="t-dot"></div>
+          <span class="t-date">2026 · T2</span>
+          <h3>V0 · Fondateur</h3>
+          <p>20 places. Royalty 10 % indexée IPC sur 3 ans. Page biographique, comité éditorial trimestriel.</p>
+        </li>
+        <li class="t-item future">
+          <div class="t-dot"></div>
+          <span class="t-date">2026 · T3</span>
+          <h3>V1.5 · Recette Insta</h3>
+          <p>Lien Instagram → recette structurée → panier auto-rempli avec les Producteurs locaux à proximité.</p>
+        </li>
+        <li class="t-item future">
+          <div class="t-dot"></div>
+          <span class="t-date">2026 · T4</span>
+          <h3>V2 · Chef</h3>
+          <p>Le rôle Chef ouvre. Royalty créateur sur recettes utilisées. Page éditoriale Chef &amp; communauté.</p>
+        </li>
+        <li class="t-item future">
+          <div class="t-dot"></div>
+          <span class="t-date">2027 · T2</span>
+          <h3>V3 · Box saison</h3>
+          <p>Boîte mensuelle de saison curated par les Fondateurs. Vision Pro spatial. Apple TV cuisine show.</p>
+        </li>
+      </ol>
+      <p class="t-note">Glissez ← → · Tab + flèches au clavier · Sticky progress bar en haut</p>
     </div>
   </section>
 
@@ -572,6 +715,12 @@ footer .copyright{text-align:center;margin-top:14px;color:var(--muted);font-size
         <a href="mailto:contact@ehads-agency.fr?subject=Chef">Chef (V2)</a>
       </div>
       <div>
+        <h4>Maison</h4>
+        <a href="/pricing/">Tarifs &amp; rôles</a>
+        <a href="#roadmap">Feuille de route</a>
+        <a href="#ecosystem">Écosystème Apple</a>
+      </div>
+      <div>
         <h4>Mentions légales</h4>
         <a href="/conditions-generales/">CGU</a>
         <a href="/privacy-fr/">Confidentialité</a>
@@ -597,6 +746,35 @@ footer .copyright{text-align:center;margin-top:14px;color:var(--muted);font-size
     <p class="copyright">© 2026 E&amp;HADS AGENCY · Tous droits réservés</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  // Card flip click-to-flip (mobile + a11y)
+  document.querySelectorAll('.flip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pressed = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+    });
+    btn.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); btn.click(); }
+    });
+    // Prevent flip when clicking the inner CTA link
+    btn.querySelectorAll('a').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
+  });
+  // Timeline progress bar reflects horizontal scroll
+  const tl = document.querySelector('.timeline');
+  const bar = document.querySelector('.timeline-progress .bar');
+  if(tl && bar){
+    const update = () => {
+      const max = tl.scrollWidth - tl.clientWidth;
+      const pct = max > 0 ? (tl.scrollLeft / max) * 100 : 0;
+      bar.style.width = Math.max(8, pct) + '%';
+    };
+    tl.addEventListener('scroll', update, {passive:true});
+    update();
+  }
+})();
+</script>
 
 </body>
 </html>
