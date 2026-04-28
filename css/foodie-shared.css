@@ -74,50 +74,92 @@ body {
   border-radius: 2px;
 }
 
-/* topbar (logo + back-to-home link) */
+/* topbar (logo + nav + brand-meta) */
 .foodie-topbar {
   background: var(--surface);
   border-bottom: 1px solid var(--line);
-  padding: 16px 24px;
+  padding: 14px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: saturate(180%) blur(8px);
 }
 .foodie-topbar .topbar-inner {
-  max-width: 880px;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 .foodie-topbar a.brand-link {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-decoration: none;
   color: var(--ink);
 }
 .foodie-topbar img {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: block;
 }
 .foodie-topbar .brand-name {
   font-family: 'Inter', sans-serif;
   font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   color: var(--ink);
 }
-.foodie-topbar .brand-meta {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding-left: 14px;
-  margin-left: 6px;
-  border-left: 1px solid var(--line);
-}
 .foodie-topbar a.brand-link:hover .brand-name { color: var(--primary-a); }
+
+.foodie-topbar nav.primary {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+.foodie-topbar nav.primary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 0;
+  position: relative;
+}
+.foodie-topbar nav.primary a:hover {
+  color: var(--primary-a);
+}
+.foodie-topbar nav.primary a[aria-current="page"] {
+  color: var(--primary-a);
+  font-weight: 600;
+}
+.foodie-topbar nav.primary a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--gold);
+}
+.foodie-topbar nav.primary a.cta {
+  background: var(--primary);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.foodie-topbar nav.primary a.cta:hover {
+  background: var(--primary-a);
+  color: #FFFFFF;
+}
+
+@media (max-width: 720px) {
+  .foodie-topbar .topbar-inner { gap: 12px; }
+  .foodie-topbar nav.primary { gap: 14px; width: 100%; margin-left: 0; }
+  .foodie-topbar nav.primary a { font-size: 0.75rem; }
+}
 
 /* main content */
 .foodie-page {
@@ -283,6 +325,64 @@ body {
   font-size: 0.8125rem;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.08em;
+}
+
+/* Apple ecosystem (7 targets FOODIE) — inspiré MagicUI OrbitingCircles */
+.apple-ecosystem {
+  text-align: center;
+  margin: 24px auto;
+  max-width: 720px;
+}
+.apple-ecosystem .device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin: 32px 0 16px;
+}
+.apple-ecosystem .device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 12px;
+  background: var(--surface);
+  border-radius: 4px;
+  border-top: 2px solid var(--gold);
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+.apple-ecosystem .device:hover {
+  transform: translateY(-2px);
+  border-top-color: var(--primary);
+}
+.apple-ecosystem .device .icon {
+  font-size: 1.875rem;
+  line-height: 1;
+}
+.apple-ecosystem .device .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.apple-ecosystem .device .feature {
+  font-size: 0.6875rem;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.4;
+  font-family: 'EB Garamond', serif;
+}
+.apple-ecosystem .ecosystem-note {
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: var(--purple);
+  margin-top: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apple-ecosystem .device { transition: none !important; }
+  .apple-ecosystem .device:hover { transform: none; }
 }
 
 /* HIG adaptations */

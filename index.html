@@ -34,6 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/foodie-shared.css">
 
   <script type="application/ld+json">
   {
@@ -144,30 +145,7 @@
 
     .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
-    /* Top bar avec logo */
-    .topbar {
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--line);
-    }
-    .topbar img {
-      width: 56px;
-      height: 56px;
-      display: block;
-    }
-    .topbar .brand-text {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-left: 14px;
-      padding-left: 14px;
-      border-left: 1px solid var(--line);
-    }
+    /* Topbar styles maintenant dans /css/foodie-shared.css (.foodie-topbar) */
 
     /* Hero */
     .hero {
@@ -434,10 +412,26 @@
 
   <a href="#main" class="skip-link">Aller au contenu principal</a>
 
-  <div class="topbar">
-    <img src="/foodie-logo.png" alt="Logo FOODIE" width="56" height="56">
-    <span class="brand-text">Édité par E&amp;HADS Agency</span>
-  </div>
+  <nav class="foodie-topbar" aria-label="Navigation principale">
+    <div class="topbar-inner">
+      <a class="brand-link" href="/" aria-label="FOODIE — Accueil">
+        <img src="/foodie-logo.png" alt="" aria-hidden="true" width="40" height="40">
+        <span class="brand-name">FOODIE</span>
+      </a>
+      <nav class="primary" aria-label="Pages du site">
+        <a href="#ecosystem">Écosystème</a>
+        <a href="#how">Comment ça marche</a>
+        <a href="#legal">Cadre légal</a>
+        <a href="/conditions-generales/">CGU</a>
+        <a href="/privacy-fr/">Confidentialité</a>
+        <a href="/cookies/">Cookies</a>
+        <a href="/terms/">Terms (EN)</a>
+        <a class="cta" href="https://apps.apple.com/app/id6759874216">App Store</a>
+      </nav>
+    </div>
+  </nav>
+    </div>
+  </nav>
 
   <header class="hero">
     <img class="logo-hero" src="/foodie-logo.png" alt="" aria-hidden="true" width="120" height="120">
@@ -453,7 +447,59 @@
 
   <main id="main">
 
-    <section>
+    <section id="ecosystem">
+      <div class="container">
+        <span class="meta">Écosystème Apple</span>
+        <h2>FOODIE sur tous vos appareils</h2>
+        <div class="apple-ecosystem">
+          <div class="device-grid">
+            <div class="device">
+              <span class="icon" aria-hidden="true">📱</span>
+              <span class="label">iPhone</span>
+              <span class="feature">Catalogue, panier, retrait QR</span>
+            </div>
+            <div class="device">
+              <span class="icon" aria-hidden="true">⌨️</span>
+              <span class="label">iPad</span>
+              <span class="feature">NavigationSplitView producteurs</span>
+            </div>
+            <div class="device">
+              <span class="icon" aria-hidden="true">⌚</span>
+              <span class="label">Apple Watch</span>
+              <span class="feature">QR retrait + complications</span>
+            </div>
+            <div class="device">
+              <span class="icon" aria-hidden="true">📺</span>
+              <span class="label">Apple TV</span>
+              <span class="feature">Browse 10 pieds en cuisine</span>
+            </div>
+            <div class="device">
+              <span class="icon" aria-hidden="true">🥽</span>
+              <span class="label">Vision Pro</span>
+              <span class="feature">Marché immersif spatial</span>
+            </div>
+            <div class="device">
+              <span class="icon" aria-hidden="true">💻</span>
+              <span class="label">Mac</span>
+              <span class="feature">Hub Producteur dashboard</span>
+            </div>
+            <div class="device">
+              <span class="icon" aria-hidden="true">⚡</span>
+              <span class="label">App Clip</span>
+              <span class="feature">QR Producteur, fiche rapide</span>
+            </div>
+            <div class="device">
+              <span class="icon" aria-hidden="true">🍃</span>
+              <span class="label">Widget</span>
+              <span class="feature">Saison du jour + commande en cours</span>
+            </div>
+          </div>
+          <p class="ecosystem-note">Une seule app, sept surfaces — la table sans intermédiaire vous suit du poignet au salon.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
       <div class="container">
         <span class="meta">Mode d'emploi</span>
         <h2>Comment ça marche</h2>
@@ -477,7 +523,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="legal">
       <div class="container">
         <span class="meta">Cadre légal</span>
         <h2>Statut juridique de la plateforme</h2>
