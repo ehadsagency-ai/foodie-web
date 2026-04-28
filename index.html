@@ -7,24 +7,29 @@
 
   <meta name="description" content="FOODIE met en relation les Producteurs locaux et les habitants de leur rayon. Commande directe, retrait sur place, sans commission cachée ni intermédiaire de paiement.">
   <meta name="author" content="E&amp;HADS Agency">
-  <meta name="theme-color" content="#1E5C35" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0D1F12" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FF0000" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#2F2144" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://foodie.fr/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="FOODIE">
   <meta property="og:title" content="FOODIE — Project Terroir · La table sans intermédiaire">
-  <meta property="og:description" content="Vert sahel, or récolte, terre bois — la table sans intermédiaire. Découvrez les Producteurs de votre rayon. Commandez en direct, sans commission cachée.">
+  <meta property="og:description" content="Rouge baiser, or moutarde, violet profond — la table sans intermédiaire. Découvrez les Producteurs de votre rayon. Commandez en direct, sans commission cachée.">
   <meta property="og:url" content="https://foodie.fr/">
   <meta property="og:image" content="https://foodie.fr/og-image.png">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+  <meta property="og:image:alt" content="Logo FOODIE — lèvres rouges et grain doré">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FOODIE — Project Terroir">
   <meta name="twitter:description" content="La table sans intermédiaire. Disponible sur l'App Store.">
   <meta name="twitter:image" content="https://foodie.fr/og-image.png">
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%231E5C35'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Inter,sans-serif' font-size='32' font-weight='700' fill='%23C9922A'%3EF%3C/text%3E%3C/svg%3E">
+  <!-- Favicon and touch icons (logo réel app FOODIE) -->
+  <link rel="icon" type="image/png" sizes="300x300" href="/foodie-logo.png">
+  <link rel="apple-touch-icon" sizes="300x300" href="/foodie-logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +68,7 @@
     "applicationCategory": "LifestyleApplication",
     "description": "Plateforme de mise en relation entre Producteurs locaux et habitants en circuit court. Commande directe, retrait sur place.",
     "url": "https://apps.apple.com/app/id6759874216",
+    "image": "https://foodie.fr/foodie-logo.png",
     "publisher": {
       "@type": "Organization",
       "name": "E&HADS Agency"
@@ -78,32 +84,35 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* Palette FOODIE Project Terroir + base ehads-vitrine doctrine */
+    /* Palette officielle FOODIE — alignée FoodieColors.swift app iOS
+       Source : FOODIE-SwiftUI/Packages/DesignSystem/Sources/DesignSystem/FoodieColors.swift */
     :root {
-      --ink:      #0D0D0D;   /* ehNoir */
-      --muted:    #969696;   /* ehGris */
-      --line:     #D7D9DB;   /* ehGrisClair */
-      --bg:       #FBFAF6;   /* ehIvoire */
-      --surface:  #F1EEE3;   /* surface chaude terroir */
-      --primary:  #1E5C35;   /* vert sahel — palette_primary FOODIE */
-      --primary-d:#143F25;   /* vert sahel sombre */
-      --gold:     #C9922A;   /* or récolte — palette_accent FOODIE */
-      --gold-l:   #E0AE48;
-      --terre:    #6B4423;   /* terre bois (poetic) */
+      --ink:        #0D0D0D;   /* ehNoir doctrine vitrine */
+      --muted:      #6C757D;   /* gray FoodieColors */
+      --line:       #E5E5E5;
+      --bg:         #F5F5F5;   /* lightGray FoodieColors = backgroundLight */
+      --surface:    #FFFFFF;
+      --primary:    #FF0000;   /* brightRed FoodieColors — couleur app principale */
+      --primary-a:  #CC0000;   /* brightRedAccessible WCAG AA pour texte */
+      --gold:       #D4A574;   /* goldenMustard FoodieColors */
+      --gold-d:     #B88A52;
+      --purple:     #2F2144;   /* deepPurple FoodieColors — accent profond */
+      --orange:     #FF9800;   /* orangeAccent FoodieColors */
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --ink:     #E8DAB5;
-        --muted:   #8A9A8F;
-        --line:    #2A3F32;
-        --bg:      #0D1F12;
-        --surface: #15281C;
-        --primary: #4A9B6E;
-        --primary-d:#1E5C35;
-        --gold:    #E0AE48;
-        --gold-l:  #F0C66F;
-        --terre:   #8A6440;
+        --ink:        #F5F5F5;
+        --muted:      #9E9E9E;
+        --line:       #3A2C4F;
+        --bg:         #1C1426;       /* dérivé deepPurple sombre */
+        --surface:    #2F2144;       /* deepPurple FoodieColors */
+        --primary:    #FF3333;       /* brightRed adouci en dark */
+        --primary-a:  #FF6666;
+        --gold:       #E0B582;
+        --gold-d:     #D4A574;
+        --purple:     #4A3868;
+        --orange:     #FFA833;
       }
     }
 
@@ -127,7 +136,6 @@
       text-decoration: none; outline: 2px solid var(--gold); outline-offset: 2px;
     }
 
-    /* Focus visible accent doré */
     :focus-visible {
       outline: 2px solid var(--gold);
       outline-offset: 3px;
@@ -136,12 +144,44 @@
 
     .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
+    /* Top bar avec logo */
+    .topbar {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar img {
+      width: 56px;
+      height: 56px;
+      display: block;
+    }
+    .topbar .brand-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-left: 14px;
+      padding-left: 14px;
+      border-left: 1px solid var(--line);
+    }
+
     /* Hero */
     .hero {
-      padding: 96px 24px 72px;
+      padding: 80px 24px 64px;
       text-align: center;
       max-width: 760px;
       margin: 0 auto;
+    }
+    .hero .logo-hero {
+      width: 120px;
+      height: 120px;
+      display: block;
+      margin: 0 auto 32px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
     }
     .hero .codename {
       display: block;
@@ -166,7 +206,7 @@
     .poetic {
       font-style: italic;
       font-size: 1.0625rem;
-      color: var(--terre);
+      color: var(--purple);
       margin-bottom: 12px;
       max-width: 56ch;
       margin-left: auto;
@@ -188,7 +228,7 @@
     .badge {
       display: inline-block;
       background: var(--primary);
-      color: var(--bg);
+      color: #FFFFFF;
       padding: 14px 28px;
       border-radius: 4px;
       text-decoration: none;
@@ -199,7 +239,7 @@
       transition: background 200ms ease;
       min-height: 44px;
     }
-    .badge:hover { background: var(--primary-d); }
+    .badge:hover { background: var(--primary-a); }
     .badge.secondary {
       background: transparent;
       color: var(--ink);
@@ -221,7 +261,7 @@
       font-weight: 600;
       margin-bottom: 32px;
       letter-spacing: -0.015em;
-      color: var(--primary);
+      color: var(--purple);
     }
     .meta {
       display: block;
@@ -253,7 +293,7 @@
       width: 32px;
       height: 32px;
       background: var(--primary);
-      color: var(--bg);
+      color: #FFFFFF;
       border-radius: 50%;
       font-family: 'Inter', sans-serif;
       font-weight: 600;
@@ -279,7 +319,7 @@
     .legal-notice strong { font-weight: 600; color: var(--ink); }
     .legal-notice p { color: var(--ink); font-size: 0.9375rem; }
     .legal-notice p + p { margin-top: 12px; color: var(--muted); }
-    .legal-notice a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+    .legal-notice a { color: var(--primary-a); text-decoration: underline; text-underline-offset: 3px; }
 
     /* Footer */
     footer {
@@ -289,6 +329,25 @@
       background: var(--surface);
     }
     footer .container { max-width: 880px; }
+    footer .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    footer .footer-brand img {
+      width: 40px;
+      height: 40px;
+    }
+    footer .footer-brand-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+    }
     footer h4 {
       font-family: 'Inter', sans-serif;
       font-size: 0.6875rem;
@@ -311,7 +370,7 @@
       display: block;
       padding: 4px 0;
     }
-    footer a:hover { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+    footer a:hover { color: var(--primary-a); text-decoration: underline; text-underline-offset: 3px; }
     footer .legal-block {
       font-size: 0.8125rem;
       color: var(--muted);
@@ -325,7 +384,7 @@
       padding-top: 24px;
       margin-top: 24px;
       border-top: 1px solid var(--line);
-      color: var(--terre);
+      color: var(--purple);
       font-size: 0.9375rem;
       font-style: italic;
     }
@@ -357,9 +416,17 @@
 
     @media (prefers-contrast: more) {
       :root {
-        --muted: #5A5A5A;
+        --muted: #4A4A4A;
         --line:  #888888;
       }
+    }
+
+    @media (max-width: 480px) {
+      .topbar img { width: 48px; height: 48px; }
+      .topbar .brand-text { font-size: 0.625rem; }
+      .hero { padding: 56px 20px 48px; }
+      .hero .logo-hero { width: 96px; height: 96px; margin-bottom: 24px; }
+      footer .footer-brand img { width: 36px; height: 36px; }
     }
   </style>
 </head>
@@ -367,10 +434,16 @@
 
   <a href="#main" class="skip-link">Aller au contenu principal</a>
 
+  <div class="topbar">
+    <img src="/foodie-logo.png" alt="Logo FOODIE" width="56" height="56">
+    <span class="brand-text">Édité par E&amp;HADS Agency</span>
+  </div>
+
   <header class="hero">
+    <img class="logo-hero" src="/foodie-logo.png" alt="" aria-hidden="true" width="120" height="120">
     <span class="codename">Project Terroir · une œuvre éditée par E&amp;HADS Agency</span>
     <h1>FOODIE<span class="accent">.</span></h1>
-    <p class="poetic">Vert sahel, or récolte, terre bois — la table sans intermédiaire.</p>
+    <p class="poetic">Rouge baiser, or moutarde, violet profond — la table sans intermédiaire.</p>
     <p class="tagline">FOODIE met en relation les Producteurs locaux et les habitants de leur rayon. Commandez en direct, retirez sur place. Vivez la saison près de chez vous.</p>
     <div class="cta-row">
       <a class="badge" href="https://apps.apple.com/app/id6759874216" aria-label="Télécharger FOODIE sur l'App Store">Disponible sur l'App Store</a>
@@ -419,6 +492,11 @@
 
   <footer>
     <div class="container">
+      <div class="footer-brand">
+        <img src="/foodie-logo.png" alt="" aria-hidden="true" width="40" height="40">
+        <span class="footer-brand-text">FOODIE — Project Terroir</span>
+      </div>
+
       <div class="grid">
         <div>
           <h4>Application</h4>
