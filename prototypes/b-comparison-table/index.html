@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOODIE — Prototype B · Tableau comparatif</title>
+<meta name="theme-color" content="#FF0000">
+<link rel="icon" href="/foodie-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0D0D0D;--muted:#6C757D;--bg:#FFFFFF;--surface:#FAF7F2;--line:#E5E5E5;--primary:#FF0000;--gold:#D4A574;--purple:#2F2144;--green:#1E6E33;--zebra:#FAF7F2}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:15px}
+a{color:inherit;text-decoration:none}
+.proto-tag{position:fixed;top:8px;right:8px;background:var(--purple);color:var(--gold);padding:6px 12px;border-radius:999px;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;z-index:100}
+
+.head{padding:48px 32px;border-bottom:1px solid var(--line);text-align:center;background:var(--surface)}
+.head img{width:48px;height:48px}
+.head h1{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.025em;margin:14px 0 8px}
+.head p{font-size:1rem;color:var(--muted);max-width:60ch;margin:0 auto}
+.head .legend{display:flex;justify-content:center;gap:18px;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:0.75rem;letter-spacing:0.06em;flex-wrap:wrap}
+.head .legend .it{display:flex;align-items:center;gap:6px}
+.head .legend .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot.yes{background:var(--green)}.dot.no{background:#CCC}.dot.lim{background:var(--gold)}.dot.v2{background:var(--purple)}
+
+/* COMPOSANT NOUVEAU 1 : Tableau comparatif sticky-header dense */
+.cmp-wrap{padding:32px;max-width:1200px;margin:0 auto}
+.cmp{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;background:var(--bg);border:2px solid var(--ink)}
+.cmp thead th{position:sticky;top:0;background:var(--ink);color:#fff;text-align:left;padding:18px 16px;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:700;letter-spacing:-0.005em;border-right:1px solid #333}
+.cmp thead th:last-child{border-right:none}
+.cmp thead th .ico{font-size:1.5rem;display:block;margin-bottom:4px}
+.cmp thead th .stage{font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);display:block;margin-top:2px}
+.cmp thead th.crit{background:var(--purple);color:var(--gold);width:30%}
+
+.cmp tbody tr{border-bottom:1px solid var(--line)}
+.cmp tbody tr.section-row td{background:var(--surface);font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);padding:14px 16px;border-bottom:1px solid var(--line)}
+.cmp tbody tr:not(.section-row):nth-child(odd) td{background:var(--zebra)}
+.cmp tbody tr:not(.section-row):hover td{background:#FFF8E6}
+.cmp tbody td{padding:12px 16px;border-right:1px solid var(--line);vertical-align:top}
+.cmp tbody td:last-child{border-right:none}
+.cmp tbody td.crit{font-weight:600;color:var(--purple)}
+.cmp tbody td .v{display:inline-flex;align-items:center;gap:8px;font-size:0.875rem}
+.cmp tbody td .v.yes{color:var(--green);font-weight:600}
+.cmp tbody td .v.no{color:var(--muted)}
+.cmp tbody td .v.lim{color:var(--gold);font-weight:600;background:rgba(212,165,116,0.1);padding:2px 8px;border-radius:3px}
+.cmp tbody td .v.v2{color:var(--purple);font-weight:600;background:rgba(47,33,68,0.08);padding:2px 8px;border-radius:3px}
+.cmp tbody td.num{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--ink)}
+
+.cmp tfoot td{padding:18px 16px;background:var(--surface);border-right:1px solid var(--line);text-align:center}
+.cmp tfoot td:last-child{border-right:none}
+.cmp tfoot td.crit{background:var(--ink);color:var(--gold);text-align:left;font-weight:700}
+.cmp tfoot td a.cta{display:inline-block;background:var(--primary);color:#fff;padding:10px 18px;border-radius:4px;font-weight:600;font-size:0.8125rem;letter-spacing:0.02em}
+.cmp tfoot td a.cta:hover{background:#CC0000}
+.cmp tfoot td.fondateur a.cta{background:var(--gold);color:var(--ink)}
+.cmp tfoot td.chef a.cta{background:var(--purple);color:var(--gold)}
+
+.head-back{display:inline-block;margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+
+footer{padding:36px 32px;text-align:center;font-size:0.8125rem;color:var(--muted);background:var(--surface);border-top:1px solid var(--line)}
+footer .sig{font-style:italic;color:var(--purple);margin-top:10px}
+
+@media (max-width:880px){
+  .cmp-wrap{padding:0;overflow-x:auto}
+  .cmp{font-size:0.8125rem;min-width:780px}
+}
+</style>
+</head>
+<body>
+<span class="proto-tag">Prototype B · Tableau</span>
+
+<header class="head">
+  <img src="/foodie-logo.png" alt="">
+  <h1>Tous les rôles, <span style="color:var(--primary)">comparés en un coup d'œil.</span></h1>
+  <p>Customer, Producteur, Fondateur, Chef. Dix-huit critères, quatre colonnes, zéro ambiguïté.</p>
+  <div class="legend">
+    <span class="it"><span class="dot yes"></span>Inclus V0</span>
+    <span class="it"><span class="dot lim"></span>Programme limité</span>
+    <span class="it"><span class="dot v2"></span>Phase 2 — automne 2026</span>
+    <span class="it"><span class="dot no"></span>N/A</span>
+  </div>
+  <a class="head-back" href="/">← retour accueil</a>
+</header>
+
+<!-- COMPOSANT NOUVEAU : Comparison table dense, sticky header, zebra rows, hover highlight -->
+<div class="cmp-wrap">
+<table class="cmp">
+  <thead>
+    <tr>
+      <th class="crit">Critère</th>
+      <th><span class="ico">🛒</span>Customer<span class="stage">V0 · disponible</span></th>
+      <th><span class="ico">🌾</span>Producteur<span class="stage">V0 · disponible</span></th>
+      <th><span class="ico">⭐</span>Fondateur<span class="stage">V0 · 20 places</span></th>
+      <th><span class="ico">👨‍🍳</span>Chef<span class="stage">V2 · automne 2026</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="section-row"><td colspan="5">Identité & statut</td></tr>
+    <tr><td class="crit">Statut juridique requis</td><td><span class="v">Aucun (consommateur)</span></td><td><span class="v">Exploitant agricole immatriculé</span></td><td><span class="v">Producteur Charente-Maritime</span></td><td><span class="v">Auto-entrep. resto / société</span></td></tr>
+    <tr><td class="crit">Vérification SIRET INSEE</td><td><span class="v no">— sans objet</span></td><td><span class="v yes">✓ obligatoire à l'inscription</span></td><td><span class="v yes">✓ + entretien physique</span></td><td><span class="v v2">⏳ V2</span></td></tr>
+    <tr><td class="crit">Particulier accepté ?</td><td><span class="v yes">✓ Oui</span></td><td><span class="v no">— Non</span></td><td><span class="v no">— Non</span></td><td><span class="v no">— Non (Cass. crim. 2017)</span></td></tr>
+
+    <tr class="section-row"><td colspan="5">Économie</td></tr>
+    <tr><td class="crit">Commission FOODIE</td><td class="num">0 €</td><td class="num">15 % HT</td><td><span class="v lim">10 % HT à vie</span></td><td class="num">≈ 18 % HT (V2)</td></tr>
+    <tr><td class="crit">Délai paiement commission</td><td><span class="v no">—</span></td><td class="num">15 j fin de mois</td><td class="num">15 j fin de mois</td><td class="num">15 j (V2)</td></tr>
+    <tr><td class="crit">Indexation IPC plafond</td><td><span class="v no">—</span></td><td><span class="v yes">5 %/an</span></td><td><span class="v yes">5 %/an</span></td><td><span class="v v2">5 %/an (V2)</span></td></tr>
+    <tr><td class="crit">Préavis sortie</td><td><span class="v">À tout moment</span></td><td class="num">30 jours</td><td class="num">30 jours</td><td class="num">30 j (V2)</td></tr>
+    <tr><td class="crit">Engagement minimal</td><td><span class="v no">—</span></td><td><span class="v">Aucun</span></td><td><span class="v lim">3 ans</span></td><td><span class="v v2">À définir</span></td></tr>
+
+    <tr class="section-row"><td colspan="5">Conformité</td></tr>
+    <tr><td class="crit">Formation HACCP</td><td><span class="v no">—</span></td><td><span class="v no">—</span></td><td><span class="v no">—</span></td><td><span class="v v2">14 h obligatoires</span></td></tr>
+    <tr><td class="crit">Déclaration DDPP</td><td><span class="v no">—</span></td><td><span class="v">Selon activité</span></td><td><span class="v">Selon activité</span></td><td><span class="v v2">Obligatoire</span></td></tr>
+    <tr><td class="crit">Étiquetage INCO 14 allergènes</td><td><span class="v">Filtrage</span></td><td><span class="v yes">✓ Saisie obligatoire</span></td><td><span class="v yes">✓ Saisie obligatoire</span></td><td><span class="v v2">✓ V2</span></td></tr>
+    <tr><td class="crit">Bloqueur RappelConso</td><td><span class="v yes">✓ Auto</span></td><td><span class="v yes">✓ Notif</span></td><td><span class="v yes">✓ Notif</span></td><td><span class="v v2">✓ V2</span></td></tr>
+    <tr><td class="crit">Assurance RC pro alimentaire</td><td><span class="v no">—</span></td><td><span class="v">Recommandée</span></td><td><span class="v">Recommandée</span></td><td><span class="v v2">Obligatoire</span></td></tr>
+
+    <tr class="section-row"><td colspan="5">Plateforme & avantages</td></tr>
+    <tr><td class="crit">Mise en avant FOODIE</td><td><span class="v no">—</span></td><td><span class="v">Standard</span></td><td><span class="v lim">Prioritaire 1 an</span></td><td><span class="v v2">À définir V2</span></td></tr>
+    <tr><td class="crit">Comité consultatif trimestriel</td><td><span class="v no">—</span></td><td><span class="v no">—</span></td><td><span class="v lim">✓ 4×/an</span></td><td><span class="v no">—</span></td></tr>
+    <tr><td class="crit">Accès anticipé V1.5/V2</td><td><span class="v no">—</span></td><td><span class="v no">—</span></td><td><span class="v lim">✓</span></td><td><span class="v no">—</span></td></tr>
+    <tr><td class="crit">Mention Fondateur permanente</td><td><span class="v no">—</span></td><td><span class="v no">—</span></td><td><span class="v lim">✓ Sceau gravé</span></td><td><span class="v no">—</span></td></tr>
+    <tr><td class="crit">Surfaces Apple disponibles</td><td><span class="v">8 (toutes)</span></td><td><span class="v">8 (dashboard)</span></td><td><span class="v">8 (dashboard)</span></td><td><span class="v v2">8 (V2)</span></td></tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td class="crit">→ Action</td>
+      <td><a class="cta" href="https://apps.apple.com/app/id6759874216">App Store →</a></td>
+      <td><a class="cta" href="mailto:producteurs@foodie.fr">Rejoindre →</a></td>
+      <td class="fondateur"><a class="cta" href="mailto:producteurs@foodie.fr?subject=Fondateur">Postuler →</a></td>
+      <td class="chef"><a class="cta" href="mailto:contact@ehads-agency.fr?subject=Chef">Pré-inscrire →</a></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+
+<footer>
+  <strong>E&HADS Agency SASU</strong> · SIRET 932 700 271 00012 · Hébergeur LCEN art. 6.I.2 · Marque FOODIE® Alexandre Sand · <a href="/conditions-generales/">CGU</a> · <a href="/privacy-fr/">Confidentialité</a>
+  <p class="sig">De l'Eden à l'Horizon, par la voie du média.</p>
+</footer>
+</body></html>

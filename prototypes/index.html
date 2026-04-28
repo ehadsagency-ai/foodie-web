@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOODIE — 5 prototypes alternatifs (rôles)</title>
+<meta name="description" content="5 prototypes alternatifs pour présenter les 4 rôles FOODIE (Customer, Producteur, Fondateur, Chef) avec des composants différents.">
+<meta name="theme-color" content="#FF0000">
+<link rel="icon" href="/foodie-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0D0D0D;--muted:#6C757D;--bg:#FAF7F2;--surface:#FFFFFF;--line:#E5E5E5;--primary:#FF0000;--primary-a:#CC0000;--gold:#D4A574;--purple:#2F2144}
+body{font-family:'EB Garamond',serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:inherit;text-decoration:none}
+
+.topbar{background:var(--surface);border-bottom:1px solid var(--line);padding:14px 24px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:10}
+.topbar img{width:40px;height:40px}
+.topbar .brand{font-family:'Inter',sans-serif;font-weight:800;font-size:1rem}
+.topbar .meta{font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding-left:14px;margin-left:6px;border-left:1px solid var(--line)}
+.topbar nav{margin-left:auto;display:flex;gap:18px;font-family:'Inter',sans-serif;font-size:0.875rem}
+.topbar nav a{color:var(--muted)}
+.topbar nav a:hover{color:var(--primary)}
+
+main{max-width:1200px;margin:0 auto;padding:64px 24px 96px}
+.intro{text-align:center;margin-bottom:64px}
+.intro h1{font-family:'Inter',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.025em;color:var(--purple);margin-bottom:14px}
+.intro h1 em{font-style:italic;color:var(--primary)}
+.intro p{max-width:64ch;margin:0 auto 14px;font-size:1.0625rem;color:var(--ink)}
+.intro .doctrine{font-family:'Inter',sans-serif;font-size:0.875rem;color:var(--muted);margin-top:24px;padding:18px 24px;background:var(--surface);border-left:3px solid var(--gold);text-align:left;max-width:720px;margin-left:auto;margin-right:auto;line-height:1.6}
+.intro .doctrine strong{color:var(--purple);font-weight:600}
+.intro .doctrine code{background:#FFF8E6;padding:2px 6px;border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:0.875rem;color:var(--primary)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:transform 200ms,border-color 200ms}
+.card:hover{transform:translateY(-4px);border-color:var(--primary)}
+.card .preview{aspect-ratio:16/10;border-bottom:1px solid var(--line);position:relative;overflow:hidden;background:var(--bg)}
+.card .preview iframe{position:absolute;left:0;top:0;width:200%;height:200%;transform:scale(0.5);transform-origin:top left;border:0;pointer-events:none}
+.card .body{padding:28px}
+.card .label{font-family:'Inter',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.card h3{font-family:'Inter',sans-serif;font-size:1.375rem;font-weight:800;letter-spacing:-0.015em;color:var(--purple);margin-bottom:8px}
+.card .tagline{font-family:'EB Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink);margin-bottom:16px;line-height:1.4}
+.card .components{font-family:'Inter',sans-serif;font-size:0.8125rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.card .components strong{color:var(--ink);font-weight:600}
+.card .components ul{list-style:none;padding:0;margin:8px 0 0}
+.card .components ul li{padding-left:18px;position:relative;margin-bottom:4px}
+.card .components ul li::before{content:'+';position:absolute;left:0;color:var(--primary);font-weight:700}
+.card .ctas{display:flex;gap:8px;flex-wrap:wrap}
+.card .btn{display:inline-flex;align-items:center;padding:8px 16px;border-radius:4px;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:0.02em}
+.card .btn-pri{background:var(--primary);color:#fff}
+.card .btn-pri:hover{background:var(--primary-a)}
+
+.note{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:32px;margin-top:48px;text-align:center}
+.note h2{font-family:'Inter',sans-serif;font-size:1.25rem;font-weight:700;color:var(--purple);margin-bottom:12px}
+.note p{font-size:0.9375rem;color:var(--muted);max-width:60ch;margin:0 auto 12px}
+.note code{background:var(--bg);padding:2px 8px;border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:0.875rem;color:var(--primary)}
+
+footer{padding:32px 24px;text-align:center;color:var(--muted);font-size:0.8125rem;border-top:1px solid var(--line);background:var(--surface);font-family:'Inter',sans-serif}
+footer .sig{font-style:italic;color:var(--purple);margin-top:14px;font-family:'EB Garamond',serif}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="/" style="display:flex;align-items:center;gap:14px"><img src="/foodie-logo.png" alt=""><span class="brand">FOODIE</span></a>
+  <span class="meta">5 prototypes rôles</span>
+  <nav>
+    <a href="/">← Landing actuelle</a>
+    <a href="/styles/">Styles précédents</a>
+  </nav>
+</header>
+
+<main>
+<section class="intro">
+  <h1>Cinq prototypes <em>autres composants</em> pour les rôles.</h1>
+  <p>Cinq alternatives à la grille 4 cards déjà utilisée sur la home et aux 4 pages dédiées. Chaque prototype présente Customer, Producteur, Fondateur et Chef avec des composants <strong>différents</strong>.</p>
+  <div class="doctrine">
+    <strong>Composants déjà utilisés (à éviter ici) :</strong> grille 4 cards rôle, role-features grid, role-numbers stats grid, role-faq dl/dt/dd, hero asymétrique 2 colonnes, marquee saison, OrbitingCircles écosystème, role-cta-band, cross-links 3 boutons.<br>
+    <strong>Composants nouveaux introduits :</strong> <code>tab-nav scroll-spy</code>, <code>comparison table sticky-header</code>, <code>bento grid asymétrique</code>, <code>quiz-stepper progress-bar</code>, <code>magazine masthead + drop-cap + pull-quote + multi-column + sidebar</code>.
+  </div>
+</section>
+
+<div class="grid">
+
+  <article class="card">
+    <div class="preview"><iframe src="/prototypes/a-tabs-onepager/" loading="lazy" title="Aperçu A"></iframe></div>
+    <div class="body">
+      <span class="label">Prototype A</span>
+      <h3>Sticky Tabs — One-Pager</h3>
+      <p class="tagline">Une seule page, quatre sections plein-écran, navigation par onglets sticky avec scroll-spy actif.</p>
+      <p class="components"><strong>Composants nouveaux :</strong>
+        <ul>
+          <li>Tab-nav sticky horizontale avec border-bottom 3 px primary sur tab active</li>
+          <li>Scroll-spy via IntersectionObserver natif (sans lib)</li>
+          <li>Sections one-pager 80vh chacune avec scroll-margin-top</li>
+          <li>Stats inline definition-list (au lieu de grid cards)</li>
+          <li>Quotes border-left or au lieu de cards</li>
+        </ul>
+      </p>
+      <div class="ctas"><a class="btn btn-pri" href="/prototypes/a-tabs-onepager/">Voir le prototype A →</a></div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="preview"><iframe src="/prototypes/b-comparison-table/" loading="lazy" title="Aperçu B"></iframe></div>
+    <div class="body">
+      <span class="label">Prototype B</span>
+      <h3>Tableau comparatif dense</h3>
+      <p class="tagline">Quatre rôles, dix-huit critères, une seule table. Sticky header noir, lignes zébrées, hover ambre.</p>
+      <p class="components"><strong>Composants nouveaux :</strong>
+        <ul>
+          <li>Comparison-table 4 colonnes × 18 lignes</li>
+          <li>Sticky thead position:sticky avec ombre</li>
+          <li>Section-row regroupements (Identité, Économie, Conformité, Plateforme)</li>
+          <li>Légende dot colorée (yes / lim / v2 / no) au-dessus de la table</li>
+          <li>tfoot avec CTAs alignés colonne par colonne</li>
+        </ul>
+      </p>
+      <div class="ctas"><a class="btn btn-pri" href="/prototypes/b-comparison-table/">Voir le prototype B →</a></div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="preview"><iframe src="/prototypes/c-bento-grid/" loading="lazy" title="Aperçu C"></iframe></div>
+    <div class="body">
+      <span class="label">Prototype C</span>
+      <h3>Bento Grid Apple-style</h3>
+      <p class="tagline">Cards de tailles asymétriques (3×3, 2×2, 3×2, 1×1) qui composent une mosaïque visuelle.</p>
+      <p class="components"><strong>Composants nouveaux :</strong>
+        <ul>
+          <li>Bento grid 6 colonnes × auto-rows 160 px avec span variable</li>
+          <li>Statement card 3×3 (gradient ink→purple, halo radial rouge)</li>
+          <li>4 role-cards 2×2 avec couleur dominante par rôle</li>
+          <li>Stat-cards 1×1 (num XXL primary)</li>
+          <li>Quote-card or moutarde + cta-card noire + legal-card minimaliste</li>
+        </ul>
+      </p>
+      <div class="ctas"><a class="btn btn-pri" href="/prototypes/c-bento-grid/">Voir le prototype C →</a></div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="preview"><iframe src="/prototypes/d-quiz-orientation/" loading="lazy" title="Aperçu D"></iframe></div>
+    <div class="body">
+      <span class="label">Prototype D</span>
+      <h3>Quiz d'orientation interactif</h3>
+      <p class="tagline">Quatre questions guidées, un rôle suggéré. Stepper avec progress bar segmentée.</p>
+      <p class="components"><strong>Composants nouveaux :</strong>
+        <ul>
+          <li>Progress bar segmentée 4 segments (line / current / done)</li>
+          <li>Choice-card radio fancy (dot animé + hover ambre + selected primary)</li>
+          <li>Stepper logic JS sans dépendance (4 questions → résultat)</li>
+          <li>Result-screen avec icon-big + badge + promise + cta</li>
+          <li>Logique d'orientation : intention (Q1) × disqualifications (Q2-Q4) → rôle</li>
+        </ul>
+      </p>
+      <div class="ctas"><a class="btn btn-pri" href="/prototypes/d-quiz-orientation/">Voir le prototype D →</a></div>
+    </div>
+  </article>
+
+  <article class="card" style="grid-column:span 2">
+    <div class="preview"><iframe src="/prototypes/e-magazine-longread/" loading="lazy" title="Aperçu E"></iframe></div>
+    <div class="body">
+      <span class="label">Prototype E</span>
+      <h3>Magazine Longread</h3>
+      <p class="tagline">Format Le Monde Diplomatique. Masthead, drop-cap, pull-quotes, multi-colonnes, sidebar flottante, dividers étoile.</p>
+      <p class="components"><strong>Composants nouveaux :</strong>
+        <ul>
+          <li>Masthead magazine (ribbon + title display + meta byline)</li>
+          <li>Drop-cap première lettre 5,5 rem rouge + first-line uppercase Inter</li>
+          <li>Pull-quotes magazine 2 rem italique avec cite</li>
+          <li>Multi-column 2 colonnes avec column-rule 1 px (CSS columns natif)</li>
+          <li>Sidebar flottante float:right avec dl/dt/dd encadré</li>
+          <li>Chapter headings numérotés (Acte premier, deuxième, troisième, quatrième)</li>
+          <li>Dividers étoile entre sections</li>
+          <li>Final-CTA noir+or au format encadré bordure 3 px double</li>
+        </ul>
+      </p>
+      <div class="ctas"><a class="btn btn-pri" href="/prototypes/e-magazine-longread/">Voir le prototype E →</a></div>
+    </div>
+  </article>
+
+</div>
+
+<section class="note">
+  <h2>Comment me dire ton choix</h2>
+  <p>Visite chacun des 5 prototypes dans son onglet. Tu peux ensuite : <code>« Je prends le Prototype X »</code> et je remonte la version au niveau racine, OU <code>« Le tableau du B + le bento du C + le masthead du E »</code> et je mixe les composants en une page hybride finale.</p>
+</section>
+
+</main>
+
+<footer>
+  Édité par <strong>E&HADS Agency SASU</strong> · SIRET 932 700 271 00012 · Hébergeur LCEN art. 6.I.2 · Marque FOODIE® Alexandre Sand
+  <p class="sig">De l'Eden à l'Horizon, par la voie du média.</p>
+</footer>
+</body></html>

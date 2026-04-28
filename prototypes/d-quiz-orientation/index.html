@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOODIE — Prototype D · Quiz d'orientation</title>
+<meta name="theme-color" content="#FF0000">
+<link rel="icon" href="/foodie-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0D0D0D;--muted:#6C757D;--bg:#FAF7F2;--surface:#FFFFFF;--line:#E5E5E5;--primary:#FF0000;--gold:#D4A574;--purple:#2F2144}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+.proto-tag{position:fixed;top:8px;right:8px;background:var(--purple);color:var(--gold);padding:6px 12px;border-radius:999px;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;z-index:100}
+
+header{padding:24px 32px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);background:var(--surface)}
+header img{width:36px;height:36px}
+header .brand{font-weight:800;font-size:1rem}
+header .back{margin-left:auto;font-size:0.8125rem;color:var(--muted)}
+
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 24px}
+.quiz{width:100%;max-width:680px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:40px;box-shadow:0 1px 0 rgba(0,0,0,0.04)}
+
+/* COMPOSANT NOUVEAU 1 : Progress bar segmentée */
+.progress{display:flex;gap:6px;margin-bottom:24px}
+.progress .seg{flex:1;height:4px;background:var(--line);border-radius:999px;transition:background 200ms}
+.progress .seg.done{background:var(--primary)}
+.progress .seg.current{background:var(--gold)}
+
+.q-label{font-family:'Inter',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.q-title{font-family:'Inter',sans-serif;font-size:clamp(1.5rem,3.5vw,2rem);font-weight:800;letter-spacing:-0.02em;line-height:1.15;color:var(--ink);margin-bottom:8px}
+.q-help{font-family:'EB Garamond',serif;font-style:italic;font-size:1rem;color:var(--muted);margin-bottom:32px}
+
+/* COMPOSANT NOUVEAU 2 : Choice cards radio fancy */
+.choices{display:grid;gap:12px}
+.choice{display:flex;align-items:center;gap:14px;padding:18px 20px;background:var(--bg);border:2px solid transparent;border-radius:8px;cursor:pointer;transition:border-color 200ms,background 200ms;font-size:0.9375rem;font-weight:500}
+.choice input{display:none}
+.choice .dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--muted);flex-shrink:0;position:relative;transition:border-color 200ms}
+.choice input:checked+.dot{border-color:var(--primary)}
+.choice input:checked+.dot::after{content:'';position:absolute;inset:3px;background:var(--primary);border-radius:50%}
+.choice:hover{border-color:var(--gold);background:#FFF8E6}
+.choice.selected{border-color:var(--primary);background:#FFEEEE}
+.choice .ico{font-size:1.25rem;margin-left:auto}
+
+.q-actions{display:flex;justify-content:space-between;margin-top:32px}
+.btn{padding:12px 24px;border-radius:6px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;cursor:pointer;border:none;transition:transform 200ms,background 200ms}
+.btn-back{background:transparent;color:var(--muted)}
+.btn-back:hover{color:var(--ink)}
+.btn-next{background:var(--ink);color:#fff}
+.btn-next:hover{background:var(--primary);transform:translateY(-1px)}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+
+/* Result */
+.result{display:none}
+.result.active{display:block}
+.result .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:16px;background:var(--primary);color:#fff}
+.result .ico-big{font-size:4rem;display:block;margin-bottom:12px}
+.result h2{font-family:'Inter',sans-serif;font-size:2.5rem;font-weight:800;letter-spacing:-0.025em;margin-bottom:12px}
+.result h2 em{font-style:italic;color:var(--primary)}
+.result .promise{font-family:'EB Garamond',serif;font-style:italic;font-size:1.25rem;color:var(--purple);margin-bottom:24px;padding-left:18px;border-left:3px solid var(--gold)}
+.result p{font-size:1rem;color:var(--ink);line-height:1.7;margin-bottom:20px}
+.result .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.result a.cta{padding:14px 26px;border-radius:6px;font-weight:700;font-size:0.875rem;background:var(--primary);color:#fff;display:inline-flex;align-items:center;gap:8px}
+.result a.cta:hover{background:#CC0000}
+.result a.alt{padding:14px 26px;border-radius:6px;font-weight:600;font-size:0.875rem;color:var(--ink);border:1px solid var(--line)}
+.result a.restart{background:transparent;border:none;color:var(--muted);font-size:0.8125rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0;margin-top:18px;display:inline-block}
+
+footer{padding:24px 32px;text-align:center;font-size:0.75rem;color:var(--muted);background:var(--surface);border-top:1px solid var(--line)}
+footer .sig{font-style:italic;color:var(--purple);margin-top:6px;font-family:'EB Garamond',serif;font-size:0.875rem}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<span class="proto-tag">Prototype D · Quiz</span>
+
+<header>
+  <img src="/foodie-logo.png" alt="">
+  <span class="brand">FOODIE — Quiz d'orientation</span>
+  <a class="back" href="/">← accueil</a>
+</header>
+
+<main>
+<form class="quiz" id="quiz" novalidate>
+
+  <!-- COMPOSANT NOUVEAU : Progress bar segmentée -->
+  <div class="progress" id="progress" aria-hidden="true">
+    <div class="seg current"></div>
+    <div class="seg"></div>
+    <div class="seg"></div>
+    <div class="seg"></div>
+  </div>
+
+  <!-- Question 1 -->
+  <div class="step" data-step="1">
+    <span class="q-label">Question 1 / 4</span>
+    <h2 class="q-title">Vous arrivez sur FOODIE pour…</h2>
+    <p class="q-help">Choisissez la situation qui décrit le mieux votre intention.</p>
+    <div class="choices">
+      <label class="choice"><input type="radio" name="q1" value="customer"><span class="dot"></span>Acheter des produits de saison près de chez moi <span class="ico">🛒</span></label>
+      <label class="choice"><input type="radio" name="q1" value="producteur"><span class="dot"></span>Vendre ma production agricole en direct <span class="ico">🌾</span></label>
+      <label class="choice"><input type="radio" name="q1" value="chef"><span class="dot"></span>Proposer mes plats préparés au voisinage <span class="ico">👨‍🍳</span></label>
+    </div>
+    <div class="q-actions"><span></span><button type="button" class="btn btn-next" data-go="2" disabled>Suivant →</button></div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="step" data-step="2" style="display:none">
+    <span class="q-label">Question 2 / 4</span>
+    <h2 class="q-title">Vous êtes situé…</h2>
+    <p class="q-help">Le programme Fondateurs est strictement réservé à la zone pilote initiale.</p>
+    <div class="choices">
+      <label class="choice"><input type="radio" name="q2" value="charente"><span class="dot"></span>En Charente-Maritime (zone pilote) <span class="ico">📍</span></label>
+      <label class="choice"><input type="radio" name="q2" value="france"><span class="dot"></span>Ailleurs en France métropolitaine <span class="ico">🗺️</span></label>
+      <label class="choice"><input type="radio" name="q2" value="other"><span class="dot"></span>Hors France métropolitaine <span class="ico">🌍</span></label>
+    </div>
+    <div class="q-actions"><button type="button" class="btn btn-back" data-go="1">← Retour</button><button type="button" class="btn btn-next" data-go="3" disabled>Suivant →</button></div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="step" data-step="3" style="display:none">
+    <span class="q-label">Question 3 / 4</span>
+    <h2 class="q-title">Votre statut juridique ?</h2>
+    <p class="q-help">FOODIE n'accepte ni particuliers en vente, ni cuisiniers sans formation HACCP.</p>
+    <div class="choices">
+      <label class="choice"><input type="radio" name="q3" value="particulier"><span class="dot"></span>Je suis un particulier (consommateur) <span class="ico">👤</span></label>
+      <label class="choice"><input type="radio" name="q3" value="agri"><span class="dot"></span>Je suis exploitant agricole immatriculé <span class="ico">🚜</span></label>
+      <label class="choice"><input type="radio" name="q3" value="resto"><span class="dot"></span>Je suis auto-entrepreneur restauration ou société <span class="ico">🍴</span></label>
+    </div>
+    <div class="q-actions"><button type="button" class="btn btn-back" data-go="2">← Retour</button><button type="button" class="btn btn-next" data-go="4" disabled>Suivant →</button></div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="step" data-step="4" style="display:none">
+    <span class="q-label">Question 4 / 4</span>
+    <h2 class="q-title">Êtes-vous prêt à un engagement de trois ans ?</h2>
+    <p class="q-help">Le programme Fondateurs requiert un engagement Producteur de 3 ans en contrepartie du tarif 10 % à vie.</p>
+    <div class="choices">
+      <label class="choice"><input type="radio" name="q4" value="oui"><span class="dot"></span>Oui, je peux m'engager 3 ans <span class="ico">✅</span></label>
+      <label class="choice"><input type="radio" name="q4" value="non"><span class="dot"></span>Non, je préfère le tarif standard sans engagement <span class="ico">↩️</span></label>
+      <label class="choice"><input type="radio" name="q4" value="na"><span class="dot"></span>Sans objet (je ne suis pas vendeur) <span class="ico">—</span></label>
+    </div>
+    <div class="q-actions"><button type="button" class="btn btn-back" data-go="3">← Retour</button><button type="button" class="btn btn-next" id="result-btn" disabled>Voir le résultat →</button></div>
+  </div>
+
+  <!-- Result -->
+  <div class="result" id="result">
+    <span class="badge" id="result-badge">Votre rôle</span>
+    <span class="ico-big" id="result-icon">🛒</span>
+    <h2 id="result-title">Customer</h2>
+    <p class="promise" id="result-promise">« Mangez ce que vous voulez, où vous voulez. »</p>
+    <p id="result-explain">Vous avez le profil pour découvrir les Producteurs de votre rayon. Téléchargez l'application et activez votre géolocalisation pour explorer le catalogue circuit court.</p>
+    <div class="actions">
+      <a class="cta" id="result-cta" href="https://apps.apple.com/app/id6759874216">Disponible sur l'App Store →</a>
+      <a class="alt" id="result-detail" href="/customer/">Page Customer complète</a>
+    </div>
+    <a class="restart" id="restart" href="#">↻ Refaire le quiz</a>
+  </div>
+
+</form>
+</main>
+
+<footer>
+  <strong>E&HADS Agency SASU</strong> · SIRET 932 700 271 00012 · Hébergeur LCEN art. 6.I.2 · <a href="/conditions-generales/">CGU</a> · <a href="/privacy-fr/">Confidentialité</a>
+  <p class="sig">De l'Eden à l'Horizon, par la voie du média.</p>
+</footer>
+
+<script>
+const ROLES = {
+  customer:{title:'Customer',icon:'🛒',badge:'Votre rôle',promise:'« Mangez ce que vous voulez, où vous voulez, et c\\'est de chez vous. »',explain:'Vous avez le profil Customer. Téléchargez l\\'application FOODIE et activez votre géolocalisation pour découvrir les Producteurs de votre rayon, leurs produits de saison et leurs créneaux de retrait.',cta:'https://apps.apple.com/app/id6759874216',ctaLabel:'Disponible sur l\\'App Store →',detail:'/customer/',detailLabel:'Page Customer complète'},
+  producteur:{title:'Producteur',icon:'🌾',badge:'V0 disponible',promise:'« Vendez en direct, gardez la main, gardez la marge. »',explain:'Vous avez le profil Producteur standard FOODIE. Commission technique de 15 % HT, virement SEPA mensuel, indexation IPC plafonnée 5 %/an, sortie sans pénalité préavis 30 jours.',cta:'mailto:producteurs@foodie.fr?subject=Inscription%20Producteur',ctaLabel:'Rejoindre FOODIE →',detail:'/producteur/',detailLabel:'Page Producteur complète'},
+  fondateur:{title:'Fondateur',icon:'⭐',badge:'V0 limité · 20 places',promise:'« Bâtissez la première table de Charente-Maritime, gardez la couronne à vie. »',explain:'Félicitations, vous remplissez les conditions du programme Fondateurs : exploitation Charente-Maritime, statut agricole, engagement 3 ans. Commission 10 % HT à vie, mise en avant prioritaire un an, comité consultatif trimestriel.',cta:'mailto:producteurs@foodie.fr?subject=Programme%20Fondateurs%20Charente-Maritime',ctaLabel:'Postuler Fondateur →',detail:'/fondateur/',detailLabel:'Page Fondateur complète'},
+  chef:{title:'Chef',icon:'👨‍🍳',badge:'V2 — automne 2026',promise:'« Cuisinez le terroir de votre rayon. »',explain:'Vous avez le profil Chef. Cette ouverture est prévue pour l\\'automne 2026 (Phase 2 du scope FOODIE). Inscrivez-vous dès maintenant à la liste prioritaire pour être notifié à l\\'ouverture et bénéficier de la première vague.',cta:'mailto:contact@ehads-agency.fr?subject=Pre-inscription%20Chef%20V2',ctaLabel:'Pré-inscription V2 →',detail:'/chef/',detailLabel:'Page Chef complète'}
+};
+
+const answers = {q1:null,q2:null,q3:null,q4:null};
+
+document.querySelectorAll('input[type="radio"]').forEach(r=>{
+  r.addEventListener('change',()=>{
+    const step = r.closest('.step');
+    answers[r.name] = r.value;
+    step.querySelectorAll('.choice').forEach(c=>c.classList.remove('selected'));
+    r.closest('.choice').classList.add('selected');
+    const nextBtn = step.querySelector('.btn-next');
+    if(nextBtn) nextBtn.disabled = false;
+  });
+});
+
+const segs = document.querySelectorAll('.progress .seg');
+function setStep(n){
+  document.querySelectorAll('.step').forEach(s=>s.style.display='none');
+  document.getElementById('result').classList.remove('active');
+  if(n==='result'){ showResult(); return; }
+  document.querySelector(`[data-step="${n}"]`).style.display='block';
+  segs.forEach((s,i)=>{
+    s.classList.remove('done','current');
+    if(i+1<n) s.classList.add('done');
+    else if(i+1===n) s.classList.add('current');
+  });
+}
+
+document.querySelectorAll('[data-go]').forEach(b=>{
+  b.addEventListener('click',()=>setStep(parseInt(b.dataset.go)));
+});
+
+document.getElementById('result-btn').addEventListener('click',()=>{
+  document.querySelectorAll('.step').forEach(s=>s.style.display='none');
+  segs.forEach(s=>{s.classList.remove('current');s.classList.add('done')});
+  document.getElementById('result').classList.add('active');
+  showResult();
+});
+
+function showResult(){
+  // Logique simple : intention (q1) prime sauf si q3 disqualifie ou q2/q4 modulent
+  let role = 'customer';
+  if(answers.q1==='customer'){
+    role = 'customer';
+  } else if(answers.q1==='producteur'){
+    if(answers.q3==='particulier'){
+      role = 'customer'; // particulier ne peut pas vendre
+    } else if(answers.q3==='resto'){
+      role = 'chef';
+    } else if(answers.q2==='charente' && answers.q4==='oui' && answers.q3==='agri'){
+      role = 'fondateur';
+    } else {
+      role = 'producteur';
+    }
+  } else if(answers.q1==='chef'){
+    if(answers.q3==='particulier'){
+      role = 'customer';
+    } else {
+      role = 'chef';
+    }
+  }
+  const r = ROLES[role];
+  document.getElementById('result-icon').textContent = r.icon;
+  document.getElementById('result-badge').textContent = r.badge;
+  document.getElementById('result-title').textContent = r.title;
+  document.getElementById('result-promise').textContent = r.promise;
+  document.getElementById('result-explain').textContent = r.explain;
+  document.getElementById('result-cta').href = r.cta;
+  document.getElementById('result-cta').textContent = r.ctaLabel;
+  document.getElementById('result-detail').href = r.detail;
+  document.getElementById('result-detail').textContent = r.detailLabel;
+}
+
+document.getElementById('restart').addEventListener('click',(e)=>{
+  e.preventDefault();
+  Object.keys(answers).forEach(k=>answers[k]=null);
+  document.querySelectorAll('input').forEach(i=>i.checked=false);
+  document.querySelectorAll('.choice').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.btn-next').forEach(b=>b.disabled=true);
+  setStep(1);
+});
+</script>
+</body></html>

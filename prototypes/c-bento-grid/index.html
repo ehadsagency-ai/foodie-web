@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOODIE — Prototype C · Bento Grid</title>
+<meta name="theme-color" content="#FF0000">
+<link rel="icon" href="/foodie-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0D0D0D;--muted:#6C757D;--bg:#F0EDE6;--surface:#FFFFFF;--line:#E5E5E5;--primary:#FF0000;--gold:#D4A574;--gold-l:#E8C896;--purple:#2F2144}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.proto-tag{position:fixed;top:8px;right:8px;background:var(--purple);color:var(--gold);padding:6px 12px;border-radius:999px;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;z-index:100}
+
+.bento-head{padding:36px 32px 24px;display:flex;align-items:center;gap:16px;max-width:1280px;margin:0 auto}
+.bento-head img{width:42px;height:42px}
+.bento-head h1{font-weight:800;font-size:1.125rem;letter-spacing:-0.01em}
+.bento-head .sub{font-size:0.875rem;color:var(--muted);margin-left:auto}
+
+/* COMPOSANT NOUVEAU 1 : Bento grid asymétrique (Apple style) */
+.bento{padding:0 32px 64px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:160px;gap:14px}
+
+/* Card statement géante (3x3) — slogan principal */
+.bento .b-statement{grid-column:span 3;grid-row:span 3;background:linear-gradient(135deg,var(--ink) 0%,var(--purple) 100%);color:#fff;padding:48px 40px;border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.bento .b-statement::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,0,0,0.18),transparent);pointer-events:none}
+.bento .b-statement .small{font-family:'EB Garamond',serif;font-style:italic;font-size:1rem;color:var(--gold);margin-bottom:16px;position:relative}
+.bento .b-statement h2{font-family:'EB Garamond',serif;font-weight:500;font-size:clamp(2rem,3.5vw,3.5rem);line-height:1;letter-spacing:-0.02em;position:relative}
+.bento .b-statement h2 em{font-style:italic;color:var(--gold);font-weight:400}
+.bento .b-statement .footer{display:flex;align-items:center;gap:14px;position:relative}
+.bento .b-statement .footer img{width:48px;height:48px;border-radius:50%;background:#fff;padding:4px}
+.bento .b-statement .footer span{font-size:0.875rem;font-weight:600;letter-spacing:-0.005em}
+
+/* Cards rôle (2x2) */
+.bento .b-role{grid-column:span 2;grid-row:span 2;border-radius:14px;padding:28px 26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:transform 200ms}
+.bento .b-role:hover{transform:translateY(-3px)}
+.bento .b-role .top{display:flex;justify-content:space-between;align-items:start}
+.bento .b-role .ico{font-size:2rem}
+.bento .b-role .stage{font-family:'Inter',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+.bento .b-role h3{font-weight:800;font-size:1.5rem;letter-spacing:-0.025em;margin:14px 0 6px}
+.bento .b-role .promise{font-family:'EB Garamond',serif;font-style:italic;font-size:0.9375rem;line-height:1.4;opacity:0.85}
+.bento .b-role a.go{font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.04em;margin-top:auto;padding-top:14px;display:flex;align-items:center;gap:6px;border-top:1px solid currentColor;opacity:0.5;transition:opacity 200ms;border-top-color:rgba(0,0,0,0.15)}
+.bento .b-role:hover a.go{opacity:1}
+
+.b-customer{background:var(--surface);color:var(--ink);grid-column:span 3}
+.b-customer .stage{background:var(--purple);color:var(--gold)}
+.b-customer a.go{color:var(--purple)}
+
+.b-producteur{background:var(--gold-l);color:var(--ink)}
+.b-producteur .stage{background:var(--ink);color:var(--gold)}
+.b-producteur a.go{color:var(--ink);border-top-color:rgba(0,0,0,0.2)}
+
+.b-fondateur{background:var(--primary);color:#fff}
+.b-fondateur .stage{background:#fff;color:var(--primary)}
+.b-fondateur a.go{color:#fff;border-top-color:rgba(255,255,255,0.4);opacity:0.7}
+.b-fondateur:hover a.go{opacity:1}
+
+.b-chef{background:var(--purple);color:#fff}
+.b-chef .stage{background:var(--gold);color:var(--purple)}
+.b-chef a.go{color:var(--gold);border-top-color:rgba(255,255,255,0.3);opacity:0.7}
+.b-chef:hover a.go{opacity:1}
+
+/* Cards stats / écosystème (sizes diverses) */
+.bento .b-eco{grid-column:span 3;grid-row:span 2;background:var(--surface);border-radius:14px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
+.bento .b-eco .label{font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.bento .b-eco h3{font-family:'EB Garamond',serif;font-style:italic;font-size:1.5rem;font-weight:500;line-height:1.2;margin-bottom:10px}
+.bento .b-eco .icons{display:flex;gap:10px;flex-wrap:wrap;font-size:1.5rem}
+
+.bento .b-stat{background:var(--surface);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
+.bento .b-stat .num{font-family:'Inter',sans-serif;font-weight:900;font-size:2.5rem;letter-spacing:-0.04em;line-height:1;color:var(--primary)}
+.bento .b-stat .label{font-size:0.75rem;font-weight:600;letter-spacing:0.06em;color:var(--muted);margin-top:6px;text-transform:uppercase}
+
+.bento .b-cta{grid-column:span 3;background:var(--ink);color:#fff;border-radius:14px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.bento .b-cta div{flex:1}
+.bento .b-cta h3{font-weight:700;font-size:1.125rem;margin-bottom:4px}
+.bento .b-cta p{font-size:0.875rem;opacity:0.7}
+.bento .b-cta a{background:#fff;color:var(--ink);padding:12px 22px;border-radius:8px;font-weight:700;font-size:0.875rem;white-space:nowrap;transition:background 200ms}
+.bento .b-cta a:hover{background:var(--gold)}
+
+.bento .b-quote{background:var(--gold);color:var(--ink);border-radius:14px;padding:24px 28px;display:flex;align-items:center;font-family:'EB Garamond',serif;font-style:italic;font-size:1.125rem;line-height:1.4}
+
+.bento .b-legal{background:var(--surface);border-radius:14px;padding:20px 24px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;font-size:0.8125rem;color:var(--muted);line-height:1.5}
+.bento .b-legal strong{color:var(--ink)}
+.bento .b-legal a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
+
+footer{padding:32px;text-align:center;font-size:0.8125rem;color:var(--muted);border-top:1px solid var(--line);background:var(--surface);font-family:'Inter',sans-serif}
+footer .sig{font-style:italic;color:var(--purple);margin-top:10px;font-family:'EB Garamond',serif}
+
+@media (prefers-reduced-motion:reduce){.bento .b-role:hover{transform:none}*{transition:none!important}}
+@media (max-width:920px){
+  .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto}
+  .bento .b-statement,.bento .b-customer,.bento .b-producteur,.bento .b-fondateur,.bento .b-chef,.bento .b-eco,.bento .b-stat,.bento .b-cta,.bento .b-quote,.bento .b-legal{grid-column:span 2;grid-row:auto}
+  .bento .b-statement{padding:32px 24px;min-height:280px}
+  .bento .b-role{min-height:200px}
+}
+</style>
+</head>
+<body>
+<span class="proto-tag">Prototype C · Bento</span>
+
+<header class="bento-head">
+  <img src="/foodie-logo.png" alt="">
+  <h1>FOODIE — Bento</h1>
+  <span class="sub"><a href="/">← retour accueil</a></span>
+</header>
+
+<!-- COMPOSANT NOUVEAU : Bento grid asymétrique avec cards de tailles 3x3, 2x2, 3x2, 1x1 -->
+<main class="bento">
+
+  <article class="b-statement">
+    <span class="small">Project Terroir</span>
+    <h2>La table<br><em>sans intermédiaire.</em></h2>
+    <div class="footer"><img src="/foodie-logo.png" alt=""><span>Édité par E&amp;HADS Agency · Charente-Maritime</span></div>
+  </article>
+
+  <article class="b-role b-customer">
+    <div class="top"><span class="ico">🛒</span><span class="stage">V0 disponible</span></div>
+    <div>
+      <h3>Customer</h3>
+      <p class="promise">« Mangez ce que vous voulez, où vous voulez, et c'est de chez vous. »</p>
+    </div>
+    <a class="go" href="/customer/">Page complète →</a>
+  </article>
+
+  <article class="b-role b-producteur">
+    <div class="top"><span class="ico">🌾</span><span class="stage">V0 disponible</span></div>
+    <div>
+      <h3>Producteur</h3>
+      <p class="promise">« Vendez en direct, gardez la main, gardez la marge. »</p>
+    </div>
+    <a class="go" href="/producteur/">Page complète →</a>
+  </article>
+
+  <article class="b-role b-fondateur">
+    <div class="top"><span class="ico">⭐</span><span class="stage">20 places</span></div>
+    <div>
+      <h3>Fondateur</h3>
+      <p class="promise">« Bâtissez la première table de Charente-Maritime, gardez la couronne à vie. »</p>
+    </div>
+    <a class="go" href="/fondateur/">Postuler →</a>
+  </article>
+
+  <article class="b-role b-chef">
+    <div class="top"><span class="ico">👨‍🍳</span><span class="stage">V2 — automne 2026</span></div>
+    <div>
+      <h3>Chef</h3>
+      <p class="promise">« Cuisinez le terroir de votre rayon, livrez à votre voisinage. »</p>
+    </div>
+    <a class="go" href="/chef/">Pré-inscription →</a>
+  </article>
+
+  <article class="b-eco">
+    <span class="label">Écosystème Apple</span>
+    <h3>Une app,<br>sept surfaces.</h3>
+    <div class="icons" aria-hidden="true">📱 ⌨️ ⌚ 📺 🥽 💻 ⚡ 🍃</div>
+  </article>
+
+  <article class="b-stat">
+    <div class="num">15 %</div>
+    <span class="label">Commission HT standard</span>
+  </article>
+
+  <article class="b-stat">
+    <div class="num">10 %</div>
+    <span class="label">À vie · Fondateurs</span>
+  </article>
+
+  <article class="b-stat">
+    <div class="num">25-80 km</div>
+    <span class="label">Rayon paramétrable</span>
+  </article>
+
+  <article class="b-cta">
+    <div>
+      <h3>Disponible sur l'App Store</h3>
+      <p>FOODIE — Project Terroir · Téléchargement gratuit</p>
+    </div>
+    <a href="https://apps.apple.com/app/id6759874216">Télécharger →</a>
+  </article>
+
+  <article class="b-quote">
+    Rouge baiser, or moutarde, violet profond — la table sans intermédiaire.
+  </article>
+
+  <article class="b-legal">
+    <strong>Statut LCEN art. 6.I.2</strong><br>
+    Aucun flux financier ne transite par l'application. Édité par E&amp;HADS Agency SASU · SIRET 932 700 271 00012 · Marque FOODIE® Alexandre Sand · <a href="/conditions-generales/">CGU</a>
+  </article>
+
+</main>
+
+<footer>
+  <strong>E&HADS Agency SASU</strong> · SIRET 932 700 271 00012 · Hébergeur LCEN art. 6.I.2 · <a href="/privacy-fr/">Confidentialité</a> · <a href="/cookies/">Cookies</a>
+  <p class="sig">De l'Eden à l'Horizon, par la voie du média.</p>
+</footer>
+</body></html>
