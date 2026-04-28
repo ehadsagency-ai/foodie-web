@@ -635,6 +635,484 @@ body {
 }
 .role-cross-links .links a:hover { border-color: var(--gold); color: var(--primary); }
 
+/* ============================================
+   MIX PROTOTYPES — pages rôle V2 (B+C+D+E)
+   ============================================ */
+
+/* Masthead magazine (E) */
+.role-masthead {
+  padding: 20px 24px;
+  border-top: 3px double var(--ink);
+  border-bottom: 3px double var(--ink);
+  background: var(--surface);
+  text-align: center;
+}
+.role-masthead .ribbon {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 6px;
+}
+.role-masthead .title-mh {
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  line-height: 1;
+}
+.role-masthead .meta-mh {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 6px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Article frame (E) */
+.role-article {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 56px 24px 48px;
+}
+.role-article .kicker {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.role-article .kicker .star { color: var(--gold-d); }
+.role-article .headline {
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.role-article .headline em {
+  font-style: italic;
+  color: var(--primary);
+}
+.role-article .deck {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--purple);
+  line-height: 1.5;
+  margin-bottom: 28px;
+  max-width: 60ch;
+}
+.role-article .byline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  margin-bottom: 36px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* Drop-cap lede (E) */
+.role-article .lede {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+.role-article .lede::first-letter {
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  font-size: 5rem;
+  float: left;
+  line-height: 0.85;
+  padding: 6px 14px 0 0;
+  color: var(--primary);
+  font-weight: 600;
+}
+.role-article .lede::first-line {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.role-article p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+/* Sidebar flottante (E) */
+.role-sidebar {
+  float: right;
+  width: 280px;
+  margin: 8px 0 24px 32px;
+  padding: 22px;
+  background: var(--surface);
+  border-top: 3px solid var(--gold-d);
+  border-bottom: 3px solid var(--gold-d);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.role-sidebar .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 10px;
+  display: block;
+}
+.role-sidebar h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.role-sidebar dl dt {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.role-sidebar dl dd {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9375rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.role-sidebar dl dd strong { font-weight: 600; }
+
+/* Pull-quote (E) */
+.role-pullquote {
+  margin: 48px -24px;
+  padding: 32px 40px;
+  border-left: 4px solid var(--primary);
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.3;
+  color: var(--ink);
+  position: relative;
+  background: var(--surface);
+}
+.role-pullquote::before {
+  content: '« ';
+  color: var(--primary);
+  font-size: 3rem;
+  line-height: 0;
+  position: absolute;
+  left: 8px;
+  top: 38px;
+}
+.role-pullquote cite {
+  display: block;
+  margin-top: 14px;
+  font-style: normal;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Divider étoile (E) */
+.role-divider {
+  text-align: center;
+  margin: 48px 0;
+  font-size: 1.5rem;
+  color: var(--gold-d);
+  letter-spacing: 1em;
+}
+
+/* Chapter heading (E) */
+.role-article h2.chapter {
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+  margin: 48px 0 8px;
+  line-height: 1.1;
+}
+.role-article .chapter-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Bento sub-grid features (C) */
+.role-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 140px;
+  gap: 12px;
+  margin: 24px 0 32px;
+}
+.role-bento .b-cell {
+  padding: 22px 20px;
+  background: var(--surface);
+  border-radius: 4px;
+  border-left: 3px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  transition: transform 200ms;
+}
+.role-bento .b-cell:hover { transform: translateY(-2px); }
+.role-bento .b-cell .icon {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  display: block;
+}
+.role-bento .b-cell h4 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  letter-spacing: -0.005em;
+}
+.role-bento .b-cell p {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+/* Variations sizes bento */
+.role-bento .b-cell.large { grid-column: span 2; grid-row: span 2; }
+.role-bento .b-cell.wide  { grid-column: span 2; }
+.role-bento .b-cell.tall  { grid-row: span 2; }
+.role-bento .b-cell.large h4 { font-size: 1.125rem; margin-bottom: 8px; }
+.role-bento .b-cell.large .icon { font-size: 2rem; }
+.role-bento .b-cell.large p { font-size: 0.9375rem; }
+
+/* Comparison table (B) */
+.role-comparison {
+  margin: 56px 0 32px;
+}
+.role-comparison .label-cmp {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 8px;
+  display: block;
+}
+.role-comparison h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: var(--purple);
+  margin-bottom: 18px;
+}
+.role-comparison table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  border: 2px solid var(--ink);
+  background: var(--bg);
+}
+.role-comparison thead th {
+  background: var(--ink);
+  color: #FFFFFF;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 700;
+  border-right: 1px solid #333;
+  white-space: nowrap;
+}
+.role-comparison thead th:last-child { border-right: none; }
+.role-comparison thead th .ico-th { display: block; font-size: 1.25rem; margin-bottom: 2px; }
+.role-comparison thead th.crit-th {
+  background: var(--purple);
+  color: var(--gold);
+  width: 28%;
+}
+.role-comparison thead th.active-th {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+.role-comparison tbody tr { border-bottom: 1px solid var(--line); }
+.role-comparison tbody td {
+  padding: 10px 14px;
+  border-right: 1px solid var(--line);
+  vertical-align: top;
+}
+.role-comparison tbody td:last-child { border-right: none; }
+.role-comparison tbody td.crit-td {
+  font-weight: 600;
+  color: var(--purple);
+  background: var(--surface);
+}
+.role-comparison tbody td.active-td {
+  background: rgba(255, 0, 0, 0.06);
+  font-weight: 600;
+  color: var(--primary-a);
+}
+.role-comparison tbody tr:nth-child(odd) td:not(.active-td):not(.crit-td) {
+  background: var(--surface);
+}
+
+/* CTA quiz inline (D ref) */
+.role-quiz-cta {
+  margin: 48px 0;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-d) 100%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: var(--ink);
+}
+.role-quiz-cta .ico {
+  font-size: 2.25rem;
+  flex-shrink: 0;
+}
+.role-quiz-cta .text { flex: 1; min-width: 220px; }
+.role-quiz-cta h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+.role-quiz-cta p {
+  font-size: 0.875rem;
+  color: var(--ink);
+  opacity: 0.85;
+  margin: 0;
+}
+.role-quiz-cta a {
+  background: var(--ink);
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 200ms;
+}
+.role-quiz-cta a:hover { background: var(--purple); }
+
+/* Final CTA noir+or (E) */
+.role-final-cta {
+  margin: 48px 0 0;
+  padding: 36px 28px;
+  background: var(--ink);
+  color: var(--bg);
+  text-align: center;
+}
+.role-final-cta .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
+}
+.role-final-cta h3 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  color: var(--bg);
+}
+.role-final-cta h3 em { font-style: italic; color: var(--gold); }
+.role-final-cta p {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  color: var(--bg);
+  opacity: 0.85;
+  margin: 0 auto 16px;
+  max-width: 50ch;
+}
+.role-final-cta .links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.role-final-cta .links a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--bg);
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  padding: 10px 20px;
+  letter-spacing: 0.02em;
+  transition: background 200ms;
+  border-radius: 4px;
+}
+.role-final-cta .links a:hover { background: var(--gold); color: var(--ink); }
+.role-final-cta .links a.primary { background: var(--gold); color: var(--ink); }
+.role-final-cta .links a.primary:hover { background: var(--bg); color: var(--ink); }
+
+@media (max-width: 720px) {
+  .role-sidebar { float: none; width: 100%; margin: 24px 0; }
+  .role-bento { grid-template-columns: repeat(2, 1fr); }
+  .role-bento .b-cell.large,
+  .role-bento .b-cell.wide,
+  .role-bento .b-cell.tall { grid-column: span 2; grid-row: auto; }
+  .role-pullquote { margin: 32px -16px; padding: 24px 28px; }
+  .role-comparison table { font-size: 0.75rem; }
+  .role-comparison thead th,
+  .role-comparison tbody td { padding: 8px 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role-bento .b-cell:hover { transform: none; }
+}
+
 /* HIG adaptations */
 @media (prefers-reduced-motion: reduce) {
   * {
