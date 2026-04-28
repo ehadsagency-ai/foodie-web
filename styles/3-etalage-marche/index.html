@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOODIE — Style 3 · Étalage du marché</title>
+<meta name="description" content="FOODIE Style 3 — Étalage du marché (brutaliste, blocs colorés 21st.dev grid).">
+<meta name="theme-color" content="#FF0000">
+<link rel="icon" href="/foodie-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0D0D0D;--paper:#F5F5F5;--white:#FFFFFF;--primary:#FF0000;--primary-d:#CC0000;--gold:#D4A574;--purple:#2F2144;--orange:#FF9800;--line:#0D0D0D}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.5;font-weight:400}
+a{color:inherit;text-decoration:none}
+.style-tag{position:fixed;top:8px;right:8px;background:var(--ink);color:var(--gold);padding:6px 12px;font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;z-index:100;border:2px solid var(--gold)}
+.bar{padding:16px 24px;background:var(--ink);color:var(--paper);display:flex;align-items:center;gap:18px;border-bottom:4px solid var(--primary)}
+.bar img{width:36px;height:36px;background:var(--paper);padding:2px;border-radius:2px}
+.bar .name{font-weight:900;font-size:1.125rem;letter-spacing:-0.02em}
+.bar nav{margin-left:auto;display:flex;gap:18px;font-family:'IBM Plex Mono',monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase}
+.bar nav a{color:var(--paper);padding:8px 0;border-bottom:2px solid transparent}
+.bar nav a:hover{border-bottom-color:var(--gold)}
+.bar .cta{background:var(--primary);padding:10px 18px;border-bottom:none}
+.bar .cta:hover{background:var(--gold);color:var(--ink)}
+.hero{padding:0;display:grid;grid-template-columns:1.4fr 1fr;border-bottom:4px solid var(--ink)}
+.hero .left{padding:80px 48px 64px;border-right:4px solid var(--ink);background:var(--paper)}
+.hero .right{background:var(--primary);color:var(--paper);padding:80px 48px 64px;display:flex;flex-direction:column;justify-content:space-between}
+.hero h1{font-size:clamp(3rem,8vw,7rem);font-weight:900;letter-spacing:-0.04em;line-height:0.9;text-transform:uppercase;color:var(--ink);margin-bottom:24px}
+.hero h1 span{display:block;color:var(--primary)}
+.hero .lede{font-size:1.0625rem;color:var(--ink);max-width:36ch;margin-bottom:32px;line-height:1.5}
+.hero .meta-line{display:flex;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border-top:2px solid var(--ink);padding-top:16px}
+.hero .meta-line span{padding:4px 8px;background:var(--ink);color:var(--gold)}
+.hero .right .big{font-family:'IBM Plex Mono',monospace;font-size:0.875rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--paper);padding-bottom:12px;margin-bottom:24px}
+.hero .right .number{font-size:6rem;font-weight:900;line-height:1;letter-spacing:-0.06em}
+.hero .right .label{font-size:1.125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-top:8px}
+.hero .right .item-line{font-size:0.875rem;border-top:2px solid var(--paper);padding:14px 0;display:flex;justify-content:space-between}
+.hero .right a.cta-cta{display:inline-block;background:var(--ink);color:var(--gold);padding:18px 32px;font-weight:900;text-transform:uppercase;letter-spacing:0.04em;font-size:0.9375rem;text-align:center;margin-top:24px;border:2px solid var(--gold)}
+.hero .right a.cta-cta:hover{background:var(--gold);color:var(--ink)}
+.brand-strip{background:var(--gold);color:var(--ink);padding:18px 24px;border-bottom:4px solid var(--ink);overflow:hidden;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;font-size:0.8125rem}
+.brand-strip span{margin:0 24px;display:inline-block}
+.grid-features{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:4px solid var(--ink)}
+.feat{padding:48px 32px;border-right:4px solid var(--ink)}
+.feat:last-child{border-right:none}
+.feat .num{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin-bottom:24px}
+.feat h3{font-size:1.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.0}
+.feat p{font-size:0.9375rem;line-height:1.6}
+.feat:nth-child(1){background:var(--paper)}
+.feat:nth-child(2){background:var(--purple);color:var(--paper)}
+.feat:nth-child(2) .num{color:var(--gold)}
+.feat:nth-child(3){background:var(--gold);color:var(--ink)}
+.feat:nth-child(3) .num{color:var(--primary-d)}
+.eco{padding:64px 32px;background:var(--ink);color:var(--paper);border-bottom:4px solid var(--ink)}
+.eco h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;margin-bottom:32px;line-height:1.0}
+.eco h2 span{color:var(--gold)}
+.devices{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--paper)}
+.dev{padding:24px 16px;text-align:center;border-right:2px solid var(--paper);border-bottom:2px solid var(--paper);transition:background 200ms}
+.dev:nth-child(4n){border-right:none}
+.dev:nth-child(n+5){border-bottom:none}
+.dev:hover{background:var(--primary)}
+.dev .e{font-size:2rem;display:block;margin-bottom:8px;filter:grayscale(0)}
+.dev .n{font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;display:block}
+footer{padding:48px 32px;background:var(--paper);border-top:4px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:0.75rem;letter-spacing:0.04em;line-height:1.8}
+footer strong{font-weight:700}
+footer .sig{display:block;margin-top:24px;text-align:center;font-style:normal;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--purple);padding-top:16px;border-top:2px solid var(--ink)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:880px){.hero{grid-template-columns:1fr}.hero .left{border-right:none;border-bottom:4px solid var(--ink)}.grid-features{grid-template-columns:1fr}.feat{border-right:none;border-bottom:4px solid var(--ink)}.feat:last-child{border-bottom:none}.devices{grid-template-columns:repeat(2,1fr)}.dev:nth-child(4n){border-right:2px solid var(--paper)}.dev:nth-child(2n){border-right:none}}
+</style>
+</head>
+<body>
+<span class="style-tag">Style 3 · Étalage</span>
+
+<header class="bar">
+  <a href="/" style="display:flex;align-items:center;gap:12px"><img src="/foodie-logo.png" alt=""><span class="name">FOODIE</span></a>
+  <nav>
+    <a href="#features">Méthode</a>
+    <a href="#eco">Devices</a>
+    <a href="/conditions-generales/">CGU</a>
+    <a href="/privacy-fr/">Vie privée</a>
+  </nav>
+  <a class="cta" href="https://apps.apple.com/app/id6759874216">App Store</a>
+</header>
+
+<section class="hero">
+  <div class="left">
+    <h1>La table<span>sans intermédiaire.</span></h1>
+    <p class="lede">FOODIE met en relation les Producteurs locaux et les habitants de leur rayon. Commande directe, retrait sur place, aucun flux financier dans l'application.</p>
+    <div class="meta-line">
+      <span>LCEN 6.I.2</span><span>RGPD</span><span>Circuit court ≤ 80 km</span>
+    </div>
+  </div>
+  <div class="right">
+    <div>
+      <div class="big">Programme Fondateurs</div>
+      <div class="number">10%</div>
+      <div class="label">Commission à vie · 20 premiers</div>
+    </div>
+    <div>
+      <div class="item-line"><span>Charente-Maritime</span><span>Zone pilote</span></div>
+      <div class="item-line"><span>SEPA mensuel</span><span>15 j fin de mois</span></div>
+      <div class="item-line"><span>Indexation IPC</span><span>Plafond 5 %/an</span></div>
+      <a class="cta-cta" href="mailto:producteurs@foodie.fr">Devenir Fondateur →</a>
+    </div>
+  </div>
+</section>
+
+<div class="brand-strip">
+  <span>★ Project Terroir</span>
+  <span>★ Édité par E&HADS Agency</span>
+  <span>★ Marque © Alexandre Sand</span>
+  <span>★ De l'Eden à l'Horizon</span>
+  <span>★ Vous portez l'histoire</span>
+  <span>★ Nous portons le média</span>
+</div>
+
+<section class="grid-features" id="features">
+  <div class="feat">
+    <div class="num">01 / Localisation</div>
+    <h3>Le rayon de votre fourche</h3>
+    <p>De 25 à 80 kilomètres autour de chez vous. Doctrine MAA circuit court appliquée à la lettre. Position non stockée sur les serveurs.</p>
+  </div>
+  <div class="feat">
+    <div class="num">02 / Qualité</div>
+    <h3>Badges officiels<br>auto</h3>
+    <p>SIRET vérifié INSEE. Badges AOC, AOP, IGP, Label Rouge, AB depuis l'INAO selon la commune. Bloqueur RappelConso intégré.</p>
+  </div>
+  <div class="feat">
+    <div class="num">03 / Direct</div>
+    <h3>Le paiement en main propre</h3>
+    <p>Vous payez le Producteur lors du retrait. FOODIE n'encaisse rien sur la transaction. Le flux d'argent ne passe jamais par l'app.</p>
+  </div>
+</section>
+
+<section class="eco" id="eco">
+  <h2>Sept surfaces.<br><span>Une table.</span></h2>
+  <div class="devices">
+    <div class="dev"><span class="e">📱</span><span class="n">iPhone</span></div>
+    <div class="dev"><span class="e">⌨️</span><span class="n">iPad</span></div>
+    <div class="dev"><span class="e">⌚</span><span class="n">Watch</span></div>
+    <div class="dev"><span class="e">📺</span><span class="n">TV</span></div>
+    <div class="dev"><span class="e">🥽</span><span class="n">Vision</span></div>
+    <div class="dev"><span class="e">💻</span><span class="n">Mac</span></div>
+    <div class="dev"><span class="e">⚡</span><span class="n">Clip</span></div>
+    <div class="dev"><span class="e">🍃</span><span class="n">Widget</span></div>
+  </div>
+</section>
+
+<footer>
+  <strong>E&HADS AGENCY SASU</strong> · SIRET 932 700 271 00012 · RCS Saintes · NAF 7021Z<br>
+  Marque <strong>FOODIE®</strong> Alexandre Sand · Hébergeur LCEN art. 6.I.2<br>
+  <a href="/conditions-generales/">CGU</a> · <a href="/privacy-fr/">CONFIDENTIALITÉ</a> · <a href="/cookies/">COOKIES</a> · <a href="/terms/">TERMS (EN)</a>
+  <span class="sig">De l'Eden à l'Horizon, par la voie du média ★ Vous portez l'histoire. Nous portons le média.</span>
+</footer>
+</body></html>

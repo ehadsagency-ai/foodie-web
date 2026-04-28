@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOODIE — Style 5 · Cathédrale du circuit court</title>
+<meta name="description" content="FOODIE Style 5 — Cathédrale (institutionnel, doctrine éditoriale forte, ehads-vitrine cathédrale).">
+<meta name="theme-color" content="#091158">
+<link rel="icon" href="/foodie-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0D0D0D;--paper:#FBFAF6;--cream:#F1EEE3;--rule:#D7D9DB;--ehGris:#969696;--primary:#FF0000;--primary-d:#CC0000;--gold:#D4A574;--gold-d:#B88A52;--purple:#2F2144;--ehBleu:#091158}
+body{font-family:'EB Garamond',Palatino,serif;background:var(--paper);color:var(--ink);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--ehBleu);text-decoration:underline;text-underline-offset:3px}
+a:hover{color:var(--primary)}
+.style-tag{position:fixed;top:8px;right:8px;background:var(--ehBleu);color:var(--gold);padding:6px 12px;font-family:'Inter',sans-serif;font-size:0.6875rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;z-index:100;border:1px solid var(--gold)}
+
+.foundation{background:var(--ehBleu);color:var(--paper);padding:14px 32px;font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.18em;text-transform:uppercase;text-align:center;font-weight:500}
+.foundation strong{color:var(--gold);font-weight:600}
+
+header.cathedral{padding:64px 32px 48px;text-align:center;border-bottom:1px solid var(--rule);background:var(--paper)}
+header.cathedral .brand{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:48px}
+header.cathedral .brand img{width:56px;height:56px}
+header.cathedral .brand .wordmark{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ehBleu)}
+header.cathedral nav{display:flex;justify-content:center;gap:32px;font-family:'Inter',sans-serif;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;padding-top:24px;border-top:1px solid var(--rule)}
+header.cathedral nav a{color:var(--ink);text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+header.cathedral nav a:hover,header.cathedral nav a[aria-current]{color:var(--primary);border-bottom-color:var(--gold)}
+
+.frontispiece{max-width:780px;margin:0 auto;padding:96px 32px 72px;text-align:center}
+.frontispiece .codename{font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-d);margin-bottom:32px;display:block}
+.frontispiece h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(3.5rem,7vw,5.5rem);line-height:1.0;letter-spacing:-0.01em;color:var(--ehBleu);margin-bottom:32px}
+.frontispiece h1 em{font-style:italic;color:var(--primary)}
+.frontispiece .poetic{font-style:italic;font-size:1.25rem;color:var(--purple);margin:0 auto 32px;max-width:60ch;line-height:1.5}
+.frontispiece .epigraph{font-family:'EB Garamond',serif;font-size:1.0625rem;color:var(--ink);max-width:60ch;margin:0 auto 48px;line-height:1.7}
+.frontispiece .ornament{display:block;margin:48px auto;width:80px;height:1px;background:var(--gold);position:relative}
+.frontispiece .ornament::before,.frontispiece .ornament::after{content:'';position:absolute;top:50%;width:6px;height:6px;border-radius:50%;background:var(--gold);transform:translateY(-50%)}
+.frontispiece .ornament::before{left:-12px}
+.frontispiece .ornament::after{right:-12px}
+
+.gold-rule{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto;max-width:480px}
+
+.preamble{max-width:680px;margin:0 auto;padding:64px 32px}
+.preamble .meta{font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px;display:block}
+.preamble h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:2.5rem;color:var(--ehBleu);margin-bottom:24px;letter-spacing:-0.01em}
+.preamble p{margin-bottom:16px;text-align:justify;hyphens:auto}
+.preamble p:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:4.5rem;float:left;line-height:0.85;padding-right:10px;padding-top:8px;color:var(--primary);font-weight:600}
+
+.legifrance{max-width:680px;margin:32px auto;padding:24px 28px;background:var(--cream);border-left:3px solid var(--ehBleu);font-size:0.9375rem;font-family:'Inter',sans-serif;line-height:1.6}
+.legifrance .ref{font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-d);font-weight:600;margin-bottom:8px;display:block}
+.legifrance blockquote{font-style:italic;color:var(--ink);font-family:'EB Garamond',serif;font-size:1.0625rem;border-left:none;padding:0;margin:0}
+
+.three-pillars{max-width:1080px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.pillar{text-align:center}
+.pillar .num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-style:italic;color:var(--gold);line-height:1;margin-bottom:12px}
+.pillar h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.5rem;color:var(--ehBleu);margin-bottom:12px}
+.pillar p{font-size:0.9375rem;color:var(--ink);line-height:1.6;text-align:left}
+
+.devices-formal{max-width:780px;margin:0 auto;padding:64px 32px}
+.devices-formal .meta{font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px;display:block;text-align:center}
+.devices-formal h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:2rem;color:var(--ehBleu);margin-bottom:32px;text-align:center}
+.devices-formal table{width:100%;border-collapse:collapse;font-family:'EB Garamond',serif;font-size:1rem}
+.devices-formal table th,.devices-formal table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+.devices-formal table th{font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-d);font-weight:600}
+.devices-formal table tr:hover td{background:var(--cream)}
+.devices-formal table .icon{width:32px;font-size:1.5rem;text-align:center}
+.devices-formal table .name{font-weight:500;color:var(--ink)}
+
+.colophon{max-width:680px;margin:0 auto;padding:64px 32px;text-align:center}
+.colophon .seal{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--ehBleu);margin-bottom:16px}
+.colophon .seal em{color:var(--primary)}
+.colophon .ornament{display:block;margin:24px auto;width:120px;height:1px;background:var(--gold);position:relative}
+.colophon .ornament::before,.colophon .ornament::after{content:'';position:absolute;top:50%;width:6px;height:6px;border-radius:50%;background:var(--gold);transform:translateY(-50%)}
+.colophon .ornament::before{left:-12px}.colophon .ornament::after{right:-12px}
+.colophon .legal{font-size:0.875rem;line-height:1.8;color:var(--ink);font-family:'Inter',sans-serif;letter-spacing:0.02em;margin-bottom:24px}
+.colophon .legal strong{color:var(--ehBleu);font-weight:600}
+.colophon .nav{display:flex;justify-content:center;gap:18px;font-family:'Inter',sans-serif;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:32px}
+.colophon .nav a{color:var(--ink);text-decoration:none;padding:6px 12px;border:1px solid var(--rule)}
+.colophon .nav a:hover{background:var(--cream);border-color:var(--gold)}
+.colophon .signature{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.125rem;color:var(--purple);margin-top:32px;padding-top:24px;border-top:1px solid var(--rule)}
+.colophon .mantra{font-style:italic;font-size:0.9375rem;color:var(--ink);margin-top:8px;font-family:'EB Garamond',serif}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:720px){.three-pillars{grid-template-columns:1fr;gap:32px}.frontispiece{padding:48px 20px}header.cathedral nav{flex-wrap:wrap;gap:18px}}
+</style>
+</head>
+<body>
+<span class="style-tag">Style 5 · Cathédrale</span>
+
+<div class="foundation">Édité par <strong>E&HADS Agency SASU</strong> — Maison d'édition d'applications mobiles · SIRET 932 700 271 00012</div>
+
+<header class="cathedral">
+  <div class="brand">
+    <img src="/foodie-logo.png" alt="Logo FOODIE">
+    <span class="wordmark">FOODIE</span>
+  </div>
+  <nav>
+    <a href="#preambule">Préambule</a>
+    <a href="#methode">Méthode</a>
+    <a href="#cadre">Cadre légal</a>
+    <a href="#ecosysteme">Écosystème</a>
+    <a href="/conditions-generales/">CGU</a>
+    <a href="/privacy-fr/">Confidentialité</a>
+    <a href="https://apps.apple.com/app/id6759874216">App Store</a>
+  </nav>
+</header>
+
+<section class="frontispiece">
+  <span class="codename">Project Terroir · une œuvre éditée par E&amp;HADS Agency</span>
+  <h1>La table<br><em>sans intermédiaire.</em></h1>
+  <p class="poetic">Rouge baiser, or moutarde, violet profond — la table sans intermédiaire.</p>
+  <p class="epigraph">FOODIE est une plateforme de mise en relation entre Producteurs locaux et habitants de leur rayon de circuit court, éditée par la maison E&amp;HADS Agency. Aucun flux financier ne transite par l'application : la transaction et le paiement se font directement, en main propre, lors du retrait sur place.</p>
+  <span class="ornament" aria-hidden="true"></span>
+  <p style="font-family:'Inter',sans-serif;font-size:0.875rem;letter-spacing:0.04em">
+    <a href="https://apps.apple.com/app/id6759874216" style="margin:0 14px">Disponible sur l'App Store</a> · <a href="mailto:producteurs@foodie.fr" style="margin:0 14px">Programme Fondateurs</a>
+  </p>
+</section>
+
+<div class="gold-rule"></div>
+
+<section class="preamble" id="preambule">
+  <span class="meta">Préambule</span>
+  <h2>De la fourche à la fourchette, sans détour.</h2>
+  <p>Le circuit court, dans la doctrine du ministère de l'Agriculture, désigne une chaîne de commercialisation impliquant au plus un intermédiaire entre le Producteur et le consommateur, et idéalement une proximité géographique inférieure à quatre-vingts kilomètres. FOODIE applique cette doctrine à la lettre.</p>
+  <p>Aux termes de l'article 6.I.2 de la loi pour la confiance dans l'économie numérique, FOODIE est un hébergeur. La plateforme n'est ni vendeur, ni intermédiaire de paiement, ni transporteur. La responsabilité de la qualité, de la conformité et de la livraison des produits incombe exclusivement au Producteur référencé.</p>
+</section>
+
+<aside class="legifrance" aria-label="Citation Legifrance">
+  <span class="ref">Article 6.I.2 — LCEN, loi 2004-575</span>
+  <blockquote>« Les personnes physiques ou morales qui assurent, même à titre gratuit, pour mise à disposition du public par des services de communication au public en ligne, le stockage de signaux, d'écrits, d'images, de sons ou de messages de toute nature fournis par des destinataires de ces services, ne peuvent pas voir leur responsabilité civile engagée du fait des activités ou des informations stockées… »</blockquote>
+</aside>
+
+<section class="three-pillars" id="methode">
+  <div class="pillar">
+    <span class="num">i.</span>
+    <h3>Géolocalisation</h3>
+    <p>Rayon paramétrable de vingt-cinq à quatre-vingts kilomètres, conformément à l'instruction technique DGAL/SDQSPV/2017-651. La position de l'utilisateur n'est jamais conservée sur les serveurs.</p>
+  </div>
+  <div class="pillar">
+    <span class="num">ii.</span>
+    <h3>Saison & qualité</h3>
+    <p>Vérification SIRET en temps réel auprès de l'INSEE. Badges officiels AOC, AOP, IGP, Label Rouge et Agriculture Biologique attribués automatiquement depuis l'INAO et Cartobio. Bloqueur RappelConso intégré.</p>
+  </div>
+  <div class="pillar">
+    <span class="num">iii.</span>
+    <h3>Retrait sur place</h3>
+    <p>Le Customer paie le Producteur en main propre, lors du retrait à la ferme ou sur le marché. La plateforme n'encaisse aucun flux client-vendeur. La commission technique est facturée mensuellement aux Producteurs en SEPA, hors application.</p>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section class="devices-formal" id="ecosysteme">
+  <span class="meta">Écosystème Apple</span>
+  <h2>Sept surfaces, une même table</h2>
+  <table>
+    <thead><tr><th></th><th>Surface</th><th>Fonction</th></tr></thead>
+    <tbody>
+      <tr><td class="icon">📱</td><td class="name">iPhone</td><td>Catalogue, panier, retrait par QR code</td></tr>
+      <tr><td class="icon">⌨️</td><td class="name">iPad</td><td>NavigationSplitView producteurs / produits</td></tr>
+      <tr><td class="icon">⌚</td><td class="name">Apple Watch</td><td>QR de retrait, complications cadran</td></tr>
+      <tr><td class="icon">📺</td><td class="name">Apple TV</td><td>Browse en cuisine, vue 10 pieds</td></tr>
+      <tr><td class="icon">🥽</td><td class="name">Vision Pro</td><td>Marché immersif spatial</td></tr>
+      <tr><td class="icon">💻</td><td class="name">Mac</td><td>Hub Producteur, dashboard de gestion</td></tr>
+      <tr><td class="icon">⚡</td><td class="name">App Clip</td><td>QR d'un Producteur, fiche rapide sans installation</td></tr>
+      <tr><td class="icon">🍃</td><td class="name">Widget</td><td>Saison du jour, prochaine commande en cours</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="colophon" id="cadre">
+  <p class="seal">Hébergeur LCEN art. 6.I.2 · <em>aucun flux financier transite par l'application.</em></p>
+  <span class="ornament" aria-hidden="true"></span>
+  <div class="legal">
+    <strong>Éditeur</strong> : E&amp;HADS Agency, SASU au capital social libéré.<br>
+    SIRET 932 700 271 00012 · RCS Saintes · Code NAF 7021Z<br>
+    Marque <strong>FOODIE®</strong> détenue par Alexandre Sand, licenciée à E&amp;HADS Agency<br>
+    Directeur de la publication : représentant légal d'E&amp;HADS Agency
+  </div>
+  <div class="nav">
+    <a href="/conditions-generales/">CGU</a>
+    <a href="/privacy-fr/">Confidentialité</a>
+    <a href="/cookies/">Cookies</a>
+    <a href="/terms/">Terms (EN)</a>
+    <a href="/privacy/">Privacy (EN)</a>
+  </div>
+  <p class="signature">De l'Eden à l'Horizon, par la voie du média.</p>
+  <p class="mantra">Vous portez l'histoire. Nous portons le média.</p>
+</section>
+</body></html>
