@@ -1,36 +1,457 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foodie — Meal &amp; Nutrition Marketplace</title>
+  <title>FOODIE — Project Terroir · La table sans intermédiaire</title>
+
+  <meta name="description" content="FOODIE met en relation les Producteurs locaux et les habitants de leur rayon. Commande directe, retrait sur place, sans commission cachée ni intermédiaire de paiement.">
+  <meta name="author" content="E&amp;HADS Agency">
+  <meta name="theme-color" content="#1E5C35" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0D1F12" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://foodie.fr/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="FOODIE">
+  <meta property="og:title" content="FOODIE — Project Terroir · La table sans intermédiaire">
+  <meta property="og:description" content="Vert sahel, or récolte, terre bois — la table sans intermédiaire. Découvrez les Producteurs de votre rayon. Commandez en direct, sans commission cachée.">
+  <meta property="og:url" content="https://foodie.fr/">
+  <meta property="og:image" content="https://foodie.fr/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FOODIE — Project Terroir">
+  <meta name="twitter:description" content="La table sans intermédiaire. Disponible sur l'App Store.">
+  <meta name="twitter:image" content="https://foodie.fr/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%231E5C35'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Inter,sans-serif' font-size='32' font-weight='700' fill='%23C9922A'%3EF%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "E&HADS Agency",
+    "legalName": "E&HADS Agency SASU",
+    "url": "https://ehads.fr",
+    "description": "Maison d'édition d'applications éditeur des Créateurs francophones.",
+    "logo": "https://ehads.fr/brand/logo-bleu-or-square.png",
+    "founder": { "@type": "Person", "name": "Deo Grâtia Metoyer" },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2 Impasse de Monouge",
+      "postalCode": "17240",
+      "addressLocality": "Mosnac",
+      "addressCountry": "FR"
+    },
+    "taxID": "932 700 271 00012",
+    "naics": "7021Z",
+    "slogan": "De l'Eden à l'Horizon, par la voie du média."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "FOODIE",
+    "alternateName": "Project Terroir",
+    "operatingSystem": "iOS",
+    "applicationCategory": "LifestyleApplication",
+    "description": "Plateforme de mise en relation entre Producteurs locaux et habitants en circuit court. Commande directe, retrait sur place.",
+    "url": "https://apps.apple.com/app/id6759874216",
+    "publisher": {
+      "@type": "Organization",
+      "name": "E&HADS Agency"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1d1d1f; }
-    .hero { max-width: 600px; margin: 0 auto; padding: 80px 24px 60px; text-align: center; }
-    h1 { font-size: 3rem; font-weight: 700; margin-bottom: 16px; }
-    .tagline { font-size: 1.2rem; color: #6e6e73; margin-bottom: 48px; }
-    .badge { display: inline-block; background: #000; color: #fff; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem; }
-    .badge:hover { background: #333; }
-    nav { margin-top: 60px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
-    nav a { color: #0066cc; text-decoration: none; font-size: 0.95rem; }
-    nav a:hover { text-decoration: underline; }
-    footer { margin-top: 80px; text-align: center; padding: 24px; border-top: 1px solid #d2d2d7; color: #6e6e73; font-size: 0.875rem; }
-    .accent { color: #e63946; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Palette FOODIE Project Terroir + base ehads-vitrine doctrine */
+    :root {
+      --ink:      #0D0D0D;   /* ehNoir */
+      --muted:    #969696;   /* ehGris */
+      --line:     #D7D9DB;   /* ehGrisClair */
+      --bg:       #FBFAF6;   /* ehIvoire */
+      --surface:  #F1EEE3;   /* surface chaude terroir */
+      --primary:  #1E5C35;   /* vert sahel — palette_primary FOODIE */
+      --primary-d:#143F25;   /* vert sahel sombre */
+      --gold:     #C9922A;   /* or récolte — palette_accent FOODIE */
+      --gold-l:   #E0AE48;
+      --terre:    #6B4423;   /* terre bois (poetic) */
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink:     #E8DAB5;
+        --muted:   #8A9A8F;
+        --line:    #2A3F32;
+        --bg:      #0D1F12;
+        --surface: #15281C;
+        --primary: #4A9B6E;
+        --primary-d:#1E5C35;
+        --gold:    #E0AE48;
+        --gold-l:  #F0C66F;
+        --terre:   #8A6440;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'EB Garamond', Palatino, 'Book Antiqua', serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Skip link a11y HIG */
+    .skip-link {
+      position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+    }
+    .skip-link:focus {
+      position: fixed; top: 8px; left: 8px; width: auto; height: auto; z-index: 50;
+      background: var(--ink); color: var(--bg); padding: 12px 20px;
+      text-decoration: none; outline: 2px solid var(--gold); outline-offset: 2px;
+    }
+
+    /* Focus visible accent doré */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      padding: 96px 24px 72px;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero .codename {
+      display: block;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      color: var(--primary);
+    }
+    h1 .accent { color: var(--gold); }
+    .poetic {
+      font-style: italic;
+      font-size: 1.0625rem;
+      color: var(--terre);
+      margin-bottom: 12px;
+      max-width: 56ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tagline {
+      font-size: 1.0625rem;
+      color: var(--ink);
+      margin: 0 auto 36px;
+      max-width: 60ch;
+    }
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--bg);
+      padding: 14px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      transition: background 200ms ease;
+      min-height: 44px;
+    }
+    .badge:hover { background: var(--primary-d); }
+    .badge.secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .badge.secondary:hover {
+      background: var(--surface);
+      border-color: var(--gold);
+    }
+
+    /* Sections */
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+    section h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      margin-bottom: 32px;
+      letter-spacing: -0.015em;
+      color: var(--primary);
+    }
+    .meta {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .step {
+      padding: 28px 24px;
+      background: var(--surface);
+      border-radius: 4px;
+      border-left: 3px solid var(--gold);
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: var(--bg);
+      border-radius: 50%;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-bottom: 14px;
+    }
+    .step h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .step p { color: var(--muted); font-size: 0.95rem; }
+
+    /* Legal notice */
+    .legal-notice {
+      background: var(--surface);
+      border-left: 3px solid var(--gold);
+      padding: 24px 28px;
+      border-radius: 4px;
+    }
+    .legal-notice strong { font-weight: 600; color: var(--ink); }
+    .legal-notice p { color: var(--ink); font-size: 0.9375rem; }
+    .legal-notice p + p { margin-top: 12px; color: var(--muted); }
+    .legal-notice a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Footer */
+    footer {
+      margin-top: 64px;
+      padding: 48px 24px 56px;
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+    }
+    footer .container { max-width: 880px; }
+    footer h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: var(--ink);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    footer .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      display: block;
+      padding: 4px 0;
+    }
+    footer a:hover { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+    footer .legal-block {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    footer .legal-block strong { color: var(--ink); }
+    footer .signature {
+      text-align: center;
+      padding-top: 24px;
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--terre);
+      font-size: 0.9375rem;
+      font-style: italic;
+    }
+    footer .mantra {
+      text-align: center;
+      margin-top: 8px;
+      color: var(--ink);
+      font-size: 0.875rem;
+      font-style: italic;
+    }
+    footer .copyright {
+      text-align: center;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.8125rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    /* Adaptations système (HIG) */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (prefers-contrast: more) {
+      :root {
+        --muted: #5A5A5A;
+        --line:  #888888;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>Foodie<span class="accent">.</span></h1>
-    <p class="tagline">Meal &amp; Nutrition Marketplace — Available on the App Store</p>
-    <a class="badge" href="https://apps.apple.com/app/id6759874216">Download on the App Store</a>
-    <nav>
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms of Service</a>
-      <a href="/cookies">Cookie Policy</a>
-      <a href="mailto:support@foodie.fr">Support</a>
-    </nav>
-  </div>
-  <footer>&copy; 2026 E&amp;H Studio</footer>
+
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <header class="hero">
+    <span class="codename">Project Terroir · une œuvre éditée par E&amp;HADS Agency</span>
+    <h1>FOODIE<span class="accent">.</span></h1>
+    <p class="poetic">Vert sahel, or récolte, terre bois — la table sans intermédiaire.</p>
+    <p class="tagline">FOODIE met en relation les Producteurs locaux et les habitants de leur rayon. Commandez en direct, retirez sur place. Vivez la saison près de chez vous.</p>
+    <div class="cta-row">
+      <a class="badge" href="https://apps.apple.com/app/id6759874216" aria-label="Télécharger FOODIE sur l'App Store">Disponible sur l'App Store</a>
+      <a class="badge secondary" href="mailto:producteurs@foodie.fr?subject=Programme%20Fondateurs%20Charente-Maritime">Producteur ? Rejoignez les Fondateurs</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section>
+      <div class="container">
+        <span class="meta">Mode d'emploi</span>
+        <h2>Comment ça marche</h2>
+        <div class="steps">
+          <article class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Géolocalisation du rayon</h3>
+            <p>Activez votre localisation : FOODIE affiche les Producteurs disponibles dans un rayon de 25 à 80 km autour de chez vous, ajustable selon votre territoire.</p>
+          </article>
+          <article class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Choix Producteur, produit, saison</h3>
+            <p>Parcourez le catalogue des Producteurs édités, leurs produits de saison et leurs disponibilités. Chaque fiche présente l'exploitation, les pratiques, les certifications.</p>
+          </article>
+          <article class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Commande directe + retrait sur place</h3>
+            <p>Réservez votre panier auprès du Producteur. Vous réglez et retirez directement à la ferme ou sur le marché : aucun flux financier ne transite par FOODIE.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="meta">Cadre légal</span>
+        <h2>Statut juridique de la plateforme</h2>
+        <div class="legal-notice">
+          <p><strong>Hébergeur de mise en relation — LCEN art. 6.I.2.</strong> FOODIE est une plateforme éditée par E&amp;HADS Agency mettant en relation les Producteurs locaux et les habitants. Aucun flux financier ne transite entre l'application et les utilisateurs : la transaction et le paiement se font directement entre le Producteur et l'acheteur, lors du retrait sur place.</p>
+          <p>FOODIE n'est ni vendeur, ni intermédiaire de paiement, ni transporteur. La responsabilité de la qualité, de la conformité et de la livraison des produits incombe exclusivement au Producteur. Voir les <a href="/conditions-generales">Conditions Générales d'Utilisation</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="grid">
+        <div>
+          <h4>Application</h4>
+          <a href="https://apps.apple.com/app/id6759874216">App Store</a>
+          <a href="mailto:support@foodie.fr">Support</a>
+          <a href="mailto:producteurs@foodie.fr">Espace Producteur</a>
+        </div>
+        <div>
+          <h4>Mentions légales</h4>
+          <a href="/conditions-generales">Conditions Générales d'Utilisation</a>
+          <a href="/privacy-fr">Politique de Confidentialité</a>
+          <a href="/cookies">Politique des cookies</a>
+        </div>
+        <div>
+          <h4>English</h4>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <strong>Éditeur :</strong> E&amp;HADS Agency, SASU au capital social libéré.<br>
+        SIRET 932 700 271 00012 — RCS Saintes — Code NAF 7021Z.<br>
+        Marque <strong>FOODIE®</strong> détenue par Alexandre Sand, licenciée à E&amp;HADS Agency pour l'édition et l'exploitation de l'application.<br>
+        Directeur de la publication : représentant légal d'E&amp;HADS Agency.<br>
+        Contact : <a href="mailto:contact@ehads-agency.fr" style="display:inline">contact@ehads-agency.fr</a>
+      </div>
+
+      <p class="signature">De l'Eden à l'Horizon, par la voie du média.</p>
+      <p class="mantra">Vous portez l'histoire. Nous portons le média.</p>
+      <p class="copyright">&copy; 2026 E&amp;HADS Agency — Tous droits réservés.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
