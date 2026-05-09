@@ -1065,7 +1065,7 @@ body {
   margin-bottom: 14px;
   color: var(--bg);
 }
-.role-final-cta h3 em { font-style: italic; color: var(--gold); }
+.role-final-cta h3em { font-style: italic; color: var(--gold); }
 .role-final-cta p {
   font-family: 'EB Garamond', serif;
   font-size: 1rem;
