@@ -7,3 +7,10 @@ https://www.lamaisonfoodie.com/*   https://lamaisonfoodie.fr/:splat       301
 
 # www → apex (consolidation SEO)
 https://www.lamaisonfoodie.fr/*    https://lamaisonfoodie.fr/:splat       301
+
+# Soft-404 fix — sources légales canoniques uniques (avant : Cloudflare Pages
+# SPA-fallback retournait HTML home en 200 sur ces routes inexistantes)
+/legal/*                           /terms/:splat                          301
+/legal                             /terms/                                301
+/mentions-legales/*                /conditions-generales/:splat           301
+/mentions-legales                  /conditions-generales/                 301
