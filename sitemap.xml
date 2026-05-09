@@ -2,63 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://foodie.fr/</loc>
+    <loc>https://lamaisonfoodie.fr/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://foodie.fr/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://foodie.fr/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lamaisonfoodie.fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lamaisonfoodie.fr/"/>
   </url>
   <url>
-    <loc>https://foodie.fr/customer/</loc>
+    <loc>https://lamaisonfoodie.fr/customer/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foodie.fr/producteur/</loc>
+    <loc>https://lamaisonfoodie.fr/producteur/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foodie.fr/fondateur/</loc>
+    <loc>https://lamaisonfoodie.fr/fondateur/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foodie.fr/chef/</loc>
+    <loc>https://lamaisonfoodie.fr/chef/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://foodie.fr/pricing/</loc>
+    <loc>https://lamaisonfoodie.fr/pricing/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://foodie.fr/conditions-generales/</loc>
+    <loc>https://lamaisonfoodie.fr/conditions-generales/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://foodie.fr/privacy-fr/</loc>
+    <loc>https://lamaisonfoodie.fr/privacy-fr/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://foodie.fr/privacy-fr/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://foodie.fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lamaisonfoodie.fr/privacy-fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamaisonfoodie.fr/privacy/"/>
   </url>
   <url>
-    <loc>https://foodie.fr/cookies/</loc>
+    <loc>https://lamaisonfoodie.fr/cookies/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://foodie.fr/privacy/</loc>
+    <loc>https://lamaisonfoodie.fr/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://foodie.fr/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://foodie.fr/privacy-fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamaisonfoodie.fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lamaisonfoodie.fr/privacy-fr/"/>
   </url>
   <url>
-    <loc>https://foodie.fr/terms/</loc>
+    <loc>https://lamaisonfoodie.fr/terms/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

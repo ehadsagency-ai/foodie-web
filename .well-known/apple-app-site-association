@@ -1,0 +1,30 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "X52TVWP45H.fr.foodie.app",
+          "X52TVWP45H.fr.foodie.app.watch",
+          "X52TVWP45H.fr.foodie.app.tv",
+          "X52TVWP45H.fr.foodie.app.vision",
+          "X52TVWP45H.fr.foodie.app.clip",
+          "X52TVWP45H.fr.foodie.app.widget"
+        ],
+        "components": [
+          { "/": "/producteur/*", "comment": "Producteur — pages individuelles" },
+          { "/": "/chef/*",       "comment": "Chef V2 — recettes" },
+          { "/": "/fondateur/*",  "comment": "Fondateur — Cellier" },
+          { "/": "/customer/*",   "comment": "Convive — découverte" },
+          { "/": "/pricing/*",    "comment": "Tarifs" },
+          { "/": "/" }
+        ]
+      }
+    ]
+  },
+  "appclips": {
+    "apps": ["X52TVWP45H.fr.foodie.app.clip"]
+  },
+  "webcredentials": {
+    "apps": ["X52TVWP45H.fr.foodie.app"]
+  }
+}

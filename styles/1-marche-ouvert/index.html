@@ -10,51 +10,51 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#0D0D0D;--muted:#6C757D;--line:#E5E5E5;--bg:#FFFFFF;--surface:#FAFAFA;--primary:#FF0000;--primary-a:#CC0000;--gold:#D4A574;--purple:#2F2144}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-a{color:inherit;text-decoration:none}
-.style-tag{position:fixed;top:8px;right:8px;background:var(--purple);color:#fff;padding:6px 12px;border-radius:4px;font-size:0.6875rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;z-index:100}
-.topbar{position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 32px;display:flex;align-items:center;gap:24px;z-index:10}
-.topbar img{width:36px;height:36px}
-.topbar .brand{font-weight:700;font-size:1rem;letter-spacing:-0.01em}
-.topbar nav{margin-left:auto;display:flex;gap:20px;font-size:0.875rem}
+*,*::before,*::after{box-sizing:border-box ;margin:0;padding:0}
+:root{--ink:#0D0D0D ;--muted:#6C757D ;--line:#E5E5E5;--bg:#FFFFFF ;--surface:#FAFAFA ;--primary:#FF0000;--primary-a:#CC0000;--gold:#D4A574;--purple:#2F2144}
+body{font-family:'Inter',sans-serif ;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:inherit ;text-decoration:none}
+.style-tag{position:fixed ;top:8px ;right:8px ;background:var(--purple);color:#fff ;padding:6px 12px ;border-radius:4px ;font-size:0.6875rem ;font-weight:600;letter-spacing:0.18em ;text-transform:uppercase ;z-index:100}
+.topbar{position:sticky ;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 32px ;display:flex ;align-items:center ;gap:24px ;z-index:10}
+.topbar img{width:36px ;height:36px}
+.topbar .brand{font-weight:700;font-size:1rem ;letter-spacing:-0.01em}
+.topbar nav{margin-left:auto ;display:flex ;gap:20px ;font-size:0.875rem}
 .topbar nav a{color:var(--muted);font-weight:500}
 .topbar nav a:hover{color:var(--ink)}
-.topbar .cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;font-weight:600}
+.topbar .cta{background:var(--ink);color:#fff ;padding:8px 16px ;border-radius:6px ;font-weight:600}
 .topbar .cta:hover{background:var(--primary)}
-.hero{padding:120px 32px 80px;text-align:center;max-width:880px;margin:0 auto}
-.hero .eyebrow{display:inline-block;background:var(--surface);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-size:0.75rem;font-weight:600;color:var(--purple);margin-bottom:24px;letter-spacing:0.04em}
-.hero h1{font-size:clamp(3rem,7vw,5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.0;margin-bottom:24px;background:linear-gradient(135deg,var(--ink) 0%,var(--primary) 60%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero .lede{font-size:1.25rem;color:var(--muted);max-width:640px;margin:0 auto 40px;line-height:1.5}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;padding:14px 28px;border-radius:8px;font-weight:600;font-size:0.9375rem;transition:transform 200ms ease,background 200ms ease}
+.hero{padding:120px 32px 80px ;text-align:center ;max-width:880px ;margin:0 auto}
+.hero .eyebrow{display:inline-block ;background:var(--surface);border:1px solid var(--line);padding:6px 14px ;border-radius:999px ;font-size:0.75rem ;font-weight:600;color:var(--purple);margin-bottom:24px ;letter-spacing:0.04em}
+.hero h1{font-size:clamp(3rem,7vw,5rem);font-weight:800;letter-spacing:-0.04em ;line-height:1.0;margin-bottom:24px ;background:linear-gradient(135deg,var(--ink) 0 %,var(--primary) 60 %,var(--gold) 100 %);-webkit-background-clip:text ;-webkit-text-fill-color:transparent ;background-clip:text}
+.hero .lede{font-size:1.25rem ;color:var(--muted);max-width:640px ;margin:0 auto 40px ;line-height:1.5}
+.cta-row{display:flex ;gap:12px ;justify-content:center ;flex-wrap:wrap}
+.btn{display:inline-flex ;align-items:center ;padding:14px 28px ;border-radius:8px ;font-weight:600;font-size:0.9375rem ;transition:transform 200ms ease,background 200ms ease}
 .btn-primary{background:var(--ink);color:#fff}
 .btn-primary:hover{background:var(--primary);transform:translateY(-1px)}
-.btn-secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-secondary{background:transparent ;color:var(--ink);border:1px solid var(--line)}
 .btn-secondary:hover{background:var(--surface);border-color:var(--ink)}
-.partners{padding:48px 32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
-.partners .label{font-size:0.6875rem;font-weight:600;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:24px}
-.partners .row{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;font-size:0.875rem;color:var(--muted);font-weight:500;filter:grayscale(1);opacity:0.7}
-.features{padding:96px 32px;max-width:1080px;margin:0 auto}
-.features h2{font-size:2.25rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:16px;text-align:center}
-.features .lede2{font-size:1.0625rem;color:var(--muted);text-align:center;max-width:560px;margin:0 auto 56px}
-.features .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.feat{padding:32px 24px;background:var(--surface);border-radius:8px;border:1px solid var(--line)}
-.feat .ico{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--gold);border-radius:8px;font-size:1.25rem;margin-bottom:16px}
-.feat h3{font-size:1.0625rem;font-weight:700;margin-bottom:8px}
-.feat p{color:var(--muted);font-size:0.9375rem;line-height:1.6}
-.ecosystem{padding:96px 32px;max-width:1080px;margin:0 auto;text-align:center}
-.ecosystem h2{font-size:2.25rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:48px}
-.devices{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px}
-.dev{padding:20px 12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;transition:transform 200ms,border-color 200ms}
+.partners{padding:48px 32px ;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.partners .label{font-size:0.6875rem ;font-weight:600;color:var(--muted);letter-spacing:0.18em ;text-transform:uppercase ;margin-bottom:24px}
+.partners .row{display:flex ;justify-content:center ;align-items:center ;gap:48px ;flex-wrap:wrap ;font-size:0.875rem ;color:var(--muted);font-weight:500;filter:grayscale(1);opacity:0.7}
+.features{padding:96px 32px ;max-width:1080px ;margin:0 auto}
+.features h2{font-size:2.25rem ;font-weight:700;letter-spacing:-0.02em ;margin-bottom:16px ;text-align:center}
+.features .lede2{font-size:1.0625rem ;color:var(--muted);text-align:center ;max-width:560px ;margin:0 auto 56px}
+.features .grid{display:grid ;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.feat{padding:32px 24px ;background:var(--surface);border-radius:8px ;border:1px solid var(--line)}
+.feat .ico{width:40px ;height:40px ;display:flex ;align-items:center ;justify-content:center ;background:var(--ink);color:var(--gold);border-radius:8px ;font-size:1.25rem ;margin-bottom:16px}
+.feat h3{font-size:1.0625rem ;font-weight:700;margin-bottom:8px}
+.feat p{color:var(--muted);font-size:0.9375rem ;line-height:1.6}
+.ecosystem{padding:96px 32px ;max-width:1080px ;margin:0 auto ;text-align:center}
+.ecosystem h2{font-size:2.25rem ;font-weight:700;letter-spacing:-0.02em ;margin-bottom:48px}
+.devices{display:grid ;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px}
+.dev{padding:20px 12px ;background:var(--surface);border:1px solid var(--line);border-radius:8px ;transition:transform 200ms,border-color 200ms}
 .dev:hover{transform:translateY(-2px);border-color:var(--primary)}
-.dev .e{font-size:1.75rem;display:block;margin-bottom:6px}
-.dev .n{font-size:0.75rem;font-weight:700;display:block}
-.dev .f{font-size:0.6875rem;color:var(--muted);margin-top:4px;line-height:1.3}
-footer{padding:48px 32px;border-top:1px solid var(--line);background:var(--surface);text-align:center;color:var(--muted);font-size:0.8125rem;line-height:1.7}
-footer .sig{font-style:italic;color:var(--purple);margin-top:16px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.dev .e{font-size:1.75rem ;display:block ;margin-bottom:6px}
+.dev .n{font-size:0.75rem ;font-weight:700;display:block}
+.dev .f{font-size:0.6875rem ;color:var(--muted);margin-top:4px ;line-height:1.3}
+footer{padding:48px 32px ;border-top:1px solid var(--line);background:var(--surface);text-align:center ;color:var(--muted);font-size:0.8125rem ;line-height:1.7}
+footer .sig{font-style:italic ;color:var(--purple);margin-top:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none !important ;animation:none !important}}
 @media (max-width:720px){.topbar nav{display:none}.hero{padding:80px 20px 60px}}
 </style>
 </head>
@@ -76,7 +76,7 @@ footer .sig{font-style:italic;color:var(--purple);margin-top:16px}
   <p class="lede">FOODIE met en relation les Producteurs locaux et les habitants de leur rayon. Commande directe, retrait sur place, aucun flux financier dans l'app.</p>
   <div class="cta-row">
     <a class="btn btn-primary" href="https://apps.apple.com/app/id6759874216">Disponible sur l'App Store</a>
-    <a class="btn btn-secondary" href="mailto:producteurs@foodie.fr">Espace Producteur →</a>
+    <a class="btn btn-secondary" href="mailto:producteurs@lamaisonfoodie.fr">Espace Producteur →</a>
   </div>
 </section>
 
@@ -89,7 +89,7 @@ footer .sig{font-style:italic;color:var(--purple);margin-top:16px}
 
 <section class="features" id="features">
   <h2>Trois étapes, zéro friction</h2>
-  <p class="lede2">Project Terroir — la voie courte de la fourche à la fourchette.</p>
+  <p class="lede2">Projet Terroir — la voie courte de la fourche à la fourchette.</p>
   <div class="grid">
     <div class="feat"><div class="ico">📍</div><h3>Géolocalisation</h3><p>Rayon de 25 à 80 km paramétrable autour de chez vous, doctrine MAA circuit court respectée.</p></div>
     <div class="feat"><div class="ico">🥬</div><h3>Saison & qualité</h3><p>Badges AOC/AOP/IGP/AB automatiques depuis l'INAO. Bloqueur RappelConso intégré.</p></div>
@@ -113,7 +113,7 @@ footer .sig{font-style:italic;color:var(--purple);margin-top:16px}
 
 <footer id="legal">
   Édité par <strong>E&HADS Agency SASU</strong> · SIRET 932 700 271 00012 · Hébergeur LCEN art. 6.I.2<br>
-  Marque FOODIE® détenue par Alexandre Sand · <a href="/conditions-generales/">CGU</a> · <a href="/privacy-fr/">Confidentialité</a> · <a href="/cookies/">Cookies</a>
+  Marque FOODIE™ détenue par Alexandre Sand · <a href="/conditions-generales/">CGU</a> · <a href="/privacy-fr/">Confidentialité</a> · <a href="/cookies/">Cookies</a>
   <p class="sig">De l'Eden à l'Horizon, par la voie du média.</p>
 </footer>
 </body></html>

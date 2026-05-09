@@ -1,0 +1,9 @@
+# Cloudflare Pages — règles de redirection FOODIE
+# Documentation : https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Domaine défensif → canonique (préserve path + query)
+https://lamaisonfoodie.com/*       https://lamaisonfoodie.fr/:splat       301
+https://www.lamaisonfoodie.com/*   https://lamaisonfoodie.fr/:splat       301
+
+# www → apex (consolidation SEO)
+https://www.lamaisonfoodie.fr/*    https://lamaisonfoodie.fr/:splat       301
