@@ -10,54 +10,54 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box ;margin:0;padding:0}
-:root{--ink:#0D0D0D ;--muted:#6C757D ;--line:#E5E5E5;--bg:#F5F5F5;--surface:#FFFFFF ;--primary:#FF0000;--primary-a:#CC0000;--gold:#D4A574;--purple:#2F2144}
-body{font-family:'EB Garamond',serif ;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
-a{color:inherit ;text-decoration:none}
+*,*::before,*::after{box-sizing:border-box ;margin:0;padding:0}
+:root{--ink:#0D0D0D ;--muted:#6C757D ;--line:#E5E5E5;--bg:#F5F5F5;--surface:#FFFFFF ;--primary:#FF0000;--primary-a:#CC0000;--gold:#D4A574;--purple:#2F2144}
+body{font-family:'EB Garamond',serif ;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:inherit ;text-decoration:none}
 
-.topbar{background:var(--surface);border-bottom:1px solid var(--line);padding:14px 24px ;display:flex ;align-items:center ;gap:14px ;position:sticky ;top:0;z-index:10}
-.topbar img{width:40px ;height:40px}
-.topbar .brand{font-family:'Inter',sans-serif ;font-weight:700;font-size:1rem ;letter-spacing:-0.01em}
-.topbar .meta{font-family:'Inter',sans-serif ;font-size:0.6875rem ;letter-spacing:0.18em ;text-transform:uppercase ;color:var(--muted);padding-left:14px ;margin-left:6px ;border-left:1px solid var(--line)}
-.topbar nav{margin-left:auto ;display:flex ;gap:18px ;font-family:'Inter',sans-serif ;font-size:0.875rem}
+.topbar{background:var(--surface);border-bottom:1px solid var(--line);padding:14px 24px ;display:flex ;align-items:center ;gap:14px ;position:sticky ;top:0;z-index:10}
+.topbar img{width:40px ;height:40px}
+.topbar .brand{font-family:'Inter',sans-serif ;font-weight:700;font-size:1rem ;letter-spacing:-0.01em}
+.topbar .meta{font-family:'Inter',sans-serif ;font-size:0.6875rem ;letter-spacing:0.18em ;text-transform:uppercase ;color:var(--muted);padding-left:14px ;margin-left:6px ;border-left:1px solid var(--line)}
+.topbar nav{margin-left:auto ;display:flex ;gap:18px ;font-family:'Inter',sans-serif ;font-size:0.875rem}
 .topbar nav a{color:var(--muted)}
 .topbar nav a:hover{color:var(--primary)}
 
-main{max-width:1200px ;margin:0 auto ;padding:64px 24px 96px}
-.intro{text-align:center ;margin-bottom:64px}
-.intro h1{font-family:'Inter',sans-serif ;font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.02em ;color:var(--purple);margin-bottom:16px}
-.intro p{max-width:60ch ;margin:0 auto 14px ;font-size:1.0625rem ;color:var(--ink)}
-.intro .doctrine{font-family:'Inter',sans-serif ;font-size:0.875rem ;color:var(--muted);margin-top:24px ;padding:16px 24px ;background:var(--surface);border-left:3px solid var(--gold);text-align:left ;max-width:680px ;margin-left:auto ;margin-right:auto}
+main{max-width:1200px ;margin:0 auto ;padding:64px 24px 96px}
+.intro{text-align:center ;margin-bottom:64px}
+.intro h1{font-family:'Inter',sans-serif ;font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.02em ;color:var(--purple);margin-bottom:16px}
+.intro p{max-width:60ch ;margin:0 auto 14px ;font-size:1.0625rem ;color:var(--ink)}
+.intro .doctrine{font-family:'Inter',sans-serif ;font-size:0.875rem ;color:var(--muted);margin-top:24px ;padding:16px 24px ;background:var(--surface);border-left:3px solid var(--gold);text-align:left ;max-width:680px ;margin-left:auto ;margin-right:auto}
 .intro .doctrine strong{color:var(--purple);font-weight:600}
 
-.grid{display:grid ;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px ;margin-bottom:48px}
+.grid{display:grid ;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px ;margin-bottom:48px}
 
-.card{background:var(--surface);border:1px solid var(--line);border-radius:8px ;overflow:hidden ;display:flex ;flex-direction:column ;transition:transform 200ms ease,border-color 200ms ease}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px ;overflow:hidden ;display:flex ;flex-direction:column ;transition:transform 200ms ease,border-color 200ms ease}
 .card:hover{transform:translateY(-4px);border-color:var(--primary)}
-.card .preview{aspect-ratio:16/10;border-bottom:1px solid var(--line);position:relative ;overflow:hidden}
-.card .preview iframe{width:100%;height:100%;border:0;transform:scale(0.5);transform-origin:top left ;width:200%;height:200%;pointer-events:none}
-.card .preview-fallback{width:100%;height:100%;display:flex ;align-items:center ;justify-content:center ;font-family:'Inter',sans-serif ;font-size:0.875rem ;color:var(--muted)}
+.card .preview{aspect-ratio:16/10;border-bottom:1px solid var(--line);position:relative ;overflow:hidden}
+.card .preview iframe{width:100%;height:100%;border:0;transform:scale(0.5);transform-origin:top left ;width:200%;height:200%;pointer-events:none}
+.card .preview-fallback{width:100%;height:100%;display:flex ;align-items:center ;justify-content:center ;font-family:'Inter',sans-serif ;font-size:0.875rem ;color:var(--muted)}
 .card .body{padding:24px}
-.card .num{font-family:'Inter',sans-serif ;font-size:0.6875rem ;letter-spacing:0.18em ;text-transform:uppercase ;color:var(--gold);font-weight:600;margin-bottom:6px}
-.card h3{font-family:'Inter',sans-serif ;font-size:1.25rem ;font-weight:700;letter-spacing:-0.01em ;margin-bottom:8px ;color:var(--purple)}
-.card .tagline{font-style:italic ;color:var(--ink);font-size:0.9375rem ;margin-bottom:14px}
-.card .traits{font-family:'Inter',sans-serif ;font-size:0.8125rem ;color:var(--muted);line-height:1.6;margin-bottom:18px}
+.card .num{font-family:'Inter',sans-serif ;font-size:0.6875rem ;letter-spacing:0.18em ;text-transform:uppercase ;color:var(--gold);font-weight:600;margin-bottom:6px}
+.card h3{font-family:'Inter',sans-serif ;font-size:1.25rem ;font-weight:700;letter-spacing:-0.01em ;margin-bottom:8px ;color:var(--purple)}
+.card .tagline{font-style:italic ;color:var(--ink);font-size:0.9375rem ;margin-bottom:14px}
+.card .traits{font-family:'Inter',sans-serif ;font-size:0.8125rem ;color:var(--muted);line-height:1.6;margin-bottom:18px}
 .card .traits strong{color:var(--ink);font-weight:600}
-.card .ctas{display:flex ;gap:8px ;flex-wrap:wrap}
-.card .btn{display:inline-flex ;align-items:center ;padding:8px 16px ;border-radius:4px ;font-family:'Inter',sans-serif ;font-size:0.8125rem ;font-weight:600;letter-spacing:0.02em}
+.card .ctas{display:flex ;gap:8px ;flex-wrap:wrap}
+.card .btn{display:inline-flex ;align-items:center ;padding:8px 16px ;border-radius:4px ;font-family:'Inter',sans-serif ;font-size:0.8125rem ;font-weight:600;letter-spacing:0.02em}
 .card .btn-primary{background:var(--primary);color:#fff}
 .card .btn-primary:hover{background:var(--primary-a)}
-.card .btn-ghost{background:transparent ;color:var(--ink);border:1px solid var(--line)}
+.card .btn-ghost{background:transparent ;color:var(--ink);border:1px solid var(--line)}
 .card .btn-ghost:hover{border-color:var(--gold)}
 
-.choice{background:var(--surface);border:1px solid var(--line);border-radius:8px ;padding:32px ;margin-top:48px ;text-align:center}
-.choice h2{font-family:'Inter',sans-serif ;font-size:1.25rem ;font-weight:700;color:var(--purple);margin-bottom:12px}
-.choice p{font-size:0.9375rem ;color:var(--muted);max-width:60ch ;margin:0 auto 18px}
-.choice code{background:var(--bg);padding:2px 8px ;border-radius:3px ;font-family:'IBM Plex Mono',monospace ;font-size:0.875rem ;color:var(--primary)}
+.choice{background:var(--surface);border:1px solid var(--line);border-radius:8px ;padding:32px ;margin-top:48px ;text-align:center}
+.choice h2{font-family:'Inter',sans-serif ;font-size:1.25rem ;font-weight:700;color:var(--purple);margin-bottom:12px}
+.choice p{font-size:0.9375rem ;color:var(--muted);max-width:60ch ;margin:0 auto 18px}
+.choice code{background:var(--bg);padding:2px 8px ;border-radius:3px ;font-family:'IBM Plex Mono',monospace ;font-size:0.875rem ;color:var(--primary)}
 
-footer{padding:32px 24px ;text-align:center ;color:var(--muted);font-size:0.8125rem ;border-top:1px solid var(--line);background:var(--surface);font-family:'Inter',sans-serif}
-footer .sig{font-style:italic ;color:var(--purple);margin-top:14px ;font-family:'EB Garamond',serif ;font-size:0.9375rem}
-@media (prefers-reduced-motion:reduce){.card{transition:none !important}.card:hover{transform:none}}
+footer{padding:32px 24px ;text-align:center ;color:var(--muted);font-size:0.8125rem ;border-top:1px solid var(--line);background:var(--surface);font-family:'Inter',sans-serif}
+footer .sig{font-style:italic ;color:var(--purple);margin-top:14px ;font-family:'EB Garamond',serif ;font-size:0.9375rem}
+@media (prefers-reduced-motion:reduce){.card{transition:none !important}.card:hover{transform:none}}
 </style>
 </head>
 <body>

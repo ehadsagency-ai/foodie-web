@@ -1,22 +1,38 @@
 #!/usr/bin/env python3
-"""Fix CSS-breaking 'NN <unit>' artifacts injected by auto-typography.
+"""Fix CSS-breaking artifacts injected by French typography auto-formatters.
 
-French typography auto-formatters insert ASCII spaces or U+202F narrow
-no-break spaces between numbers and units. While correct for prose
-('5 % par an', '12 px de marge'), this is INVALID inside CSS, where:
+Two categories of corruption are handled in a single pass:
 
-    border-radius: 50 %        -> declaration dropped
-    width: 100 %               -> declaration dropped
-    border-radius: 2 em        -> dropped, no rounded corners
-    gap: 1 em                  -> dropped, layout collapses
-    transform: translateX(-50 %) -> keyframe value invalid
+1. NBSP-IN-CSS : ANY occurrence of U+202F (NARROW NO-BREAK SPACE) or
+   U+00A0 (NO-BREAK SPACE) inside CSS. The CSS Syntax Module Level 3
+   recognises ONLY U+0009, U+000A, U+000C, U+000D and U+0020 as
+   whitespace. Any other space-like Unicode codepoint causes the
+   declaration to be DROPPED. Auto-formatters typically pepper CSS
+   with U+202F before semicolons after applying French typography rules
+   to *the entire file* :
 
-This script normalises r'(\\d+)[\\s\\u202f]+(<unit>)' to r'\\1\\2' ONLY
-inside <style>...</style> blocks, style="..." attributes, and .css
-files. It LEAVES INTACT the HTML body text (where French typography is
-correct).
+       display:grid<U+202F>;          -> declaration dropped, no grid
+       grid-template-columns:1.4fr 1fr<U+202F>; -> dropped, no columns
 
-Covers all CSS Values & Units Level 4 absolute and relative units.
+   Fix: replace every U+202F and U+00A0 inside CSS contexts with
+   regular ASCII space U+0020.
+
+2. NUM-SPACE-UNIT : ASCII space between a number and its unit. Correct
+   for prose ('5 % par an'), invalid in CSS:
+
+       border-radius: 50 %        -> declaration dropped
+       gap: 1 em                  -> dropped, layout collapses
+       transform: translateX(-50 %) -> keyframe value invalid
+
+   Fix: tighten 'NN <unit>' back to 'NN<unit>' for all units in the
+   CSS Values & Units Level 4 catalogue.
+
+Both fixes target the same scope:
+  - <style>...</style> blocks
+  - style="..." attributes
+  - .css files
+
+HTML body text is LEFT INTACT (French typography is correct there).
 
 Usage :
   python3 scripts/fix_css_units.py            # dry-run report
@@ -28,6 +44,7 @@ import argparse
 import re
 from pathlib import Path
 
+# CSS Values & Units Level 4
 UNITS = ['%', 'px', 'em', 'rem', 'ex', 'ch', 'cap', 'ic', 'lh', 'rlh',
          'vh', 'vw', 'vi', 'vb', 'vmin', 'vmax',
          'svh', 'svw', 'lvh', 'lvw', 'dvh', 'dvw',
@@ -38,17 +55,30 @@ UNITS = ['%', 'px', 'em', 'rem', 'ex', 'ch', 'cap', 'ic', 'lh', 'rlh',
          'Hz', 'kHz', 'dpi', 'dpcm', 'dppx', 'x', 'fr']
 
 _units = '|'.join(re.escape(u) for u in sorted(UNITS, key=len, reverse=True))
-NUM_SP_UNIT = re.compile(rf"(\d+(?:\.\d+)?)[\s ]+({_units})(?=[^a-zA-Z]|$)")
+# After NBSP→space normalisation, num-unit gaps appear as U+0020.
+NUM_SP_UNIT = re.compile(rf"(\d+(?:\.\d+)?) +({_units})(?=[^a-zA-Z]|$)")
 STYLE_BLOCK = re.compile(r"(<style[^>]*>)(.*?)(</style>)", re.DOTALL | re.IGNORECASE)
 STYLE_ATTR = re.compile(r'(style\s*=\s*")([^"]*)(")', re.IGNORECASE)
 
+# Unicode codepoints that look like whitespace but are NOT recognised
+# by the CSS Syntax Module Level 3 — they make declarations invalid.
+NBSP_TARGETS = [' ', ' ']
+
 
 def fix_css_segment(seg: str) -> tuple[str, int]:
-    n = [0]
-    def sub(m: re.Match) -> str:
-        n[0] += 1
+    """Return (cleaned_segment, count_of_fixes)."""
+    n = 0
+    # Pass 1 : neutralise non-CSS whitespace.
+    for nbsp in NBSP_TARGETS:
+        n += seg.count(nbsp)
+        seg = seg.replace(nbsp, ' ')
+    # Pass 2 : tighten num-space-unit (now that all spaces are ASCII).
+    def _sub(m: re.Match) -> str:
+        nonlocal n
+        n += 1
         return f"{m.group(1)}{m.group(2)}"
-    return NUM_SP_UNIT.sub(sub, seg), n[0]
+    seg = NUM_SP_UNIT.sub(_sub, seg)
+    return seg, n
 
 
 def fix_html(text: str) -> tuple[str, int]:

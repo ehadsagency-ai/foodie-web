@@ -10,40 +10,40 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box ;margin:0;padding:0}
-:root{--ink:#1F1A14;--paper:#FBF8F2;--cream:#F1EEE3;--rule:#D8CDB6;--ink-soft:#5A4A3A ;--primary:#FF0000;--gold:#D4A574;--gold-d:#B88A52;--purple:#2F2144}
-body{font-family:'EB Garamond',Palatino,serif ;background:var(--paper);color:var(--ink);font-size:18px ;line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:var(--primary);text-decoration:underline ;text-underline-offset:3px}
+*,*::before,*::after{box-sizing:border-box ;margin:0;padding:0}
+:root{--ink:#1F1A14;--paper:#FBF8F2;--cream:#F1EEE3;--rule:#D8CDB6;--ink-soft:#5A4A3A ;--primary:#FF0000;--gold:#D4A574;--gold-d:#B88A52;--purple:#2F2144}
+body{font-family:'EB Garamond',Palatino,serif ;background:var(--paper);color:var(--ink);font-size:18px ;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--primary);text-decoration:underline ;text-underline-offset:3px}
 a:hover{color:var(--purple)}
-.style-tag{position:fixed ;top:8px ;right:8px ;background:var(--ink);color:var(--paper);padding:6px 12px ;font-size:0.6875rem ;font-weight:500;letter-spacing:0.18em ;text-transform:uppercase ;font-family:'IBM Plex Mono',monospace ;z-index:100}
-.frame{max-width:680px ;margin:0 auto ;padding:64px 32px}
-.brand-row{display:flex ;align-items:center ;gap:14px ;padding-bottom:24px ;border-bottom:1px solid var(--rule);margin-bottom:48px}
-.brand-row img{width:40px ;height:40px}
-.brand-row .name{font-family:'IBM Plex Mono',monospace ;font-size:0.75rem ;letter-spacing:0.2em ;text-transform:uppercase ;color:var(--ink-soft)}
-.brand-row nav{margin-left:auto ;display:flex ;gap:18px ;font-family:'IBM Plex Mono',monospace ;font-size:0.6875rem ;letter-spacing:0.16em ;text-transform:uppercase}
+.style-tag{position:fixed ;top:8px ;right:8px ;background:var(--ink);color:var(--paper);padding:6px 12px ;font-size:0.6875rem ;font-weight:500;letter-spacing:0.18em ;text-transform:uppercase ;font-family:'IBM Plex Mono',monospace ;z-index:100}
+.frame{max-width:680px ;margin:0 auto ;padding:64px 32px}
+.brand-row{display:flex ;align-items:center ;gap:14px ;padding-bottom:24px ;border-bottom:1px solid var(--rule);margin-bottom:48px}
+.brand-row img{width:40px ;height:40px}
+.brand-row .name{font-family:'IBM Plex Mono',monospace ;font-size:0.75rem ;letter-spacing:0.2em ;text-transform:uppercase ;color:var(--ink-soft)}
+.brand-row nav{margin-left:auto ;display:flex ;gap:18px ;font-family:'IBM Plex Mono',monospace ;font-size:0.6875rem ;letter-spacing:0.16em ;text-transform:uppercase}
 .brand-row nav a{color:var(--ink-soft);text-decoration:none}
 .brand-row nav a:hover{color:var(--primary)}
-.codename{font-family:'IBM Plex Mono',monospace ;font-size:0.75rem ;letter-spacing:0.2em ;text-transform:uppercase ;color:var(--gold-d);margin-bottom:24px}
-h1{font-family:'Cormorant Garamond',serif ;font-weight:500;font-size:clamp(3.5rem,8vw,5.5rem);line-height:1.0;letter-spacing:-0.02em ;color:var(--purple);margin-bottom:32px}
-h1em{font-style:italic ;color:var(--primary);font-weight:400}
-.poetic{font-style:italic ;font-size:1.25rem ;color:var(--gold-d);margin-bottom:32px ;border-left:2px solid var(--gold);padding:8px 0 8px 24px ;line-height:1.5}
-.lede{font-size:1.125rem ;color:var(--ink);margin-bottom:32px ;max-width:60ch}
-.dropcap::first-letter{font-family:'Cormorant Garamond',serif ;font-size:5rem ;float:left ;line-height:0.85;padding-right:12px ;padding-top:6px ;color:var(--primary);font-weight:600}
-.cta-line{margin:48px 0;padding:24px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:'IBM Plex Mono',monospace ;font-size:0.875rem ;letter-spacing:0.04em ;display:flex ;justify-content:space-between ;flex-wrap:wrap ;gap:16px}
+.codename{font-family:'IBM Plex Mono',monospace ;font-size:0.75rem ;letter-spacing:0.2em ;text-transform:uppercase ;color:var(--gold-d);margin-bottom:24px}
+h1{font-family:'Cormorant Garamond',serif ;font-weight:500;font-size:clamp(3.5rem,8vw,5.5rem);line-height:1.0;letter-spacing:-0.02em ;color:var(--purple);margin-bottom:32px}
+h1em{font-style:italic ;color:var(--primary);font-weight:400}
+.poetic{font-style:italic ;font-size:1.25rem ;color:var(--gold-d);margin-bottom:32px ;border-left:2px solid var(--gold);padding:8px 0 8px 24px ;line-height:1.5}
+.lede{font-size:1.125rem ;color:var(--ink);margin-bottom:32px ;max-width:60ch}
+.dropcap::first-letter{font-family:'Cormorant Garamond',serif ;font-size:5rem ;float:left ;line-height:0.85;padding-right:12px ;padding-top:6px ;color:var(--primary);font-weight:600}
+.cta-line{margin:48px 0;padding:24px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:'IBM Plex Mono',monospace ;font-size:0.875rem ;letter-spacing:0.04em ;display:flex ;justify-content:space-between ;flex-wrap:wrap ;gap:16px}
 .cta-line a{font-weight:500;color:var(--primary)}
 section.chap{margin:64px 0}
-section.chap .num{font-family:'IBM Plex Mono',monospace ;font-size:0.6875rem ;letter-spacing:0.2em ;color:var(--gold-d);text-transform:uppercase ;margin-bottom:8px ;display:block}
-section.chap h2{font-family:'Cormorant Garamond',serif ;font-weight:500;font-size:2rem ;margin-bottom:18px ;color:var(--purple);letter-spacing:-0.01em}
+section.chap .num{font-family:'IBM Plex Mono',monospace ;font-size:0.6875rem ;letter-spacing:0.2em ;color:var(--gold-d);text-transform:uppercase ;margin-bottom:8px ;display:block}
+section.chap h2{font-family:'Cormorant Garamond',serif ;font-weight:500;font-size:2rem ;margin-bottom:18px ;color:var(--purple);letter-spacing:-0.01em}
 section.chap p+p{margin-top:14px}
-.devices-prose{padding:24px 0;display:grid ;grid-template-columns:repeat(2,1fr);gap:8px 32px ;font-family:'EB Garamond',serif ;font-size:0.9375rem ;color:var(--ink-soft)}
+.devices-prose{padding:24px 0;display:grid ;grid-template-columns:repeat(2,1fr);gap:8px 32px ;font-family:'EB Garamond',serif ;font-size:0.9375rem ;color:var(--ink-soft)}
 .devices-prose div{padding:6px 0;border-bottom:1px dotted var(--rule)}
 .devices-prose div strong{color:var(--ink);font-weight:500}
-.colophon{margin-top:96px ;padding-top:32px ;border-top:2px double var(--rule);font-family:'IBM Plex Mono',monospace ;font-size:0.75rem ;letter-spacing:0.04em ;color:var(--ink-soft);line-height:1.8}
+.colophon{margin-top:96px ;padding-top:32px ;border-top:2px double var(--rule);font-family:'IBM Plex Mono',monospace ;font-size:0.75rem ;letter-spacing:0.04em ;color:var(--ink-soft);line-height:1.8}
 .colophon a{color:var(--ink-soft)}
-.signature{text-align:center ;margin-top:48px ;font-style:italic ;font-size:1rem ;color:var(--purple);font-family:'EB Garamond',serif}
-.mantra{text-align:center ;margin-top:6px ;font-style:italic ;font-size:0.875rem ;color:var(--gold-d)}
+.signature{text-align:center ;margin-top:48px ;font-style:italic ;font-size:1rem ;color:var(--purple);font-family:'EB Garamond',serif}
+.mantra{text-align:center ;margin-top:6px ;font-style:italic ;font-size:0.875rem ;color:var(--gold-d)}
 @media (prefers-color-scheme:dark){body{background:#1A1610;color:#F0E8D8}.poetic{color:var(--gold)}}
-@media (prefers-reduced-motion:reduce){*{animation:none !important}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}}
 </style>
 </head>
 <body>
