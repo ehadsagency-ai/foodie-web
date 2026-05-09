@@ -1,0 +1,47 @@
+name: cf-pages-deploy
+
+# Deploys foodie-web to Cloudflare Pages project "lamaisonfoodie".
+#
+# The CF Pages project is configured in DIRECT UPLOAD mode (no Git
+# integration on the CF side). This workflow bridges the gap by running
+# `wrangler pages deploy` whenever a commit lands on main, achieving the
+# same effect as the native CF↔GitHub auto-deploy.
+#
+# Required repo secrets:
+#   CLOUDFLARE_API_TOKEN  — token with "Cloudflare Pages:Edit" permission
+#   CLOUDFLARE_ACCOUNT_ID — the account that owns the lamaisonfoodie project
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+# A single deploy at a time, latest one wins.
+concurrency:
+  group: cf-pages-deploy-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: |
+            pages deploy . --project-name=lamaisonfoodie --branch=main --commit-hash=${{ github.sha }} --commit-message="${{ github.event.head_commit.message }}"
