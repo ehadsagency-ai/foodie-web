@@ -1,0 +1,14 @@
+# Cloudflare Pages — files excluded from the deployment bundle.
+# The repo also contains tooling and backups that must not ship to prod.
+
+.git/
+.github/
+.gitignore
+scripts/
+*.bak.*
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+.cfignore
+README.md

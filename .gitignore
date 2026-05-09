@@ -4,3 +4,6 @@
 # Python cache
 __pycache__/
 *.pyc
+
+# Wrangler local cache
+.wrangler/
